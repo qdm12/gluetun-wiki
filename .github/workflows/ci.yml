@@ -1,0 +1,34 @@
+name: CI
+on:
+  release:
+    types:
+      - published
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: DavidAnson/markdownlint-cli2-action@v11
+        with:
+          globs: "**/*.md"
+          config: .markdownlint.json
+
+      - uses: reviewdog/action-misspell@v1
+        with:
+          locale: "US"
+          level: error
+
+      - uses: ibiqlik/action-yamllint@v3
+
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: yes
