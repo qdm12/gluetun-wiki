@@ -41,6 +41,15 @@ services:
   - For TCP: `443`, `5995` or `8443`
   - For UDP: `80`, `443`, `1194`, `4569`, `5060`
   - Defaults are `1194` for UDP and `443` for TCP
+- `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on`to enable port forwarding on the VPN server. For Wireguard, additionally set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`.
+
+## VPN server port forwarding
+
+Requirements:
+
+- `VPN_PORT_FORWARDING=on`
+- Pick a VPN server which supports 'P2P', see step 1 on [this page](https://protonvpn.com/support/port-forwarding-manual-setup/). This will be partly automated for OpenVPN with [#1582](https://github.com/qdm12/gluetun/issues/1582).
+- If you use **Wireguard** using the custom provider, set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`
 
 ## Multi hop regions
 
