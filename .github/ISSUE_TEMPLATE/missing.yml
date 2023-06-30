@@ -1,0 +1,18 @@
+name: Missing information
+description: Missing information in the Wiki
+labels:
+  - "missing"
+body:
+  - type: input
+    id: url
+    attributes:
+      label: "URL to the Wiki page"
+      placeholder: "https://github.com/qdm12/gluetun-wiki/blob/main/README.md"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "What's missing?"
+    validations:
+      required: true

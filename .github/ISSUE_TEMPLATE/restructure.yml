@@ -1,0 +1,11 @@
+name: Restructuring suggestion
+description: Suggestion to restructure the Wiki
+labels:
+  - "restructure"
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "What is your suggestion?"
+    validations:
+      required: true
