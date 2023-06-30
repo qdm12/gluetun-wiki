@@ -77,3 +77,11 @@ services:
 The list of servers for AirVPN is available in the [source code](https://github.com/qdm12/gluetun/blob/master/internal/storage/servers.json).
 
 The table of servers cannot be put here unfortunately as there are too many servers and the Github markdown engine then fails.
+
+## VPN port forwarding
+
+If you want to use VPN server side port forwarding:
+
+1. Log in your AirVPN account at [airvpn.org/client](https://airvpn.org/client/)
+1. Obtain a port from [airvpn.org/ports](https://airvpn.org/ports/)
+1. Add the port to the environment variable `FIREWALL_VPN_INPUT_PORTS`
