@@ -55,12 +55,6 @@ services:
 - `ISP`: Comma separated list of ISPs
 - `VPN_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use, which can be one of: `2049`, `2050`, `53`, `30587`, `41893`, `48574`, `58237`
 
-## VPN Port forwarding
-
-1. Log in your IVPN account at [https://www.ivpn.net/account/](https://www.ivpn.net/account/)
-1. Obtain a port from [https://www.ivpn.net/account/#/ports](https://www.ivpn.net/account/#/ports)
-1. Add the port to the environment variable `FIREWALL_VPN_INPUT_PORTS`
-
 ## IPv6 tunneling with OpenVPN
 
 IPv6 is automatically enabled in the routing, firewall, wireguard and openvpn setup if it's supported.
