@@ -41,3 +41,29 @@ You first need to set your LAN CIDR in `FIREWALL_OUTBOUND_SUBNETS`.
 For example with `-e FIREWALL_OUTBOUND_SUBNETS=192.168.1.0/24`.
 
 You can then use any of the proxy servers built-in Gluetun (such as Shadowsocks) to access your LAN.
+
+
+## Access VPN from your LAN through Gluetun
+
+If you need client to access VPN connection through Gluetun and this client is not connected to Gluetun contatiner (for example laptop or PC):
+
+1. Create custom iptables rules file as described [here](https://github.com/qdm12/gluetun-wiki/blob/719e1a0bf7cc65391123f3f85427b8cde417c059/setup/options/firewall.md?plain=1#L7)
+
+2. In iptables rule file (post-rules.txt) add appropriate settings which will make Gluetun to pass through traffic 
+```sh
+iptables -A FORWARD -i eth0 -o tun0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i tun0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i eth0 -o tun0 -s 192.168.0.0/24 -d 0.0.0.0/0 -j ACCEPT
+iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
+```
+* 192.168.0.0/24 - you network, where client is stationed
+
+3. Add appropriate mapping for Gluetun contatiner
+```sh
+   -v /yourpath/iptables/post-rules.txt:/iptables/post-rules.txt
+```
+```yml
+   - /yourpath/iptables/post-rules.txt:/iptables/post-rules.txt
+```
+
+4. Now you can have Glutun container as a gateway. This step is related to appropriate network and router setup on your end.
