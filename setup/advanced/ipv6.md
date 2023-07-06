@@ -37,7 +37,7 @@ reference: https://github.com/dperson/openvpn-client/issues/75#issuecomment-3268
 
 4. After you run your docker compose file, run `sudo docker run --rm --network=container:ipv6-gluetun-1 alpine:3.18 sh -c "apk add curl && curl -6 --silent https://api64.ipify.org/"`  
 This command should show a IPv6 address that belongs your VPN service, **MAKE SURE it's not your own IPv6 address**!  
-If you ping the address you saw and see a high latency, you are probably good.  
+If you ping the address you see a high latency, you are probably good.  
 I would recommend checking https://ipleak.net/, put in the IP address and search, see which country the IP belongs to.
 
 ---
