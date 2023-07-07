@@ -56,7 +56,7 @@ services:
       - VPN_TYPE=wireguard
       - WIREGUARD_PRIVATE_KEY=<insert WIREGUARD_PRIVATE_KEY>
       - WIREGUARD_PRESHARED_KEY=<insert WIREGUARD_PRESHARED_KEY>
-      - WIREGUARD_ADDRESSES=xxx.xxx.xxx.xxx/32, fd7d:.............../128
+      - WIREGUARD_ADDRESSES=xxx.xxx.xxx.xxx/32,fd7d:.............../128
       - SERVER_COUNTRIES=<country>
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=0
