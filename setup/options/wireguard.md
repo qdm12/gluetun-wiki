@@ -15,5 +15,6 @@ If using the Wireguard protocol, depending on the provider, the following might 
 | Variable | Default | Choices | Description |
 | --- | --- | --- | --- |
 | `WIREGUARD_PRESHARED_KEY` | | Base64 pre-shared key | Wireguard pre-shared key |
+| `WIREGUARD_ALLOWED_IPS` | `0.0.0.0/0,::/0` | CSV of IP address ranges | Wireguard peer allowed ips |
 | `WIREGUARD_IMPLEMENTATION` | `auto` | `auto`, `kernelspace` or `userspace` | Wireguard implementation to use |
 | `WIREGUARD_MTU` | `1400` | Any positive value up to `65535` | Wireguard MTU |
