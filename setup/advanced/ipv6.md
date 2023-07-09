@@ -2,8 +2,6 @@
 
 **Warning**: IPv6 is an experimental feature in docker, I haven't done a through test to make sure there is no IP/DNS leaking in "IPv6 + Gluetun" configuration.
 
----
-
 ## Setup
 
 1. On docker host, edit `/etc/docker/daemon.json` (If file doesn't exist, create the file), fill the file with following texts
@@ -41,8 +39,6 @@
 This command should show a IPv6 address that belongs your VPN service, **MAKE SURE it's not your own IPv6 address**!
 If you ping the address you see a high latency, you are probably good.
 I would recommend checking <https://ipleak.net/>, put in the IP address and search, see which country the IP belongs to.
-
----
 
 ## Example docker compose file
 
