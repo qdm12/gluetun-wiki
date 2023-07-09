@@ -1,10 +1,10 @@
 # IPv6
 
-**Warning**: IPv6 is an experimental feature in docker, I haven't done a through test to make sure there is no IP/DNS leaking in "IPv6 + Gluetun" configuration.
+⚠️ IPv6 is an experimental Docker feature, no thorough test was done to ensure there is no IP/DNS leak with Gluetun configured with IPv6. Feel free to create an issue or pull request if you have some testing done and can confirm.
 
 ## Setup
 
-1. On docker host, edit `/etc/docker/daemon.json` (If file doesn't exist, create the file), fill the file with following texts
+1. On your Docker host, edit and create if needed `/etc/docker/daemon.json` with the following JSON key-value pairs:
 
     ```json
     {
@@ -15,47 +15,30 @@
     }
     ```
 
-    reference: <https://docs.docker.com/config/daemon/ipv6/#use-ipv6-for-the-default-bridge-network>, IP range change to unique local address following the note at button of the documentation.
+    [Reference: Docker documentation on IPv6](https://docs.docker.com/config/daemon/ipv6/#use-ipv6-for-the-default-bridge-network)
 
-1. Restart docker service (`sudo systemctl restart docker` or it's equivalent in your distro)
-1. Edit docker-compose.yml file, **add "sysctls" section** and **modify WIREGUARD_ADDRESSES to have both IPv4 and IPv6 address**, so it becomes:
+    ⁉️ IP range change to unique local address following the note at button of the documentation.
+1. Restart the Docker daemon to reload its JSON configuration. Most Linux distributions use `sudo systemctl restart docker` to do this.
+1. Edit your Gluetun `docker-compose.yml` and add the `sysctls` section and modify `WIREGUARD_ADDRESSES` to have both an IPv4 and an IPv6 address:
 
     ```yaml
     services:
       gluetun:
         image: qmcgaw/gluetun
-        cap_add:
-          ........
+        container_name: gluetun
+        # ...
         environment:
-          ........
-        ports:
-          .......
+          WIREGUARD_ADDRESSES=xxx.xxx.xxx.xxx/32,fd7d:.............../128
         sysctls:
           - net.ipv6.conf.all.disable_ipv6=0
     ```
 
-    reference: <https://github.com/dperson/openvpn-client/issues/75#issuecomment-326843622>, If you don't add sysctls section you will encounter a problem.
-1. After you run your docker compose file, run `sudo docker run --rm --network=container:ipv6-gluetun-1 alpine:3.18 sh -c "apk add curl && curl -6 --silent https://api64.ipify.org/"`
-This command should show a IPv6 address that belongs your VPN service, **MAKE SURE it's not your own IPv6 address**!
-If you ping the address you see a high latency, you are probably good.
-I would recommend checking <https://ipleak.net/>, put in the IP address and search, see which country the IP belongs to.
+1. Test your setup:
+    1. Launch your docker-compose stack
+    1. Run:
 
-## Example docker compose file
+        ```sh
+        sudo docker run --rm --network=container:gluetun alpine:3.18 sh -c "apk add curl && curl -6 --silent https://ipv6.ipleak.net/json/"
+        ```
 
-```yaml
-version: "3"
-services:
-  gluetun:
-    image: qmcgaw/gluetun
-    cap_add:
-      - NET_ADMIN
-    environment:
-      - VPN_SERVICE_PROVIDER=airvpn
-      - VPN_TYPE=wireguard
-      - WIREGUARD_PRIVATE_KEY=<insert WIREGUARD_PRIVATE_KEY>
-      - WIREGUARD_PRESHARED_KEY=<insert WIREGUARD_PRESHARED_KEY>
-      - WIREGUARD_ADDRESSES=xxx.xxx.xxx.xxx/32,fd7d:.............../128
-      - SERVER_COUNTRIES=<country>
-    sysctls:
-      - net.ipv6.conf.all.disable_ipv6=0
-```
+        And this should show the IPv6 address of the VPN server.
