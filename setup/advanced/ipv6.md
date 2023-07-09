@@ -7,44 +7,48 @@
 ## Setup
 
 1. On docker host, edit `/etc/docker/daemon.json` (If file doesn't exist, create the file), fill the file with following texts
-```
-{
-  "ipv6": true,
-  "fixed-cidr-v6": "fd00::/80",
-  "experimental": true,
-  "ip6tables": true
-}
-```
-reference: https://docs.docker.com/config/daemon/ipv6/#use-ipv6-for-the-default-bridge-network, IP range change to unique local address following the note at button of the documentation.
+
+  ```json
+  {
+    "ipv6": true,
+    "fixed-cidr-v6": "fd00::/80",
+    "experimental": true,
+    "ip6tables": true
+  }
+  ```
+
+  reference: <https://docs.docker.com/config/daemon/ipv6/#use-ipv6-for-the-default-bridge-network>, IP range change to unique local address following the note at button of the documentation.
 
 2. Restart docker service (`sudo systemctl restart docker` or it's equivalent in your distro)
 
 3. Edit docker-compose.yml file, **add "sysctls" section** and **modify WIREGUARD_ADDRESSES to have both IPv4 and IPv6 address**, so it becomes:
-```
-services:
-  gluetun:
-    image: qmcgaw/gluetun
-    cap_add:
-      ........
-    environment:
-      ........
-    ports:
-      .......
-    sysctls:
-      - net.ipv6.conf.all.disable_ipv6=0
-```
-reference: https://github.com/dperson/openvpn-client/issues/75#issuecomment-326843622, If you don't add sysctls section you will encounter a problem.
+
+  ```yaml
+  services:
+    gluetun:
+      image: qmcgaw/gluetun
+      cap_add:
+        ........
+      environment:
+        ........
+      ports:
+        .......
+      sysctls:
+        - net.ipv6.conf.all.disable_ipv6=0
+  ```
+
+  reference: <https://github.com/dperson/openvpn-client/issues/75#issuecomment-326843622>, If you don't add sysctls section you will encounter a problem.
 
 4. After you run your docker compose file, run `sudo docker run --rm --network=container:ipv6-gluetun-1 alpine:3.18 sh -c "apk add curl && curl -6 --silent https://api64.ipify.org/"`  
 This command should show a IPv6 address that belongs your VPN service, **MAKE SURE it's not your own IPv6 address**!  
 If you ping the address you see a high latency, you are probably good.  
-I would recommend checking https://ipleak.net/, put in the IP address and search, see which country the IP belongs to.
+I would recommend checking <https://ipleak.net/>, put in the IP address and search, see which country the IP belongs to.
 
 ---
 
 ## Example docker compose file
 
-```
+```yaml
 version: "3"
 services:
   gluetun:
