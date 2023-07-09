@@ -19,7 +19,7 @@ jobs:
 
       - uses: DavidAnson/markdownlint-cli2-action@v11
         with:
-          globs: "**/*.md"
+          globs: "**.md"
           config: .markdownlint.json
 
       - uses: reviewdog/action-misspell@v1
