@@ -7,13 +7,13 @@
 To list the VPN servers available for a particular VPN provider using your current Gluetun version, use:
 
 ```sh
-docker run --rm -v /yourpath:/gluetun qmcgaw/gluetun format-servers -"yourprovider"
+docker run --rm -v /yourpath:/gluetun qmcgaw/gluetun format-servers -yourprovider
 ```
 
 where:
 
 - `/yourpath` is the path to your bind mounted directory
-- `yourprovider` is your VPN provider, for example `protonvpn`.
+- `yourprovider` is your VPN provider in lowercase without quotes, for example `protonvpn` or `privateinternetaccess`.
 
 This will list the servers in Markdown format, for example:
 
