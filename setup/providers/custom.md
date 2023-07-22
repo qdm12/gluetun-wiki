@@ -61,6 +61,8 @@ services:
       - WIREGUARD_ADDRESSES=10.64.222.21/32
 ```
 
+💁 You can also bind mount a wireguard configuration file (ini format) to `/gluetun/wireguard/wg0.conf`.
+
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=custom`

@@ -1,5 +1,11 @@
 # Wireguard options
 
+## Files
+
+You can bind mount an ini Wireguard configuration file to `/gluetun/wireguard/wg0.conf`.
+Any field present will be extracted from it and used.
+Note any field value set in this file takes precedence over the environment variables.
+
 ## Environment variables
 
 If using the Wireguard protocol, depending on the provider, the following might be compulsory:
