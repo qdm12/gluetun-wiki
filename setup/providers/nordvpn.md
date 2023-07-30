@@ -46,6 +46,7 @@ services:
 
 ### Wireguard only
 
+- `VPN_TYPE`
 - `WIREGUARD_PRIVATE_KEY`
 
 ## Optional environment variables
