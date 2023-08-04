@@ -9,15 +9,15 @@
     ```json
     {
       "ipv6": true,
-      "fixed-cidr-v6": "fd00::/80",
+      "fixed-cidr-v6": "2001:db8:1::/64",
       "experimental": true,
       "ip6tables": true
     }
     ```
 
-    [Reference: Docker documentation on IPv6](https://docs.docker.com/config/daemon/ipv6/#use-ipv6-for-the-default-bridge-network)
+    ⚠️ Ensure to change the [documented address `2001:db8:1::/64`](https://en.wikipedia.org/wiki/Reserved_IP_addresses#IPv6) with a valid IPv6 network. The default IPv4 pools are from the private address range, the IPv6 equivalent would be ULA networks.
 
-    ⁉️ IP range change to unique local address following the note at button of the documentation.
+    [Reference: Docker documentation on IPv6](https://docs.docker.com/config/daemon/ipv6/#use-ipv6-for-the-default-bridge-network)
 1. Restart the Docker daemon to reload its JSON configuration. Most Linux distributions use `sudo systemctl restart docker` to do this.
 1. Edit your Gluetun `docker-compose.yml` and add the `sysctls` section and modify `WIREGUARD_ADDRESSES` to have both an IPv4 and an IPv6 address:
 
