@@ -24,14 +24,14 @@
     ```yaml
     services:
       gluetun:
-        image: qmcgaw/gluetun
-        container_name: gluetun
         # ...
         environment:
           WIREGUARD_ADDRESSES=xxx.xxx.xxx.xxx/32,fd7d:.............../128
         sysctls:
           - net.ipv6.conf.all.disable_ipv6=0
     ```
+
+    Note if you only set an IPv6 Wireguard address, all IPv4 traffic won't go through which is undesirable.
 
 1. Test your setup:
     1. Launch your docker-compose stack
