@@ -20,4 +20,4 @@
 | `BLOCK_ADS` | `off` | `on`, `off` | Block ads hostnames and IPs with Unbound |
 | `UNBLOCK` | |i.e. `domain1.com,x.domain2.co.uk` | Comma separated list of domain names to leave unblocked with Unbound |
 | `DNS_ADDRESS` | `127.0.0.1` | Any IP address | IP address to use as DNS resolver. It defaults to localhost to use the DNS over TLS Unbound server. |
-| `DNS_KEEP_NAMESERVER` | `off` | `on` or `off` | Keep the nameservers in /etc/resolv.conf untouched, but disabled DNS blocking features |
+| `DNS_KEEP_NAMESERVER` | `off` | `on` or `off` | Keep `/etc/resolv.conf` untouched. ⚠️ this will likely **leak DNS traffic outside the VPN** through your default container DNS. This imples `DOT=off` and ignores `DNS_ADDRESS` |
