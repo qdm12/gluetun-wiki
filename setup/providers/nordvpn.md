@@ -30,6 +30,7 @@ services:
       - NET_ADMIN
     environment:
       - VPN_SERVICE_PROVIDER=nordvpn
+      - VPN_TYPE=openvpn # or wireguard
       - OPENVPN_USER=abc
       - OPENVPN_PASSWORD=abc
       - SERVER_COUNTRIES=Netherlands
@@ -46,7 +47,6 @@ services:
 
 ### Wireguard only
 
-- `VPN_TYPE`
 - `WIREGUARD_PRIVATE_KEY`
 
 ## Optional environment variables
