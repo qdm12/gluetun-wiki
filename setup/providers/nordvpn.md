@@ -57,18 +57,7 @@ services:
 
 ## Obtain your Wireguard private key
 
-Your Wireguard private key is valid for your account and all NordVPN servers, so you only have to extract it once. @bubuntux has written a Docker image to this
-
-1. Login to your NordVPN account on their website
-2. Create an access token, for example `abcxyz`
-3. Run the following command:
-
-  ```sh
-  docker run --rm --cap-add=NET_ADMIN \
-    -e TOKEN='abcxyz' ghcr.io/bubuntux/nordvpn:get_private_key
-  ```
-
-  This should output your private key which you can then set in Gluetun with `WIREGUARD_PRIVATE_KEY`
+Update 2023-09-24: you need to retrieve it from their web interface in manual setup section, see [this comment](https://github.com/qdm12/gluetun-wiki/issues/15).
 
 ## Servers
 
