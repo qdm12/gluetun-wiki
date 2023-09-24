@@ -47,6 +47,7 @@ services:
 
 Requirements:
 
+- Add `+pmp` to your OpenVPN username (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288))
 - `VPN_PORT_FORWARDING=on`
 - Pick a VPN server which supports 'P2P', see step 1 on [this page](https://protonvpn.com/support/port-forwarding-manual-setup/). This will be partly automated for OpenVPN with [#1582](https://github.com/qdm12/gluetun/issues/1582).
 - If you use **Wireguard** using the custom provider, set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`
