@@ -1,17 +1,21 @@
 # AirVPN
 
-## TLDR
+## Wireguard
 
-### Wireguard
+1. [Generate and download your .conf file](https://airvpn.org/generator/) - Select WireGuard, continents and hit *Generate* at the bottom
+1. Open the newly generated .conf file anad take note of the `[Interface] PrivateKey`, `[Peer] PresharedKey` and `[Interface] Address`
+1. Launch docker image with:
 
 ```sh
 docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=airvpn \
   -e VPN_TYPE=wireguard \
-  -e WIREGUARD_PRIVATE_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
-  -e WIREGUARD_PRESHARED_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
-  -e WIREGUARD_ADDRESSES=10.99.99.99/32,ff:ff:ff...:ff/128 \
+  -e WIREGUARD_PRIVATE_KEY=PrivateKey goes here \
+  -e WIREGUARD_PRESHARED_KEY=PresharedKey goes here \
+  -e WIREGUARD_ADDRESSES=Address goes here (keep only the first IPv4 address 10..../32 unless have IPv6 working on Docker) \
   qmcgaw/gluetun
 ```
+
+Or if using docker-compose.yml:
 
 ```yml
 version: "3"
@@ -23,13 +27,13 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER=airvpn
       - VPN_TYPE=wireguard
-      - WIREGUARD_PRIVATE_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c=
-      - WIREGUARD_PRESHARED_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
-      - WIREGUARD_ADDRESSES=10.99.99.99/32,ff:ff:ff...:ff/128
+      - WIREGUARD_PRIVATE_KEY=PrivateKey goes here
+      - WIREGUARD_PRESHARED_KEY=PresharedKey goes here
+      - WIREGUARD_ADDRESSES=Address goes here (keep only the first IPv4 address 10..../32 unless have IPv6 working on Docker)
       - SERVER_COUNTRIES=Netherlands
 ```
 
-### OpenVPN
+## OpenVPN
 
 1. [Setup your client key](../advanced/openvpn-client-key.md)
 1. [Setup your client certificate](../advanced/openvpn-client-certificate.md)
@@ -55,6 +59,14 @@ services:
       - ./gluetun:/gluetun
 ```
 
+## VPN port forwarding
+
+If you want to use VPN server side port forwarding:
+
+1. Log in your AirVPN account at [airvpn.org/client](https://airvpn.org/client/)
+1. Obtain a port from [airvpn.org/ports](https://airvpn.org/ports/)
+1. Add the port to the environment variable `FIREWALL_VPN_INPUT_PORTS`
+
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=airvpn`
@@ -78,10 +90,3 @@ The list of servers for AirVPN is available in the [source code](https://github.
 
 The table of servers cannot be put here unfortunately as there are too many servers and the Github markdown engine then fails.
 
-## VPN port forwarding
-
-If you want to use VPN server side port forwarding:
-
-1. Log in your AirVPN account at [airvpn.org/client](https://airvpn.org/client/)
-1. Obtain a port from [airvpn.org/ports](https://airvpn.org/ports/)
-1. Add the port to the environment variable `FIREWALL_VPN_INPUT_PORTS`
