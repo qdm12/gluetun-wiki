@@ -9,7 +9,7 @@ docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=airvpn \
   -e VPN_TYPE=wireguard \
   -e WIREGUARD_PRIVATE_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
   -e WIREGUARD_PRESHARED_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
-  -e WIREGUARD_ADDRESSES=10.99.99.99/32,ff:ff:ff...:ff/128 \
+  -e WIREGUARD_ADDRESSES=10.99.99.99/32 \
   qmcgaw/gluetun
 ```
 
@@ -24,8 +24,8 @@ services:
       - VPN_SERVICE_PROVIDER=airvpn
       - VPN_TYPE=wireguard
       - WIREGUARD_PRIVATE_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c=
-      - WIREGUARD_PRESHARED_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
-      - WIREGUARD_ADDRESSES=10.99.99.99/32,ff:ff:ff...:ff/128
+      - WIREGUARD_PRESHARED_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c=
+      - WIREGUARD_ADDRESSES=10.99.99.99/32 
       - SERVER_COUNTRIES=Netherlands
 ```
 
@@ -64,6 +64,8 @@ services:
   - `WIREGUARD_PRESHARED_KEY`
   - `WIREGUARD_ADDRESSES`
 
+You can get the data you need from the Config Generator in the AirVPN Client Area. Gluetun does not support IPv6 so only copy the IPv4 address into the `WIREGUARD_ADDRESSES` variable.
+
 ## Optional environment variables
 
 - `SERVER_COUNTRIES`: Comma separated list of countries
@@ -85,3 +87,5 @@ If you want to use VPN server side port forwarding:
 1. Log in your AirVPN account at [airvpn.org/client](https://airvpn.org/client/)
 1. Obtain a port from [airvpn.org/ports](https://airvpn.org/ports/)
 1. Add the port to the environment variable `FIREWALL_VPN_INPUT_PORTS`
+
+
