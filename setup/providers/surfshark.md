@@ -1,13 +1,20 @@
 # Surfshark
 
-## TLDR
+## WireGuard
 
-```sh
-# OpenVPN
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=surfshark \
--e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
--e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
-```
+## How to obtain your WireGuard connection details
+
+- Log into your SurfShark account
+- Select VPN from the left menu and then `Manual Setup`
+- Select `Deskop or mobile`
+- Choose `WireGuard`
+- Select `I don't have a keypair` and enter a name for the key (this can be anything)
+- Click `Generate a new keypair`
+- Make note of the `Private key`
+- Next select a location and download the config file (Ignore the information on screen as it will not work with GlueTUN)
+- Within the config file obtain the IP on the `Address` line this is used for the `WIREGUARD_ADDRESSES` to connect.
+
+### docker run
 
 ```sh
 # Wireguard
@@ -17,6 +24,8 @@ docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=surfshark \
 -e WIREGUARD_ADDRESSES="10.64.222.21/16" \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
 ```
+
+### docker compose
 
 ```yml
 version: "3"
@@ -33,7 +42,24 @@ services:
       - SERVER_COUNTRIES=Netherlands
 ```
 
-## Required environment variables
+### WireGuard required environment variables
+
+- `VPN_SERVICE_PROVIDER=surfshark`
+- `WIREGUARD_PRIVATE_KEY=your-private-key`
+- `WIREGUARD_ADDRESSES=ip-from-config-file`
+
+## OpenVPN
+
+### docker run
+
+```sh
+# OpenVPN
+docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=surfshark \
+-e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
+-e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
+```
+
+### Open VPN required environment variables
 
 - `VPN_SERVICE_PROVIDER=surfshark`
 - `OPENVPN_USER`
