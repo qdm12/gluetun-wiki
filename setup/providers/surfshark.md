@@ -39,7 +39,7 @@ services:
       - SERVER_COUNTRIES=Netherlands
 ```
 
-### WireGuard Required environment variables
+### WireGuard required environment variables
 
 - `VPN_SERVICE_PROVIDER=surfshark`
 - `WIREGUARD_PRIVATE_KEY=your-private-key`
@@ -57,7 +57,7 @@ docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=surfshark \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
 ```
 
-### Open VPN Required environment variables
+### Open VPN required environment variables
 
 - `VPN_SERVICE_PROVIDER=surfshark`
 - `OPENVPN_USER`
