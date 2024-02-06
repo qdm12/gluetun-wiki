@@ -51,18 +51,10 @@ services:
 
 Simply set the `SERVER_COUNTRIES` environment variable using one of the following:
 
-- Australia US
-- Canada US
-- Germany Singapour
-- Germany UK
-- France Sweden
 - India UK
-- Netherlands US
-- Singapore Hong Kong
-- UK Germany
-- UK France
-- US Netherlands
-- US Portugal
+- Singapore in
+
+This list can change, [check how to list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
 
 ## Servers
 
