@@ -49,7 +49,7 @@ services:
 
 ## Multi hop regions
 
-Simply set the `SERVER_REGIONS` environment variable using one of the following:
+Simply set the `SERVER_COUNTRIES` environment variable using one of the following:
 
 - Australia US
 - Canada US
