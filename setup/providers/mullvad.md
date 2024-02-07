@@ -62,28 +62,7 @@ services:
 
 ## IPv6 tunneling with OpenVPN
 
-By default, IPv6 is just blocked by the firewall in gluetun.
-
-If you want to tunnel IPv6 with Mullvad using OpenVPN:
-
-1. Ensure your Kernel has IPv6
-
-    ```sh
-    lsmod | grep ipv6
-    ```
-
-    Should show something.
-1. Set the environment variable `OPENVPN_IPV6` to `on`
-1. Enable IPv6 in Docker for this container:
-    - For a Docker run command, add the flag `--sysctl net.ipv6.conf.all.disable_ipv6=0` (or `--sysctl net.ipv6.conf.all.disable=0` on some systems)
-    - For docker-compose.yml files, add this to your `gluetun` config block:
-
-        ```yml
-            sysctls:
-              - net.ipv6.conf.all.disable_ipv6=0
-        ```
-
-1. Start the container
+Mullvad supports IPv6 addresseses for their OpenVPN servers, and these should automatically be used at random if your container setup has IPv6 enabled. See the [IPv6 documentation](../advanced/ipv6.md) for more information.
 
 ## Servers
 
