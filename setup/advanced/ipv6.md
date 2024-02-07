@@ -19,20 +19,19 @@
 
     [Reference: Docker documentation on IPv6](https://docs.docker.com/config/daemon/ipv6/#use-ipv6-for-the-default-bridge-network)
 1. Restart the Docker daemon to reload its JSON configuration. Most Linux distributions use `sudo systemctl restart docker` to do this.
-1. Edit your Gluetun `docker-compose.yml` and add the `sysctls` section and modify `WIREGUARD_ADDRESSES` to have both an IPv4 and an IPv6 address:
+1. Edit your Gluetun `docker-compose.yml` and add the `sysctls` section:
 
     ```yaml
     services:
       gluetun:
         # ...
-        environment:
-          WIREGUARD_ADDRESSES=xxx.xxx.xxx.xxx/32,fd7d:.............../128
         sysctls:
           - net.ipv6.conf.all.disable_ipv6=0
     ```
 
-    Note if you only set an IPv6 Wireguard address, all IPv4 traffic won't go through which is undesirable.
-
+1. Depending on the VPN protocol used:
+    - OpenVPN: the IPv6 server address and configuration will automatically be picked up if IPv6 support is detected
+    - Wireguard: modify the `WIREGUARD_ADDRESSES` value to have both an IPv4 and IPv6 address. Note if you only set an IPv6 Wireguard address, all IPv4 traffic won't go through which is undesirable.
 1. Test your setup:
     1. Launch your docker-compose stack
     1. Run:
