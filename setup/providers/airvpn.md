@@ -24,7 +24,7 @@ services:
       - VPN_SERVICE_PROVIDER=airvpn
       - VPN_TYPE=wireguard
       - WIREGUARD_PRIVATE_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c=
-      - WIREGUARD_PRESHARED_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
+      - WIREGUARD_PRESHARED_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c=
       - WIREGUARD_ADDRESSES=10.99.99.99/32,ff:ff:ff...:ff/128
       - SERVER_COUNTRIES=Netherlands
 ```
