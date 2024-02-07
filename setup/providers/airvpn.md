@@ -29,6 +29,8 @@ services:
       - SERVER_COUNTRIES=Netherlands
 ```
 
+⚠️ `WIREGUARD_ADDRESSES` may only contain an IPv6 address (such as `ff:ff.../128`) if your container setup supports IPv6. To do so, see [the IPv6 document](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/ipv6.md). Otherwise, remove the IPv6 address from `WIREGUARD_ADDRESSES`.
+
 ### OpenVPN
 
 1. [Setup your client key](../advanced/openvpn-client-key.md)
