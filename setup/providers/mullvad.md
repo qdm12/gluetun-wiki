@@ -53,11 +53,12 @@ services:
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
 - `ISP`: Comma separated list of ISPs
 - `OWNED_ONLY`: If the VPN server is owned by Mullvad. It defaults to `no`, meaning it includes all servers. It can be set to `yes`.
-- `VPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use
-  - For TCP: `80`, `443` or `1401`
-  - For UDP: `53`, `1194`, `1195`, `1196`, `1197`, `1300`, `1301`, `1302`, `1303` or `1400`
-  - It defaults to `443` for TCP and `1194` for UDP
-- `VPN_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use
+- `VPN_ENDPOINT_PORT`: custom server endpoint port to use
+  - For OpenVPN:
+    - TCP: it can only be `80`, `443` or `1401`
+    - UDP: it can only be `53`, `1194`, `1195`, `1196`, `1197`, `1300`, `1301`,   `1302`, `1303` or `1400`
+    - It defaults to `443` for TCP and `1194` for UDP
+  - For Wireguard: it can be any value and defaults to `51820`
 
 ## IPv6 tunneling with OpenVPN
 
