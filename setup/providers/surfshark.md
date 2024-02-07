@@ -45,7 +45,7 @@ services:
 ### Wireguard only
 
 - `WIREGUARD_PRIVATE_KEY` is your 32 bytes key in base64 format. The private key can only be registered (and eventually generated) with these steps:
-  1. Log into your SurfShark account
+  1. Log into your Surfshark account
   1. Select *VPN* from the left menu
   1. Select *Manual Setup*
   1. Select *Deskop or mobile*
@@ -55,7 +55,7 @@ services:
   1. Use the **Private key** value for the `WIREGUARD_PRIVATE_KEY` environment variable
   1. Next select a location and download the config file (Ignore the information on screen as it will not work with GlueTUN)
   1. Within the config file obtain the IP on the `Address` line this is used for the `WIREGUARD_ADDRESSES` to connect.
-- `WIREGUARD_ADDRESSES` is the Wireguard IP network interface address in CIDR format `xx.xx.xx.xx/xx`. To obtain it, first download a Wireguard configuration file using same steps as for `WIREGUARD_PRIVATE_KEY` above. In the configuration file, locate the `Address` value and use its value here.
+- `WIREGUARD_ADDRESSES` is the Wireguard IP network interface address in CIDR format `xx.xx.xx.xx/xx`. To obtain it, first download a Wireguard configuration file using same steps as for `WIREGUARD_PRIVATE_KEY` above. In the configuration file, locate the `Address` value. This one should contain a comma delimited list of an IPv4 and IPv6 address, so use the IPv4 address (usually the first one) as the value for the `WIREGUARD_ADDRESSES` environment variable. You can add the IPv6 address if your setup supports IPv6. Note this is the same value for all Surfshark servers and for your private key.
 
 ## Optional environment variables
 
