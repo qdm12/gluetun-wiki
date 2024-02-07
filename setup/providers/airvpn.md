@@ -66,6 +66,8 @@ services:
   - `WIREGUARD_PRESHARED_KEY`
   - `WIREGUARD_ADDRESSES`
 
+  You can get each of these Wireguard values you need from the Config Generator in the AirVPN Client Area.
+
 ## Optional environment variables
 
 - `SERVER_COUNTRIES`: Comma separated list of countries
