@@ -47,15 +47,6 @@ services:
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
 
-## Multi hop regions
-
-Simply set the `SERVER_COUNTRIES` environment variable using one of the following:
-
-- India UK
-- Singapore in
-
-This list can change, [check how to list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
-
 ## Servers
 
 To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
