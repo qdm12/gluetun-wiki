@@ -4,6 +4,13 @@
 
 ## Setup
 
+1. Ensure your Kernel has IPv6
+
+    ```sh
+    lsmod | grep ipv6
+    ```
+
+    Should show something.
 1. On your Docker host, edit and create if needed `/etc/docker/daemon.json` with the following JSON key-value pairs:
 
     ```json
