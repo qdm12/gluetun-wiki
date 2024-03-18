@@ -22,6 +22,7 @@ The HTTP proxy server will also work as a an [RFC 2817-compliant](https://www.rf
 - A good example of this is using it in conjunction with netcat (`nc`) and the OpenSSH command line client's [ProxyCommand](https://man.openbsd.org/ssh_config#ProxyCommand) option:
   - `ssh -o 'ProxyCommand nc -X connect -x 192.168.1.10:8888 %h %p' ssh-server.example.org`
   - PuTTY can also [use CONNECT proxies](https://the.earth.li/~sgtatham/putty/0.80/htmldoc/Chapter4.html#config-proxy).
+  
 ## Shadowsocks proxy
 
 1. Setup a Shadowsocks proxy client, there is a list of [ShadowSocks clients for **all platforms**](https://shadowsocks.org/doc/getting-started.html#getting-started)
