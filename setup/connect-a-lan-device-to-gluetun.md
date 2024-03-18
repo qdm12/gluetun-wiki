@@ -17,6 +17,12 @@ This is useful for some clients such as Chrome, Firefox or Kodi.
 1. With your HTTP proxy client, connect to the Docker host (i.e. `192.168.1.10`) on port `8888`. You need to enter your credentials if you set them with `HTTPPROXY_USER` and `HTTPPROXY_PASSWORD`. Note that Chrome does not support authentication.
 1. If you set `HTTPPROXY_LOG` to `on`, more information will be logged in the Docker logs.
 
+The HTTP proxy server will also work as a an [RFC 2817-compliant](https://www.rfc-editor.org/rfc/rfc2817#section-5.2) CONNECT proxy, meaning you can tunnel protocol to arbitrary destination ports through it, not just HTTP.
+
+- A good example of this is using it in conjunction with netcat (`nc`) and the OpenSSH command line client's [ProxyCommand](https://man.openbsd.org/ssh_config#ProxyCommand) option:
+  - `ssh -o 'ProxyCommand nc -X connect -x 192.168.1.10:8888 %h %p' ssh-server.example.org`
+  - PuTTY can also [use CONNECT proxies](https://the.earth.li/~sgtatham/putty/0.80/htmldoc/Chapter4.html#config-proxy).
+  
 ## Shadowsocks proxy
 
 1. Setup a Shadowsocks proxy client, there is a list of [ShadowSocks clients for **all platforms**](https://shadowsocks.org/doc/getting-started.html#getting-started)
