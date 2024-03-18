@@ -89,3 +89,4 @@ Either:
 
 - You need to run your Docker command as root by prefixing it with `sudo`. 🙏 thanks to [@jnelle](https://github.com/jnelle), [source comment](https://github.com/qdm12/gluetun/issues/884#issuecomment-1064918519)
 - You have a mismatch between your Kernel and the installed tun module. This can happen when upgrading your system and not rebooting. A simple reboot might fix it. 🙏 thanks to [@aviolaris](https://github.com/aviolaris), [original issue](https://github.com/qdm12/gluetun/issues/1537)
+- Validate if the module `tun` is loaded correctly in the current kernel, see the [original issue](https://github.com/qdm12/gluetun-wiki/issues/55)
