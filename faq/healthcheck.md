@@ -5,20 +5,32 @@
 You might see from time to time
 
 ```log
-[healthcheck] unhealthy: cannot dial: dial tcp4 104.16.133.229:443: i/o timeout
+INFO [healthcheck] program has been unhealthy for 6s: restarting VPN
 ```
 
-This is meant to happen eventually and it's fine (sometimes just `cloudflare.com:443` doesn't answer)
+This is the [VPN auto-healing](#internal-auto-healing) because the healthcheck kept on failing for the last 6 seconds. This is NOT the Docker healthcheck, but the [internal healthcheck built-in the program](#internal-healthcheck).
 
-If it keeps happening [for 6 seconds](#internal-healthcheck), the VPN is [auto-healed](#internal-auto-healing).
-In this case, this usually means by order of likeliness:
+If you see it repeating and increasing in time (6s, then 12s, etc.), it means the VPN keeps on not working even after reconnecting. In this case, this usually means by order of likeliness:
 
-1. The VPN server IP address you are trying to connect to is no longer valid 🔌 [Update your server information](../setup/servers.md#update-the-vpn-servers-list)
+1. The VPN server IP address you are trying to connect to is no longer valid 🔌 [**Update your server information**](../setup/servers.md#update-the-vpn-servers-list)
 1. The VPN server crashed 💥, try changing your VPN servers filtering options such as `SERVER_REGIONS`
+1. Maybe the Docker image you are running runs wrong, try [a previous tag](../setup/docker-image-tags.md).
 1. Your host firewall is blocking outbound connections
 1. Your Internet connection is not working 🤯, ensure it works
-1. Are you using Docker Desktop >= `v4.5.1`?? Then **downgrade** back to `v4.5.1`. See [@Miexil](https://github.com/Miexil)'s [comment](https://github.com/qdm12/gluetun/issues/1164#issuecomment-1319705224).
-1. Something else ➡️ <https://github.com/qdm12/gluetun/issues/new/choose>
+
+Other errors might show before the `program has been unhealthy for 6s` message is logged, such as:
+
+- `...: connection refused`: the firewall blocks it because the VPN is not working. This notably happens for the `ip getter`, the `healthcheck`, the `dns` subroutines.
+- `...: operation not permitted`: not permitted by the firewall
+- `...: i/o timeout`: the VPN server is not responding
+
+All of the above are NOT causes, but **consequences** of the VPN not working.
+
+⚠️ **DO NOT OPEN AN ISSUE** ⚠️ about this kind of problem because:
+
+- it is almost always due to the VPN or authentication servers misbehaving - I cannot do anything about it
+- someone opens a similar issue every week, and it's getting very repetitive.
+- I need to focus on more important fixes/features/maintenance I can do something about.
 
 ## Internal healthcheck
 
