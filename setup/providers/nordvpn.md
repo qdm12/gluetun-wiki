@@ -53,7 +53,9 @@ services:
 
 - `SERVER_COUNTRIES`: Comma separated list of countries
 - `SERVER_REGIONS`: Comma separated list of regions
+- `SERVER_CITIES`: Comma separated list of server cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
+- `SERVER_CATEGORIES`: Comma separated list of server categories
 
 ## Obtain your Wireguard private key
 
