@@ -65,7 +65,7 @@ Once enabled, you will keep the same forwarded port for 60 days as long as you b
 
 ### qBittorrent
 
-[@Noah-Huppert](https://github.com/Noah-Huppert) developed a tool which automatically updates the forwarded port in qBittorrent: [**qbittorrent-port-updater**](https://github.com/Noah-Huppert/qbittorrent-port-updater)
+A tool has been developed by the community which automatically updates the forwarded port in qBittorrent: [**qbittorrent-port-updater**](https://github.com/Noah-Huppert/qbittorrent-port-updater)
 
 ## Servers
 
