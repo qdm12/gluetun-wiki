@@ -63,6 +63,10 @@ Once enabled, you will keep the same forwarded port for 60 days as long as you b
 
 [@jawilson](https://github.com/jawilson) developed a plugin to automagically update the forwarded port in Deluge: [**deluge-piaportplugin**](https://github.com/jawilson/deluge-piaportplugin)
 
+### qBittorrent
+
+[@Noah-Huppert](https://github.com/Noah-Huppert) developed a tool which automatically updates the forwarded port in qBittorrent: [**qbittorrent-port-updater**](https://github.com/Noah-Huppert/qbittorrent-port-updater)
+
 ## Servers
 
 To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
