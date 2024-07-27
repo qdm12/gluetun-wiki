@@ -1,0 +1,23 @@
+name: Opened issue
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/create-or-update-comment@v4
+        with:
+          token: ${{ github.token }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            :warning: This is the Gluetun **WIKI** and any issue unrelated to the issue will be instantly closed as
+            not planned without any explanation.
+
+            @qdm12 is more or less the only maintainer and is having a tough time keeping up with the issues of the project, so please:
+            - **do not** ask for updates, be patient
+            - :+1: the issue to show your support instead of commenting
+            @qdm12 usually checks Wiki issues at least once per month and tries to resolve them all before a new Gluetun release.
