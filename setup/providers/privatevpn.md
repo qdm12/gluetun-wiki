@@ -35,6 +35,11 @@ services:
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
 - `VPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use
 
+## VPN server port forwarding
+
+PrivateVPN can assign you [a VPN server forwarded port](https://privatevpn.com/blog/guides/195/the-best-vpn-configuration-for-torrenting-fast-(and-safely)).
+In that case, allow the port in the firewall following [setup/advanced/vpn-port-forwarding](../advanced/vpn-port-forwarding.md#allow-a-forwarded-port-through-the-firewall)
+
 ## Servers
 
 To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
