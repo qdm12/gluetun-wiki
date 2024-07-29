@@ -1,6 +1,6 @@
 # Private Internet Access
 
-## TLDR
+## OpenVPN
 
 ```sh
 docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER="private internet access" \
@@ -25,13 +25,13 @@ services:
       - SERVER_REGIONS=Netherlands
 ```
 
-## Required environment variables
+### Required environment variables
 
 - `VPN_SERVICE_PROVIDER=private internet access`
 - `OPENVPN_USER`
 - `OPENVPN_PASSWORD`
 
-## Optional environment variables
+### Optional environment variables
 
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_NAMES`: Comma separated list of server names
@@ -41,6 +41,14 @@ services:
 - `VPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port
 - `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on`to enable port forwarding on the VPN server
 - `VPN_PORT_FORWARDING_STATUS_FILE`: File path to write the forwarded port number to. It defaults to `/tmp/gluetun/forwarded_port`.
+
+## Wireguard
+
+💁 For now, native support cannot be added, but this is a slow work in progress.
+
+In the meantime, [@Kieros](https://github.com/Kieros) proposes to use [kylegrantlucas/pia-wg-config](https://github.com/kylegrantlucas/pia-wg-config) to extract a Wireguard configuration file which you can then use with the [custom provider](custom.md#wireguard).
+
+For VPN server port fowarding with Wireguard, please subscribe to [gluetun/issues/2320](https://github.com/qdm12/gluetun/issues/2320) to be alerted when this is implemented and working.
 
 ## VPN server port forwarding
 
