@@ -5,7 +5,7 @@
 ```sh
 docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER="private internet access" \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
--v gluetun:/gluetun \
+-v /yourpath/gluetun:/gluetun \
 -e SERVER_REGIONS=Netherlands qmcgaw/gluetun
 ```
 
@@ -17,7 +17,7 @@ services:
     cap_add:
       - NET_ADMIN
     volumes:
-      - gluetun:/gluetun
+      - ./gluetun:/gluetun
     environment:
       - VPN_SERVICE_PROVIDER=private internet access
       - OPENVPN_USER=abc
