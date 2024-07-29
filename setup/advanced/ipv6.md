@@ -1,6 +1,8 @@
 # IPv6
 
-⚠️ IPv6 is an experimental Docker feature, no thorough test was done to ensure there is no IP/DNS leak with Gluetun configured with IPv6. Feel free to create an issue or pull request if you have some testing done and can confirm.
+💁 [@Vexz00](https://github.com/Vexz00) confirmed [nothing is leaking using IPv6](https://github.com/qdm12/gluetun-wiki/issues/70) 🎉
+
+If you find something suspect related to IPv6, please create an issue on this repository 😉
 
 ## Setup
 
