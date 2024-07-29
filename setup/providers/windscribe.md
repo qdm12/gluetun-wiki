@@ -39,6 +39,7 @@ services:
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=windscribe`
+- For "Build a Plan" subscriptions, you need to set `SERVER_REGIONS` to the region(s) you have access to. For example, `SERVER_REGIONS=Sweden,Italy`.
 
 ### OpenVPN only
 
