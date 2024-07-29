@@ -26,6 +26,8 @@ I ran multiple tests using different clients, servers and regions to clarify all
 
 - Running OpenVPN **or** Wireguard natively on Windows gives higher bandwidths than when using a container on a Linux host. This is even stranger since Wireguard is supported, since its implementation is the same one for both Gluetun and the Wireguard Windows client. My only explanation is that Docker causes a bottleneck. **This should be investigated once gluetun can be run out of a container as a binary**.
 
+💁 [@bjoli](https://github.com/bjoli) [reported](https://github.com/qdm12/gluetun-wiki/issues/54) that running Gluetun and other containers in the same Pod using Podman gives great bandwidth results! So this might all be due to simply Docker.
+
 ## Testing
 
 ### Setup
