@@ -13,7 +13,7 @@ You can use an Openvpn configuration file instead of using the built in provider
 
 ## Setup
 
-In the following we assume your custom openvpn configuration file is named `custom.conf`.
+In the following we assume your custom openvpn configuration file is named `custom.conf`. Note this can be named something else, for example `autralia.ovpn`.
 
 1. Replace the VPN server hostname by one of its IP addresses. In `custom.conf`, find the line starting with `remote`. The second field is the VPN server hostname. If it is not an IP address, you need to DNS resolve it, for example with `nslookup domain.com` and replace the hostname field with one of its corresponding IP addresses. This is the case as gluetun's firewall is designed not to leak anything including an initial DNS resolution when starting.
 1. Bind mount your `custom.conf` file to `/gluetun/custom.conf`. If you have other files such as `ca.crt` or `up.sh`, bind mount them to `/gluetun/` as well.
