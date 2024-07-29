@@ -26,3 +26,5 @@ services:
     container_name: xyz
     network_mode: "service:gluetun"
 ```
+
+💁 To run multiple instances of the same container image through Gluetun, you need to configure each instance to listen on a different port **internally**, or it would conflict. This is possible for example with Deluge, but not with some Transmission images. You can however create an issue on the relevant repository for maintainers to implement this, since it's usually rather easy to code.
