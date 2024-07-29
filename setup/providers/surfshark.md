@@ -39,8 +39,8 @@ services:
 
 ### OpenVPN only
 
-- `OPENVPN_USER`
-- `OPENVPN_PASSWORD`
+- `OPENVPN_USER` which you can find in VPN > Manual setup > Credentials
+- `OPENVPN_PASSWORD` which you can find in VPN > Manual setup > Credentials
 
 ### Wireguard only
 
