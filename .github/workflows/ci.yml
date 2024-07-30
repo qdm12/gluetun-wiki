@@ -31,6 +31,8 @@ jobs:
         with:
           config_data: "{extends: default, rules: {document-start: disable}}"
 
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      - uses: umbrelladocs/action-linkspector@v1
         with:
-          use-quiet-mode: yes
+          reporter: github-check
+          fail_on_error: true
+          filter_mode: nofilter

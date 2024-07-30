@@ -1,0 +1,11 @@
+dirs:
+  - .
+useGitIgnore: true
+ignorePatterns:
+  - pattern: "^http://localhost"
+  - pattern: "^http://99.99.99.99"
+  - pattern: "^https://github.com/qdm12/gluetun-wiki/tree/v3.35.0"
+aliveStatusCodes:
+  - 200
+  - 206
+  - 429

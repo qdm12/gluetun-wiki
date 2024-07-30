@@ -12,13 +12,13 @@
 
 ## Table of contents
 
-- [Setup](setup#setup) (👋 start here)
+- [Setup](setup/readme.md#setup) (👋 start here)
   - [Providers](setup/providers/)
   - [Options](setup/options/)
   - [Advanced setup](setup/advanced/)
 - [Common errors](errors/)
 - [FAQ](faq/)
-- [Contributing](contributing#contributing)
+- [Contributing](contributing/readme.md#contributing)
 
 ## Versioning
 

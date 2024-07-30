@@ -14,7 +14,7 @@ VPN server side port forwarding is implemented natively into Gluetun for the fol
 You can enable it with `VPN_PORT_FORWARDING=on`.
 The forwarded port can be accessed:
 
-- through the [control server](control-server.md#openvpn)
+- through the [control server](control-server.md#openvpn-and-wireguard)
 - through the file written at `/tmp/gluetun/forwarded_port` (will be deprecated in v4.0.0 release)
 
 ## Allow a forwarded port through the firewall
