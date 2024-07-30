@@ -28,6 +28,8 @@ jobs:
           level: error
 
       - uses: ibiqlik/action-yamllint@v3
+        with:
+          config_data: "{extends: default, rules: {document-start: disable}}"
 
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
