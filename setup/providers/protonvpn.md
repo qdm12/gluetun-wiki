@@ -37,6 +37,9 @@ services:
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
 - `FREE_ONLY`: Filter only free tier servers by setting it to `on`. It defaults to `off`.
+- `SECURE_CORE_ONLY`: Filter only secure core servers by setting it to `on`. It defaults to `off`.
+- `TOR_ONLY`: Filter only TOR servers by setting it to `on`. It defaults to `off`.
+- `PORT_FORWARD_ONLY`: Filter only port-forwarding enabled (aka *p2p*) servers by setting it to `on`. It defaults to `off`.
 - `VPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use
   - For TCP: `443`, `5995` or `8443`
   - For UDP: `80`, `443`, `1194`, `4569`, `5060`
