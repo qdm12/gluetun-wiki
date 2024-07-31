@@ -25,6 +25,7 @@
 | Gluetun release tag | Corresponding wiki |
 | --- | --- |
 | `:latest` | [`main` branch](https://github.com/qdm12/gluetun-wiki) |
+| `:v3.38.0` | [`v3.38.0` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.38.0) |
 | `:v3.35.0` | [`v3.35.0` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.35.0) |
 
 The Wiki aims to mirror the release tags of Gluetun, except the Wiki bugfix version number (last number) is for Wiki fixes only.
