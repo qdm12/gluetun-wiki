@@ -14,7 +14,7 @@ Wireguard is often known as *so much faster* than OpenVPN. Let's find out!
 - The following command is used to measure bandwidth performance:
 
     ```sh
-    docker run -it --rm --network=container:gluetun alpine:3.14 /bin/sh -c "apk add speedtest-cli && speedtest-cli"
+    docker run -it --rm --network=container:gluetun alpine:3.20 /bin/sh -c "apk add speedtest-cli && speedtest-cli"
     ```
 
 | Host OS | CPU | CPU arch | CPU cores | Protocol | Download Mbps | Upload Mbps | Wireguard download increase | Wireguard upload increase |

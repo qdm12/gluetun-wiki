@@ -9,7 +9,7 @@ Once your container is up and running, you can test your connection is correct a
 Assuming your container is called `gluetun`, run:
 
 ```sh
-docker run --rm --network=container:gluetun alpine:3.18 sh -c "apk add wget && wget -qO- https://ipinfo.io"
+docker run --rm --network=container:gluetun alpine:3.20 sh -c "apk add wget && wget -qO- https://ipinfo.io"
 ```
 
 in order to obtain the VPN IP address and ensure the connection is working.
