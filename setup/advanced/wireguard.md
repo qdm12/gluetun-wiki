@@ -1,5 +1,9 @@
 # Wireguard
 
+## Kernelspace
+
+If you don't have Wireguard in your kernel (👀 Synology users), you can install them following [@macdis' comment](https://github.com/qdm12/gluetun/issues/134#issuecomment-1500962965) which might bring significant [bandwidth gains](../../faq/bandwidth.md).
+
 ## Load Wireguard Kernel module
 
 Some systems do not load automatically the Wireguard module at start.

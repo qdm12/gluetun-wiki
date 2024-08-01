@@ -13,6 +13,7 @@ I ran multiple tests using different clients, servers and regions to clarify all
 - The VPN protocol (`VPN_TYPE=openvpn` or `VPN_TYPE=wireguard`):
   - `wireguard` is almost always slower than `openvpn`, maybe due to server load.
   - `wireguard` does have a more significant impact on low power devices (+15% speeds)
+- Wireguard running in the kernel space can bring significant gains, depending on the device (see [this report](https://github.com/qdm12/gluetun/issues/134#issuecomment-1500962965))
 - VPN server for OpenVPN and Wireguard are often not the same even for the same location, and so have different server load
 - The speedtest server can give very different results over time
 - The difference of results from one speedtest server to another (even in the same city) can be largely different
@@ -20,13 +21,15 @@ I ran multiple tests using different clients, servers and regions to clarify all
 - Some VPN providers may:
   - throttle down the download bandwidth when you run a speedtest (e.g. Mullvad)
   - allocate you less bandwidth if you don't use their proprietary software
-- Docker might be a bandwidth bottleneck
+- Docker might be a bandwidth bottleneck, compared to Pods (see below bjoli's investigation)
 
 ### Investigations
 
 - Running OpenVPN **or** Wireguard natively on Windows gives higher bandwidths than when using a container on a Linux host. This is even stranger since Wireguard is supported, since its implementation is the same one for both Gluetun and the Wireguard Windows client. My only explanation is that Docker causes a bottleneck. **This should be investigated once gluetun can be run out of a container as a binary**.
 
 💁 [@bjoli](https://github.com/bjoli) [reported](https://github.com/qdm12/gluetun-wiki/issues/54) that running Gluetun and other containers in the same Pod using Podman gives great bandwidth results! So this might all be due to simply Docker.
+
+💁
 
 ## Testing
 
