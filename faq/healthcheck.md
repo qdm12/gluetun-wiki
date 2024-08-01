@@ -17,6 +17,7 @@ If you see it repeating and increasing in time (6s, then 12s, etc.), it means th
 1. Maybe the Docker image you are running runs wrong, try [a previous tag](../setup/docker-image-tags.md).
 1. Your host firewall is blocking outbound connections
 1. Your Internet connection is not working 🤯, ensure it works
+1. Lower your MTU with `WIREGUARD_MTU` or `OPENVPN_MSSFIX` (see [`--mssfix`](https://openvpn.net/community-resources/reference-manual-for-openvpn-2-6/)) environment variables
 
 Other errors might show before the `program has been unhealthy for 6s` message is logged, such as:
 
