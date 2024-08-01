@@ -7,7 +7,7 @@ If it happens to be **broken**, this page is for you.
 
 ## Release tags
 
-ℹ️ [**Live list of recent image tags**](https://hub.docker.com/r/qmcgaw/gluetun/tags?page=1&ordering=last_updated)
+ℹ️ [**Live list of recent image tags**](https://hub.docker.com/r/qmcgaw/gluetun/tags?page=1&page_size=&ordering=last_updated&name=v3)
 
 [Multiple releases](https://github.com/qdm12/gluetun/releases) are made through time when the image is considered stable.
 
