@@ -34,6 +34,10 @@ services:
 
 - `SERVER_CITIES`: Comma separated list of cities
 
+## VPN server port forwarding
+
+Set `VPN_PORT_FORWARDING=on` and the 3 ports forwarded will be logged out as well as available via the http control server.
+
 ## Servers
 
 To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
