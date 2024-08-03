@@ -34,7 +34,7 @@ services:
 ```sh
 docker run -it --rm --cap-add=NET_ADMIN \
 -e VPN_SERVICE_PROVIDER=custom -e VPN_TYPE=wireguard \
--e VPN_ENDPOINT_IP=1.2.3.4 \
+-e WIREGUARD_ENDPOINT_IP=1.2.3.4 \
 -e VPN_ENDPOINT_PORT=51820 \
 -e WIREGUARD_PUBLIC_KEY=wAUaJMhAq3NFutLHIdF8AN0B5WG8RndfQKLPTEDHal0= \
 -e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
@@ -53,7 +53,7 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER=custom
       - VPN_TYPE=wireguard
-      - VPN_ENDPOINT_IP=1.2.3.4
+      - WIREGUARD_ENDPOINT_IP=1.2.3.4
       - VPN_ENDPOINT_PORT=51820
       - WIREGUARD_PUBLIC_KEY=wAUaJMhAq3NFutLHIdF8AN0B5WG8RndfQKLPTEDHal0=
       - WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU=
@@ -73,7 +73,7 @@ services:
 
 ### Wireguard only
 
-- `VPN_ENDPOINT_IP`: the server endpoint IP address
+- `WIREGUARD_ENDPOINT_IP`: the server endpoint IP address
 - `VPN_ENDPOINT_PORT`: the server endpoint port
 - `WIREGUARD_PUBLIC_KEY` is the server 32 bytes public key in base64 format.
 - `WIREGUARD_PRIVATE_KEY` is your 32 bytes private key in base64 format.

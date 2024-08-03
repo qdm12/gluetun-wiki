@@ -15,6 +15,7 @@ If using OpenVPN, the following two are usually compulsory:
 | --- | --- | --- | --- |
 | `OPENVPN_PROTOCOL` | `udp` | `udp` or `tcp` | Network protocol to use, only valid for OpenVPN |
 | `OPENVPN_VERSION` | `2.6` | `2.5` or `2.6` | Set the OpenVPN version to run |
+| `OPENVPN_ENDPOINT_IP` |  | Valid IP address | Specify a generally optional target VPN server IP address to use |
 | `OPENVPN_VERBOSITY` | `1` | `0` to `6` | Openvpn verbosity level |
 | `OPENVPN_FLAGS` | | Openvpn flags | Space delimited openvpn flags to pass to `openvpn` |
 | `OPENVPN_ROOT` | `no` | `yes` or `no` | Run OpenVPN as root |
