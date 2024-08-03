@@ -240,15 +240,15 @@ You may need a new user-provided setting that is not already built in Gluetun.
 
 The settings are processed in the following order:
 
-1. Read from each source, starting from environment variables then secret files then plain files. This is done in the `internal/configuration/sources` directory.
-1. Merge settings together using the next source, only setting fields which are still not set. This is done with `mergeWith` methods defined in the `internal/configuration/settings` package.
+1. Each setting value is read from the following sources order: secret files, plain files and environment variables. The first source containing a non empty setting value is used and other sources are skipped. This is done in the `internal/configuration/settings` directory, using the [qdm12/gosettings library](https://github.com/qdm12/gosettings). The files source is in `internal/configuration/srouces/files` and the secrets source is in `internal/configuration/sources/secrets`. The environment variables source is built-in qdm12/gosettings already.
+1. Set the default values for any still unset setting values, using `setDefaults` methods in the `internal/configuration/settings` package.
 1. Validate the settings. This is done with `validate` methods defined in the `internal/configuration/settings` package.
 
 To add a setting, you need to do several code changes:
 
 1. Add a field to one of the settings structures in the `internal/configuration/settings` package.
-1. Add necessary code for the new field in the settings struct methods: `copy`, `mergeWith`, `overrideWith`, `setDefaults`, `toLinesNode` and `validate`
-1. Configure one or more sources in `internal/configuration/sources/` to read and set the value in the field of the settings structure. Gluetun reads most settings from environment variables only, so feel free to limit the reading to environment variables.
+1. Add necessary code for the new field in the settings struct methods: `read`, `copy`, `overrideWith`, `setDefaults`, `toLinesNode` and `validate`
+1. You may have to modify one or more sources in `internal/configuration/sources/` to return some settings values, if needed. Gluetun reads most settings from environment variables only, so feel free to limit the reading to environment variables.
 
 ⚠️ If you add an environment variable, add it as its default value in the `Dockerfile` in the `ENV` section:
 
