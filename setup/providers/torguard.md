@@ -26,6 +26,8 @@ services:
       - SERVER_COUNTRIES=Netherlands
 ```
 
+💁 To use with Wireguard, see [the custom provider Wireguard section](custom.md#wireguard).
+
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=torguard`
