@@ -2,6 +2,10 @@
 
 ## TLDR
 
+💁 To use with Wireguard, see [the custom provider Wireguard section](custom.md#wireguard).
+
+For OpenVPN:
+
 ```sh
 docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=privatevpn \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
