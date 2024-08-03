@@ -16,6 +16,7 @@ If using the Wireguard protocol, depending on the provider, the following might 
 | `WIREGUARD_ADDRESSES` | | Valid IP network interface address in the format `xx.xx.xx.xx/xx` | This is usually needed. |
 | `WIREGUARD_PUBLIC_KEY` | | Valid base 58 Wireguard key | Wireguard server public key to use. This may or may not be needed. |
 | `WIREGUARD_ENDPOINT_IP` |  | Valid IP address | Specify a generally optional target VPN server IP address to use |
+| `WIREGUARD_ENDPOINT_PORT` | | Valid port number | Specify a generally optional target VPN server port number to use |
 
 💁 The following environment variables are all optional:
 

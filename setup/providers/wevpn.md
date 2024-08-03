@@ -36,7 +36,7 @@ services:
 
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
-- `VPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port
+- `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port
   - For TCP: `53`, `1195`, `1199` or `2018`
   - For UDP: `80`, `1194` or `1198`
 

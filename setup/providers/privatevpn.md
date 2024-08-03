@@ -37,7 +37,7 @@ services:
 - `SERVER_COUNTRIES`: Comma separated list of countries
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
-- `VPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use
+- `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use
 
 ## VPN server port forwarding
 

@@ -57,8 +57,8 @@ services:
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
-- `VPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use, see [this list of ports](https://windscribe.com/getconfig/openvpn)
-- `VPN_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use, which can be one of: `53`, `80`, `123`, `443`, `1194`, `65142`
+- `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use, see [this list of ports](https://windscribe.com/getconfig/openvpn)
+- `WIREGUARD_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use, which can be one of: `53`, `80`, `123`, `443`, `1194`, `65142`
 
 ### VPN server port forwarding
 

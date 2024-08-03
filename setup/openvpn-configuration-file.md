@@ -74,7 +74,7 @@ Otherwise, `user ${OPENVPN_PROCESS_USER}` option is added or overridden.
 - `OPENVPN_CIPHERS`, if set, adds or overrides `data-ciphers` and `data-ciphers-fallback`
 - `OPENVPN_AUTH`, if set, adds or overrides `auth`.
 - `OPENVPN_MSSFIX`, if set, adds or overrides `mssfix`.
-- `VPN_ENDPOINT_PORT`, if set, overrides the port of the remote connection found in the file.
+- `OPENVPN_ENDPOINT_PORT`, if set, overrides the port of the remote connection found in the file.
 
 #### Ignored variables
 

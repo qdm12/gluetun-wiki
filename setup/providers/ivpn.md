@@ -53,7 +53,7 @@ services:
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
 - `ISP`: Comma separated list of ISPs
-- `VPN_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use, which can be one of: `2049`, `2050`, `53`, `30587`, `41893`, `48574`, `58237`
+- `WIREGUARD_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use, which can be one of: `2049`, `2050`, `53`, `30587`, `41893`, `48574`, `58237`
 
 ## IPv6 tunneling with OpenVPN
 
