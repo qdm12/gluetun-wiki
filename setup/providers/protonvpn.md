@@ -3,8 +3,18 @@
 ## TLDR
 
 ```sh
+# OpenVPN
 docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=protonvpn \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
+-e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
+```
+
+```sh
+# Wireguard
+docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=protonvpn \
+-e VPN_TYPE=wireguard \
+-e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
+-e WIREGUARD_ADDRESSES="10.64.222.21/32" \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
 ```
 
@@ -17,8 +27,9 @@ services:
       - NET_ADMIN
     environment:
       - VPN_SERVICE_PROVIDER=protonvpn
-      - OPENVPN_USER=abc
-      - OPENVPN_PASSWORD=abc
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU=
+      - WIREGUARD_ADDRESSES=10.64.222.21/32
       - SERVER_COUNTRIES=Netherlands
 ```
 
@@ -27,8 +38,16 @@ services:
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=protonvpn`
+
+### OpenVPN only
+
 - `OPENVPN_USER` is your **OPENVPN specific** username. Find it at [account.proton.me/u/0/vpn/OpenVpnIKEv2](https://account.proton.me/u/0/vpn/OpenVpnIKEv2).
 - `OPENVPN_PASSWORD`
+
+### Wireguard only
+
+- `VPN_TYPE=wireguard`
+- `WIREGUARD_PRIVATE_KEY` is your 32 bytes key in base64 format. The private key can only be obtained by [generating a Wireguard configuration file](https://account.protonvpn.com/downloads). Generate a Wireguard configuration file, copy the displayed `PrivateKey` value and optionally download the configuration file. Note this value is the same for all ProtonVPN servers. 💁 [Guide on how to generate a configuration file](https://protonvpn.com/support/wireguard-configurations/)
 
 ## Optional environment variables
 
@@ -45,7 +64,7 @@ services:
   - For TCP: `443`, `5995` or `8443`
   - For UDP: `80`, `443`, `1194`, `4569`, `5060`
   - Defaults are `1194` for UDP and `443` for TCP
-- `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on`to enable port forwarding on the VPN server. For Wireguard, additionally set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`.
+- `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on`to enable port forwarding on the VPN server.
 
 ## VPN server port forwarding
 
