@@ -48,7 +48,7 @@ services:
 
 In the meantime, [@Kieros](https://github.com/Kieros) proposes to use [kylegrantlucas/pia-wg-config](https://github.com/kylegrantlucas/pia-wg-config) to extract a Wireguard configuration file which you can then use with the [custom provider](custom.md#wireguard).
 
-For VPN server port fowarding with Wireguard, please subscribe to [gluetun/issues/2320](https://github.com/qdm12/gluetun/issues/2320) to be alerted when this is implemented and working.
+For VPN server port fowarding with Wireguard, please subscribe to [gluetun/issues/2320](https://github.com/qdm12/gluetun/issues/2320) to be alerted when this is implemented and working. You would have to use `VPN_PORT_FORWARDING_USERNAME` and `VPN_PORT_FORWARDING_PASSWORD` to set your OpenVPN credentials, in order to authenticate with the port forwarding API.
 
 ## VPN server port forwarding
 
