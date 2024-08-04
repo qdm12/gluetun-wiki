@@ -24,4 +24,4 @@ The firewall is never de-activated.
 
 ## Implementation details
 
-For now the firewall uses `iptables` and `ip6tables` (or `iptables-nft` and `ip6tables-nft`) which are called using custom Go code using a subshell. Most of this code resides in the `internal/firewall` package.
+The firewall for now uses `iptables` (`iptables-nft` preferred, and falls back on `iptables-legacy`) and `ip6tables` (`ip6tables-nft` preferred, and falls back on `ip6tables-legacy`), which are called using Go custom Go code using a subshell. Most of this code resides in the `internal/firewall` package.
