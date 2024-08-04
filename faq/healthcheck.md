@@ -41,7 +41,7 @@ The TCP dialing is a small operation which barely exchanges any data, and has a 
 
 This internal healthcheck runs on different periods:
 
-- if the previous check failed, it runs again after 1 second.
+- if the previous check failed, it retries directly after, increasing the request timeout by 2 seconds each time, up to 10 seconds.
 - if the previous check succeeded, it runs again after 5 seconds.
 
 This healthcheck keeps a state of the health status which is accessible through an HTTP health server listening on the address specified by `HEALTH_SERVER_ADDRESS`, which defaults to `127.0.0.1:9999`.
