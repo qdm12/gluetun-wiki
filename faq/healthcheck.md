@@ -23,7 +23,7 @@ Other errors might show before the `program has been unhealthy for 6s` message i
 
 - `...: connection refused`: the firewall blocks it because the VPN is not working. This notably happens for the `ip getter`, the `healthcheck`, the `dns` subroutines.
 - `...: operation not permitted`: not permitted by the firewall
-- `...: i/o timeout`: the VPN server is not responding
+- `...: i/o timeout` and `...: Client.Timeout awaiting for headers`: the VPN server is not responding
 
 All of the above are NOT causes, but **consequences** of the VPN not working.
 
