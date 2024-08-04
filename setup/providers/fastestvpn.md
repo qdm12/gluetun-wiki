@@ -3,8 +3,18 @@
 ## TLDR
 
 ```sh
+# OpenVPN
 docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=fastestvpn \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
+-e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
+```
+
+```sh
+# Wireguard
+docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=fastestvpn \
+-e VPN_TYPE=wireguard \
+-e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
+-e WIREGUARD_ADDRESSES="10.64.222.21/32" \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
 ```
 
@@ -17,16 +27,25 @@ services:
       - NET_ADMIN
     environment:
       - VPN_SERVICE_PROVIDER=fastestvpn
-      - OPENVPN_USER=abc
-      - OPENVPN_PASSWORD=abc
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU=
+      - WIREGUARD_ADDRESSES=10.64.222.21/32
       - SERVER_COUNTRIES=Netherlands
 ```
 
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=fastestvpn`
+
+### OpenVPN only
+
 - `OPENVPN_USER`
 - `OPENVPN_PASSWORD`
+
+### Wireguard only
+
+- `WIREGUARD_PRIVATE_KEY` is your 32 bytes key in base64 format. It corresponds to the `PrivateKey` field value in the Wireguard configuration file.
+- `WIREGUARD_ADDRESSES` is the IP prefix to assign to the Wireguard interface, corresponding to the `Address` field value in the Wireguard configuration file.
 
 ## Optional environment variables
 
