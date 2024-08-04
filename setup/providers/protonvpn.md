@@ -14,7 +14,6 @@ docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=protonvpn \
 docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=protonvpn \
 -e VPN_TYPE=wireguard \
 -e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
--e WIREGUARD_ADDRESSES="10.64.222.21/32" \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
 ```
 
@@ -29,7 +28,6 @@ services:
       - VPN_SERVICE_PROVIDER=protonvpn
       - VPN_TYPE=wireguard
       - WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU=
-      - WIREGUARD_ADDRESSES=10.64.222.21/32
       - SERVER_COUNTRIES=Netherlands
 ```
 
