@@ -16,6 +16,12 @@ The forwarded port can be accessed:
 
 - through the [control server](control-server.md#openvpn-and-wireguard)
 - through the file written at `/tmp/gluetun/forwarded_port` (will be deprecated in v4.0.0 release)
+- by running a user specified command upon port forwarding starting (see below)
+
+## Custom port forwarding up command
+- Can be set via `VPN_PORT_FORWARDING_UP_COMMAND=command`
+- Doesn't understand shell specific syntax such as `&&`, and one should use `/bin/sh -c "my shell syntax"` to do so if they want (bash isn't installed by default, only sh)
+- Will have the string `{{PORTS}}` replaced by a comma separated list of the ports that have been forwarded (Example: `VPN_PORT_FORWARDING_UP_COMMAND=/script.sh {{PORTS}}`)
 
 ## Allow a forwarded port through the firewall
 
