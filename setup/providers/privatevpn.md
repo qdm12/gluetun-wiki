@@ -41,8 +41,7 @@ services:
 
 ## VPN server port forwarding
 
-PrivateVPN can assign you [a VPN server forwarded port](https://privatevpn.com/blog/guides/195/the-best-vpn-configuration-for-torrenting-fast-(and-safely)).
-In that case, allow the port in the firewall following [setup/advanced/vpn-port-forwarding](../advanced/vpn-port-forwarding.md#allow-a-forwarded-port-through-the-firewall)
+Set `VPN_PORT_FORWARDING=on` and the port forwarded will be logged out as well as available via the http control server.
 
 ## Servers
 
