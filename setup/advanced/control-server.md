@@ -12,6 +12,17 @@ To access it, simply publish this port for the container, for example: `-p 8000:
 
 We assume every request described in the following is run on `http://<your-docker-host-ip>:8000` as base.
 
+## Authentication
+
+There is no global authentication built-in for the server in Gluetun. Instead:
+
+1. Pick your favorite HTTP reverse proxy (Caddy, Caddy, Nginx, etc.)
+1. Pick the authentication of your choice (Basic Auth, OAuth, etc.) using your reverse proxy.
+    - You can usually pick an authentication per route, or globally.
+    - You might want to have TLS (HTTPS) enabled, to not leak credentials in the network.
+
+Per route token authentication may be added in the future, for local containers needing access to it.
+
 ## OpenVPN and Wireguard
 
 The HTTP control server allows to modify the state of OpenVPN and Wireguard.
