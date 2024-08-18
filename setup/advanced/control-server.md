@@ -4,6 +4,9 @@
 
 The HTTP control server allows to obtain and modify the state of the container without restarting it.
 
+⚠️ Make sure you trust whatever is accessing the control server, as it allows to access the settings,
+including credentials, and modify the settings of Gluetun 'on-the-fly'.
+
 ## Setup
 
 A built-in HTTP server listens on port `8000` to modify the state of the container.
