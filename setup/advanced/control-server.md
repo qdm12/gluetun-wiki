@@ -32,8 +32,8 @@ The HTTP control server allows to modify the state of OpenVPN and Wireguard.
 The path are in the root `/v1/openvpn/` due to historical reasons, and will be migrated in the future.
 
 - HTTP GET to `/v1/openvpn/status` to obtain the current status of Openvpn, such as `{"status":"running"}`
-- HTTP PUT to `/v1/openvpn/status` with a body `{"status":"running"}` to start Openvpn/Wireguard
-- HTTP PUT to `/v1/openvpn/status` with a body `{"status":"stopped"}` to stop Openvpn/Wireguard
+- HTTP PUT to `/v1/openvpn/status` with a body `{"status":"running"}` to start Openvpn (and stop Wireguard)
+- HTTP PUT to `/v1/openvpn/status` with a body `{"status":"stopped"}` to stop Openvpn if it's running
 - HTTP GET to `/v1/openvpn/portforwarded` to obtain the port forwarded such as `{"port":5914}`
 - HTTP GET to `/v1/openvpn/settings` to obtain the settings used by Openvpn (not Wireguard) in a JSON format
 
