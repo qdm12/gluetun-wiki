@@ -14,6 +14,10 @@ The following secrets can be used:
 - `openvpn_encrypted_key`
 - `openvpn_key_passphrase`
 - `openvpn_clientcrt`
+- `wireguard_conf`
+- `wireguard_private_key`
+- `wireguard_preshared_key`
+- `wireguard_addresses`
 - `httpproxy_user`
 - `httpproxy_password`
 - `shadowsocks_password`
