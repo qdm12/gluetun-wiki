@@ -11,9 +11,6 @@
 | `DOT_CACHING` | `on` | `on`, `off` | Unbound caching |
 | `DOT_IPV6` | `off` | `on`, `off` | DNS IPv6 resolution |
 | `DOT_PRIVATE_ADDRESS` | All private CIDRs ranges | | Comma separated list of CIDRs or single IP addresses Unbound won't resolve to. Note that the default setting prevents DNS rebinding |
-| `DOT_VERBOSITY` | `1` | `0` to `5` | Unbound verbosity level |
-| `DOT_VERBOSITY_DETAILS` | `0` | `0` to `4` | Unbound details verbosity level |
-| `DOT_VALIDATION_LOGLEVEL` | `0` | `0` to `2` | Unbound validation log level |
 | `DNS_UPDATE_PERIOD` | `24h` | i.e. `0`, `30s`, `5m`, `24h` | Period to update block lists and cryptographic files and restart Unbound. Set to `0` to deactivate updates |
 | `BLOCK_MALICIOUS` | `on` | `on`, `off` | Block malicious hostnames and IPs with Unbound |
 | `BLOCK_SURVEILLANCE` | `off` | `on`, `off` | Block surveillance hostnames and IPs with Unbound |

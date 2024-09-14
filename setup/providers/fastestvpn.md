@@ -44,6 +44,9 @@ services:
 
 ### Wireguard only
 
+You can find both values below in the Wireguard configuration file provided by FastestVPN, which you can obtain by asking their support
+at [support@fastestvpn.com](mailto:support@fastestvpn.com).
+
 - `WIREGUARD_PRIVATE_KEY` is your 32 bytes key in base64 format. It corresponds to the `PrivateKey` field value in the Wireguard configuration file.
 - `WIREGUARD_ADDRESSES` is the IP prefix to assign to the Wireguard interface, corresponding to the `Address` field value in the Wireguard configuration file.
 
