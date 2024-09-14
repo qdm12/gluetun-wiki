@@ -64,10 +64,7 @@ services:
 
 ## VPN server port forwarding
 
-- `VPN_PORT_FORWARDING=on`
- 
-### OpenVPN  only
-- Also add `+pmp` to your OpenVPN username (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288))
+- `VPN_PORT_FORWARDING=on` : this option is applicable for both OpenVPN and Wireguard.
 
 ## Multi hop regions
 
