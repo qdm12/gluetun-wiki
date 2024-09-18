@@ -17,14 +17,65 @@ We assume every request described in the following is run on `http://<your-docke
 
 ## Authentication
 
-There is no global authentication built-in for the server in Gluetun. Instead:
+⚠️ all routes will become private by default after the v3.41.0 release ⚠️
 
-1. Pick your favorite HTTP reverse proxy (Caddy, Caddy, Nginx, etc.)
-1. Pick the authentication of your choice (Basic Auth, OAuth, etc.) using your reverse proxy.
-    - You can usually pick an authentication per route, or globally.
-    - You might want to have TLS (HTTPS) enabled, to not leak credentials in the network.
+### Configuration
 
-Per route token authentication may be added in the future, for local containers needing access to it.
+1. Create a file `/yourpath/config.toml` on your host, for example with the content:
+
+    ```toml
+    [[roles]]
+    name = "qbittorrent"
+    # Define a list of routes with the syntax "Http-Method /path"
+    routes = ["GET /v1/openvpn/portforwarded"]
+    # Define an authentication method with its parameters
+    auth = "basic"
+    username = "myusername"
+    password = "mypassword"
+    ```
+
+    You can define multiple roles by adding more `[[roles]]`, and authentication methods are described in the section below.
+
+1. Bind mount the file you created to `/gluetun/auth/config.toml`. This container path can be changed with `HTTP_CONTROL_SERVER_AUTH_CONFIG_FILEPATH` if needed.
+1. Restart the container for the configuration file to take effect.
+
+#### Authentication methods
+
+- `none`: no authentication is required, and can be set with only
+
+    ```toml
+    auth = "none"
+    ```
+
+- `basic`: http basic authentication with a username and password, and can be set with
+
+    ```toml
+    auth = "basic"
+    username = "myusername"
+    password = "mypassword"
+    ```
+
+- `apikey`: the client sends the API key in the `X-API-Key` HTTP header, and can be set with
+
+    ```toml
+    auth = "apikey"
+    apikey = "myapikey"
+    ```
+
+    You can generate an api key with `docker run --rm qmcgaw/gluetun genkey`.
+
+### Default behavior
+
+- Authentication configuration file specified: any server route not defined in the configuration will not be accessible.
+- No authentication configuration file specified:
+  - **new routes** and **existing and undocumented routes** must be defined in the authentication configuration to be accessible.
+  - **existing and documented** (i.e. `GET /v1/openvpn/portforwarded`) are publicly accessibly **UNTIL after the v3.41.0 release ⚠️**
+
+### Security over the Internet
+
+If you expose the server over the Internet, make sure you use TLS to exchange data with the server ⚠️
+You can do so for example by using an http reverse proxy such as Caddy.
+If you don't, anyone between your client device and Gluetun can see the data exchanged, including credentials.
 
 ## OpenVPN and Wireguard
 
