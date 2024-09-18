@@ -62,6 +62,8 @@ We assume every request described in the following is run on `http://<your-docke
     apikey = "myapikey"
     ```
 
+    You can generate an api key with `docker run --rm qmcgaw/gluetun genkey`.
+
 ### Default behavior
 
 - Authentication configuration file specified: any server route not defined in the configuration will not be accessible.
