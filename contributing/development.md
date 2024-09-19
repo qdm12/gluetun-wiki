@@ -29,7 +29,7 @@ Since Gluetun is for now tightly coupled with Linux's `unix` & `syscall` Go pack
 The development Docker container for VSCode is pre-configured for Gluetun and works on OSX, Linux and Windows.
 
 1. Install the following:
-    1. [Docker](https://www.docker.com/products/docker-desktop)
+    1. [Docker](https://www.docker.com/products/docker-desktop/)
     1. [Docker Compose](https://docs.docker.com/compose/install/)
     1. [VS code](https://code.visualstudio.com/download)
     1. [VS code remote containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
@@ -52,7 +52,7 @@ More information is available at [the development container readme](https://gith
 
 1. Install [golangci-lint](https://github.com/golangci/golangci-lint#install)
 1. You might want to use an IDE such as VSCode with the [Go extension](https://marketplace.visualstudio.com/items?itemName=golang.go)
-1. You might want to install [Docker](https://www.docker.com/products/docker-desktop) to build and run the image.
+1. You might want to install [Docker](https://www.docker.com/products/docker-desktop/) to build and run the image.
 
 ## Modifying the code
 

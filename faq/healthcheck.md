@@ -88,5 +88,5 @@ This is as such to show the container as unhealthy as soon as possible.
 
 You can change these values as well as the healthcheck command. For example:
 
-- [Docker run healthcheck flags](https://docs.docker.com/engine/reference/run/#healthcheck)
-- [Docker-compose healthcheck](https://docs.docker.com/compose/compose-file/compose-file-v3/#healthcheck)
+- [Docker run healthcheck flags](https://docs.docker.com/engine/containers/run/#healthchecks)
+- [Docker-compose healthcheck](https://github.com/docker/compose/blob/v1/docs/Compose%20file%20reference%20(legacy)/version-3.md#healthcheck)
