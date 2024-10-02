@@ -68,8 +68,8 @@ We assume every request described in the following is run on `http://<your-docke
 
 - Authentication configuration file specified: any server route not defined in the configuration will not be accessible.
 - No authentication configuration file specified:
-  - **new routes** and **existing and undocumented routes** must be defined in the authentication configuration to be accessible.
-  - **existing and documented** (i.e. `GET /v1/openvpn/portforwarded`) are publicly accessibly **UNTIL after the v3.40.0 release ⚠️**
+  - **new**, **existing+undocumented** and **existing+documented+sensitive** routes must be defined in the authentication configuration to be accessible.
+  - **existing, documented and non-sensitive** routes (i.e. `GET /v1/openvpn/portforwarded`) are publicly accessibly **UNTIL after the v3.40.0 release ⚠️**
 
 ### Security over the Internet
 
