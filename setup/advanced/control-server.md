@@ -4,8 +4,8 @@
 
 The HTTP control server allows to obtain and modify the state of the container without restarting it.
 
-⚠️ Make sure you trust whatever is accessing the control server, as it allows to access the settings,
-including credentials, and modify the settings of Gluetun 'on-the-fly'.
+⚠️ If you use a release before v3.39.1, make sure you trust whatever is accessing the control server,
+as it allows to access the settings, including credentials, and modify the settings of Gluetun 'on-the-fly'.
 
 ## Setup
 
@@ -17,7 +17,7 @@ We assume every request described in the following is run on `http://<your-docke
 
 ## Authentication
 
-⚠️ all routes will become private by default after the v3.41.0 release ⚠️
+⚠️ all routes will become private by default after the v3.40.0 release ⚠️
 
 ### Configuration
 
@@ -69,7 +69,7 @@ We assume every request described in the following is run on `http://<your-docke
 - Authentication configuration file specified: any server route not defined in the configuration will not be accessible.
 - No authentication configuration file specified:
   - **new routes** and **existing and undocumented routes** must be defined in the authentication configuration to be accessible.
-  - **existing and documented** (i.e. `GET /v1/openvpn/portforwarded`) are publicly accessibly **UNTIL after the v3.41.0 release ⚠️**
+  - **existing and documented** (i.e. `GET /v1/openvpn/portforwarded`) are publicly accessibly **UNTIL after the v3.40.0 release ⚠️**
 
 ### Security over the Internet
 
