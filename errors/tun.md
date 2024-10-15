@@ -24,7 +24,7 @@ This is still unclear why this is caused, but probably running the container wit
 This can happen when running LXC containers.
 
 1. Find your LXC container number, let's call it `12345`
-1. ~~Edit `/etc/pve/lxc/12345.conf` and add:~~ -> **OUTDATET!**
+1. ~~Edit `/etc/pve/lxc/12345.conf` and add:~~ -> **OUTDATED!**
 
     ```conf
     lxc.cgroup2.devices.allow: c 10:200 rwm
@@ -74,7 +74,7 @@ Thanks to [@OkanEsen](https://github.com/OkanEsen), [source comment](https://git
 This happens on LXC containers.
 
 1. Find your container number, let's call it `12345`
-1. ~~Edit `/etc/pve/lxc/12345.conf` and add:~~ -> **OUTDATET!**
+1. ~~Edit `/etc/pve/lxc/12345.conf` and add:~~ -> **OUTDATED!**
 
     ```conf
     lxc.cgroup2.devices.allow: c 10:200 rwm
