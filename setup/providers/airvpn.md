@@ -5,7 +5,8 @@
 ### Wireguard
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=airvpn \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+  -e VPN_SERVICE_PROVIDER=airvpn \
   -e VPN_TYPE=wireguard \
   -e WIREGUARD_PRIVATE_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
   -e WIREGUARD_PRESHARED_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
@@ -20,6 +21,8 @@ services:
     image: qmcgaw/gluetun
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     environment:
       - VPN_SERVICE_PROVIDER=airvpn
       - VPN_TYPE=wireguard
@@ -37,7 +40,8 @@ services:
 1. [Setup your client certificate](../advanced/openvpn-client-certificate.md)
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=airvpn \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+  -e VPN_SERVICE_PROVIDER=airvpn \
   -v /yourpath:/gluetun \
   -e SERVER_COUNTRIES=Netherlands \
   qmcgaw/gluetun
@@ -50,6 +54,8 @@ services:
     image: qmcgaw/gluetun
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     environment:
       - VPN_SERVICE_PROVIDER=airvpn
       - SERVER_COUNTRIES=Netherlands

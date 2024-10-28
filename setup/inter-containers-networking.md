@@ -75,6 +75,7 @@ The current workaround is to use an IP address to reach `B`:
     services:
       gluetun:
         image: qmcgaw/gluetun
+        # ...
         networks:
           gluetun_network:
 

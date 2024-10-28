@@ -3,7 +3,8 @@
 ## OpenVPN
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER="private internet access" \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+-e VPN_SERVICE_PROVIDER="private internet access" \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
 -v /yourpath/gluetun:/gluetun \
 -e SERVER_REGIONS=Netherlands qmcgaw/gluetun
@@ -16,6 +17,8 @@ services:
     image: qmcgaw/gluetun
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     volumes:
       - ./gluetun:/gluetun
     environment:

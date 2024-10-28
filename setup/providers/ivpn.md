@@ -4,14 +4,16 @@
 
 ```sh
 # OpenVPN
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=ivpn \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+-e VPN_SERVICE_PROVIDER=ivpn \
 -e VPN_TYPE=openvpn -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
 -e SERVER_CITIES=amsterdam qmcgaw/gluetun
 ```
 
 ```sh
 # Wireguard
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=ivpn \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+-e VPN_SERVICE_PROVIDER=ivpn \
 -e VPN_TYPE=wireguard \
 -e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
 -e WIREGUARD_ADDRESSES="10.64.222.21/32" \
@@ -25,6 +27,8 @@ services:
     image: qmcgaw/gluetun
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     environment:
       - VPN_SERVICE_PROVIDER=ivpn
       - VPN_TYPE=wireguard

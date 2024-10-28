@@ -16,6 +16,8 @@ services:
     container_name: gluetun
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     environment:
       - OPENVPN_USER=js89ds7
       - OPENVPN_PASSWORD=8fd9s239G

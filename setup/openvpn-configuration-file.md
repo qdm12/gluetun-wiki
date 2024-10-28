@@ -25,7 +25,7 @@ In the following we assume your custom openvpn configuration file is named `cust
 1. Run the container for example with:
 
     ```sh
-    docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=custom -e OPENVPN_CUSTOM_CONFIG=/gluetun/custom.conf -v /yourpath/custom.conf:/gluetun/custom.conf:ro -e OPENVPN_USER="youruser" -e OPENVPN_PASSWORD="yourpassword" qmcgaw/gluetun
+    docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run -e VPN_SERVICE_PROVIDER=custom -e OPENVPN_CUSTOM_CONFIG=/gluetun/custom.conf -v /yourpath/custom.conf:/gluetun/custom.conf:ro -e OPENVPN_USER="youruser" -e OPENVPN_PASSWORD="yourpassword" qmcgaw/gluetun
     ```
 
 ## Implicit behavior
