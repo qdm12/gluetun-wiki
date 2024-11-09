@@ -19,9 +19,15 @@ The forwarded port can be accessed:
 - by running a user specified command upon port forwarding starting (see below)
 
 ## Custom port forwarding up command
-- Can be set via `VPN_PORT_FORWARDING_UP_COMMAND=command`
-- Doesn't understand shell specific syntax such as `&&`, and one should use `/bin/sh -c "my shell syntax"` to do so if they want (bash isn't installed by default, only sh)
-- Will have the string `{{PORTS}}` replaced by a comma separated list of the ports that have been forwarded (Example: `VPN_PORT_FORWARDING_UP_COMMAND=/script.sh {{PORTS}}`)
+
+A command can be set with `VPN_PORT_FORWARDING_UP_COMMAND`. For example `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c "echo {{PORTS}}"`.
+
+Notes:
+
+- The special string `{{PORTS}}` is replaced by a comma separated list of the ports that have been forwarded. For example `/bin/sh -c "echo {{PORTS}}"` would become `/bin/sh -c "echo 5678,9876"`
+- shell specific syntax such as `&&` is not understood in the command, and one should use `/bin/sh -c "my shell syntax"` to do so if they want.
+- one can bind mount a shell script in Gluetun and execute it with for example `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c /gluetun/myscript.sh` - 💁  feel free to propose a pull request to add commonly used shell scripts for port forwarding!
+- the output of the command is written to the port forwarding logger within Gluetun
 
 ## Allow a forwarded port through the firewall
 
