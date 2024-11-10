@@ -18,9 +18,14 @@ The forwarded port can be accessed:
 - through the file written at `/tmp/gluetun/forwarded_port` (will be deprecated in v4.0.0 release)
 - by running a user specified command upon port forwarding starting (see below)
 
-## Custom port forwarding up command
+## Custom port forwarding up/down command
 
-A command can be set with `VPN_PORT_FORWARDING_UP_COMMAND`. For example `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c "echo {{PORTS}}"`.
+A command can be set with:
+
+- `VPN_PORT_FORWARDING_UP_COMMAND` to run when port forwarding has finished setting up
+- `VPN_PORT_FORWARDING_DOWN_COMMAND` to run when port forwarding has finished tearing down
+
+For example `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c "echo {{PORTS}}"`.
 
 Notes:
 
