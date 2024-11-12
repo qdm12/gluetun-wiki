@@ -50,7 +50,7 @@ Thanks to [@Vendetta1985](https://github.com/Vendetta1985), [source comment](htt
 ## `TUN device is not available: open /dev/net/tun: permission denied`
 
 This can happen with `podman`.
-The only way known is to run the container with `--privileged`.
+One known way is to run the container with `--privileged`, another solution that seems to work is to enable the SELinux flag `container_use_devices` by doing `sudo setsebool -P container_use_devices=1` (`-P` is for `persistant`).
 
 Thanks to [@OkanEsen](https://github.com/OkanEsen), [source comment](https://github.com/qdm12/gluetun/issues/700#issuecomment-1046259375)
 
