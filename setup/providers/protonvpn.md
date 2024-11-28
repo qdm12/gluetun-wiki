@@ -11,7 +11,7 @@ docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
 ```
 
 ```sh
-# Wireguard
+# WireGuard
 docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
 -e VPN_SERVICE_PROVIDER=protonvpn \
 -e VPN_TYPE=wireguard \
@@ -35,8 +35,6 @@ services:
       - SERVER_COUNTRIES=Netherlands
 ```
 
-💁 To use with Wireguard, download a configuration file from [account.proton.me/u/0/vpn/WireGuard](https://account.proton.me/u/0/vpn/WireGuard) and head to [the custom provider Wireguard section](custom.md#wireguard). Thanks to [@pvanryn](https://github.com/pvanryn) for pointing this out. Note however you cannot filter servers as easily as with OpenVPN since each server uses its own private key and/or peer address.
-
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=protonvpn`
@@ -46,10 +44,12 @@ services:
 - `OPENVPN_USER` is your **OPENVPN specific** username. Find it at [account.proton.me/u/0/vpn/OpenVpnIKEv2](https://account.proton.me/u/0/vpn/OpenVpnIKEv2).
 - `OPENVPN_PASSWORD`
 
-### Wireguard only
+### WireGuard only
 
 - `VPN_TYPE=wireguard`
-- `WIREGUARD_PRIVATE_KEY` is your 32 bytes key in base64 format. The private key can only be obtained by [generating a Wireguard configuration file](https://account.protonvpn.com/downloads). Generate a Wireguard configuration file, copy the displayed `PrivateKey` value and optionally download the configuration file. Note this value is the same for all ProtonVPN servers. 💁 [Guide on how to generate a configuration file](https://protonvpn.com/support/wireguard-configurations/)
+- `WIREGUARD_PRIVATE_KEY` is your 32 byte key in base64 format.
+
+💁 To obtain the `WIREGUARD_PRIVATE_KEY` value, provision a configuration file from [account.proton.me/u/0/vpn/WireGuard](https://account.proton.me/u/0/vpn/WireGuard). The content of the WireGuard configuration file that ProtonVPN generates contains the `PrivateKey` value in the `[Interface]` section. Note that the private key value is the same for all ProtonVPN servers. All other values in the ProtonVPN WireGuard Configuration file should be ignored and not set in Gluetun environment variables. [ProtonVPN documentation on how to generate a WireGuard configuration file](https://protonvpn.com/support/wireguard-configurations/)
 
 ## Optional environment variables
 
@@ -72,9 +72,12 @@ services:
 
 Requirements:
 
-- Add `+pmp` to your OpenVPN username (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288))
 - `VPN_PORT_FORWARDING=on`
-- If you use **Wireguard** using the custom provider, set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`
+- `PORT_FORWARD_ONLY=on` to tell Gluetun to only connect to servers that support port forwarding
+- For OpenVPN
+  - Append `+pmp` to your OpenVPN username. For example, if your ProtonVPN username was `johndoe`, set `OPENVPN_USER` to `johndoe+pmp` (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288)). ProtonVPN documentation on [port forwarding with OpenVPN](https://protonvpn.com/support/port-forwarding-manual-setup#openvpn)
+- For WireGuard
+  - Set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`
 
 ## Multi hop regions
 
@@ -86,7 +89,9 @@ For example setting `SERVER_HOSTNAMES=ch-us-01a.protonvpn.com` would set a multi
 
 Paid ProtonVPN subscribers can optionally use [Moderate NAT](https://protonvpn.com/support/moderate-nat/) on their connections.
 
-To do so, the OpenVPN username assigned by ProtonVPN should have `+nr` appended to the end of it.
+To do so with OpenVPN, append `+nr` to the ProtonVPN username. For example, if your ProtonVPN username was `johndoe`, set `OPENVPN_USER` to `johndoe+nr`.
+
+To do so with WireGuard, when provisioning a configuration file from [account.proton.me/u/0/vpn/WireGuard](https://account.proton.me/u/0/vpn/WireGuard), under `Select VPN options`, enable `Moderate NAT` before creating your configuration file containing your private key.
 
 ## Servers
 
