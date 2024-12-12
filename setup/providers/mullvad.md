@@ -4,7 +4,7 @@
 
 ```sh
 # OpenVPN
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=mullvad \
 -e VPN_TYPE=openvpn -e OPENVPN_USER=1355131650462193 \
 -e SERVER_CITIES=amsterdam qmcgaw/gluetun
@@ -12,7 +12,7 @@ docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
 
 ```sh
 # Wireguard
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=mullvad \
 -e VPN_TYPE=wireguard \
 -e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
