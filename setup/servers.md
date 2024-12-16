@@ -35,7 +35,7 @@ The VPN servers list used by Gluetun is the merged list from:
 
 - [the built-in Gluetun servers list](https://raw.githubusercontent.com/qdm12/gluetun/master/internal/storage/servers.json)
 - your locally bind mounted `/gluetun/servers.json` file, which reflects the built-in servers list by default
-    - when adding custom entries to your custom `/gluetun/server.json` file, ensure the provider version matches the default `/gluten/servers.json` file and increment the `timestamp` value to ensure your hardcoded values will be merged (overwritten) properly
+    - when adding custom entries to your custom `/gluetun/servers.json` file, ensure the provider version matches the default `/gluten/servers.json` file and increment the `timestamp` value to ensure your hardcoded values will be merged (overwritten) properly
 
 The built-in servers list can become outdated.
 You can update **your** servers list `/gluetun/servers.json`, using the built-in update mechanisms.
