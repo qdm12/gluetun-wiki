@@ -5,7 +5,7 @@
 ### Wireguard
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
   -e VPN_SERVICE_PROVIDER=airvpn \
   -e VPN_TYPE=wireguard \
   -e WIREGUARD_PRIVATE_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
