@@ -24,13 +24,28 @@ This is still unclear why this is caused, but probably running the container wit
 This can happen when running LXC containers.
 
 1. Find your LXC container number, let's call it `12345`
-1. Edit `/etc/pve/lxc/12345.conf` and add:
+1. ~~Edit `/etc/pve/lxc/12345.conf` and add:~~ -> **OUTDATED!**
 
     ```conf
     lxc.cgroup2.devices.allow: c 10:200 rwm
     lxc.mount.entry: /dev/net dev/net none bind,create=dir
     lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
     ```
+
+1. Since Proxmox 8.1 you can add devices to your lxc container and no longer have to rewrite the permissions to your tun device which is a security risk
+    1. run this commands at your pve host system to **SET** device
+
+      ```sh
+      pct set 123245 -dev0 /dev/net/tun
+      pct reboot 12345
+      ```
+
+    1. run this commands at your pve host system to **UNSET** device
+
+      ```sh
+      pct set 12345 -delete dev0
+      pct reboot 12345
+      ````
 
 1. In your run command or docker-compose.yml, use:
 
@@ -59,13 +74,28 @@ Thanks to [@OkanEsen](https://github.com/OkanEsen), [source comment](https://git
 This happens on LXC containers.
 
 1. Find your container number, let's call it `12345`
-1. Edit `/etc/pve/lxc/12345.conf` and add:
+1. ~~Edit `/etc/pve/lxc/12345.conf` and add:~~ -> **OUTDATED!**
 
     ```conf
     lxc.cgroup2.devices.allow: c 10:200 rwm
     lxc.mount.entry: /dev/net dev/net none bind,create=dir
     lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
     ```
+
+1. Since Proxmox 8.1 you can add devices to your lxc container and no longer have to rewrite the permissions to your tun device which is a security risk
+    1. run this commands at your pve host system tu **SET** device
+
+      ```sh
+      pct set 123245 -dev0 /dev/net/tun
+      pct reboot 12345
+      ```
+
+    1. run this commands at your pve host system to **UNSET** device
+
+      ```sh
+      pct set 12345 -delete dev0
+      pct reboot 12345
+      ````
 
 1. In your run command or docker-compose.yml, use:
 
