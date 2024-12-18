@@ -50,20 +50,24 @@ Thanks to [@Vendetta1985](https://github.com/Vendetta1985), [source comment](htt
 ## `TUN device is not available: open /dev/net/tun: permission denied`
 
 This can happen with `podman`, usually due to SELinux. Create a SELinux policy to allow the rootless container to use the `/dev/net/tun` device.    
-- Copy the content below to a new file `gluetun_policy.te`
-```bash
-module gluetun_policy 1.0;
 
-require {
-        type tun_tap_device_t;
-        type container_file_t;
-        type container_t;
-        class chr_file { getattr ioctl open read write };
-        class sock_file watch;
-}
-```
-- Convert it to a policy module `checkmodule -M -m -o gluetun_policy.mod gluetun_policy.te`
-- Compile the policy `semodule_package -o gluetun_policy.pp -m gluetun_policy.mod` and install it `semodule -i gluetun_policy.pp`
+1. Copy the content below to a new file `gluetun_policy.te`
+
+    ```bash
+    module gluetun_policy 1.0;
+    
+    require {
+            type tun_tap_device_t;
+            type container_file_t;
+            type container_t;
+            class chr_file { getattr ioctl open read write };
+            class sock_file watch;
+    }
+    ```
+
+1. Convert it to a policy module: `checkmodule -M -m -o gluetun_policy.mod gluetun_policy.te`
+1. Compile the policy: `semodule_package -o gluetun_policy.pp -m gluetun_policy.mod`
+1. Install the policy: `semodule -i gluetun_policy.pp`
 
 Alternatively generate the policy yourself:
 - Start the container, extract SELinux policy: `sudo grep gluetun /var/log/audit/audit.log | audit2allow -a -M gluetun_policy`
