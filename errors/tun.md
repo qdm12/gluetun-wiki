@@ -70,8 +70,15 @@ This can happen with `podman`, usually due to SELinux. Create a SELinux policy t
 1. Install the policy: `semodule -i gluetun_policy.pp`
 
 Alternatively generate the policy yourself:
-- Start the container, extract SELinux policy: `sudo grep gluetun /var/log/audit/audit.log | audit2allow -a -M gluetun_policy`
-- Inspect the policy `cat gluetun_policy.te` and install it with `semodule -i gluetun_policy.pp`
+
+1. Start the container and extract the SELinux policy
+
+    ```sh
+    sudo grep gluetun /var/log/audit/audit.log | audit2allow -a -M gluetun_policy
+    ```
+
+1. Inspect the policy `cat gluetun_policy.te`
+1. Install it with `semodule -i gluetun_policy.pp`
 
 
 Another solution is to run the container with `--privileged`.
