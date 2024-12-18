@@ -64,13 +64,13 @@ Thanks to [@Vendetta1985](https://github.com/Vendetta1985), [source comment](htt
 
 ## `TUN device is not available: open /dev/net/tun: permission denied`
 
-This can happen with `podman`, usually due to SELinux. Create a SELinux policy to allow the rootless container to use the `/dev/net/tun` device.    
+This can happen with `podman`, usually due to SELinux. Create a SELinux policy to allow the rootless container to use the `/dev/net/tun` device.
 
 1. Copy the content below to a new file `gluetun_policy.te`
 
     ```bash
     module gluetun_policy 1.0;
-    
+
     require {
             type tun_tap_device_t;
             type container_file_t;
