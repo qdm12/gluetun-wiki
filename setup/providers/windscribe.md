@@ -4,7 +4,7 @@
 
 ```sh
 # OpenVPN
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=windscribe \
 -e VPN_TYPE=openvpn \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
@@ -13,7 +13,7 @@ docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
 
 ```sh
 # Wireguard
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=windscribe \
 -e VPN_TYPE=wireguard \
 -e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \

@@ -7,7 +7,7 @@
 First, [setup your client key](../advanced/openvpn-client-key.md). Then you can use:
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=wevpn \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
 -e SERVER_CITIES=Amsterdam qmcgaw/gluetun

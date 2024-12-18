@@ -104,7 +104,7 @@ You can also do this through IDE such as [VS Code source control](https://code.v
 1. Run it with:
 
     ```sh
-    docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+    docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
       -e VPN_SERVICE_PROVIDER=someprovider \
       -e VPN_TYPE=openvpn \
       -e OPENVPN_USER=test -e OPENVPN_PASSWORD=test \

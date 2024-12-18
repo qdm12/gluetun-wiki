@@ -5,7 +5,7 @@
 ### Wireguard
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
   -e VPN_SERVICE_PROVIDER=airvpn \
   -e VPN_TYPE=wireguard \
   -e WIREGUARD_PRIVATE_KEY=yCbHtKAgJASnJs2S/aZsjag9Fy04csmR4qDUDkJgX2c= \
@@ -40,7 +40,7 @@ services:
 1. [Setup your client certificate](../advanced/openvpn-client-certificate.md)
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
   -e VPN_SERVICE_PROVIDER=airvpn \
   -v /yourpath:/gluetun \
   -e SERVER_COUNTRIES=Netherlands \
