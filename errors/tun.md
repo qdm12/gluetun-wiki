@@ -83,6 +83,23 @@ This happens on LXC containers.
 🙏 thanks to [@user037951](https://github.com/user037951), [source discussion](https://github.com/qdm12/gluetun/discussions/637#discussioncomment-2120340).
 🙏 thanks to [@Vendetta1985](https://github.com/Vendetta1985), [source comment](https://github.com/qdm12/gluetun/issues/700#issuecomment-1039595490)
 
+## `cannot Unix Open TUN device file: operation not permitted`
+
+### Kubernetes
+
+This can occur due to [a change in containerd](https://github.com/opencontainers/runc/pull/3468) that restricts access to the tun device from un-priviledged containers.
+
+To resolve, ensure the container is marked as privileged:
+
+  ```yaml
+  containers:
+    - image: ghcr.io/qdm12/gluetun:<version>
+      securityContext:
+        privileged: true
+  ```
+
+There is some additional context and discussion on [this issue](https://github.com/tailscale/tailscale/issues/10814) on the tailscale project.
+
 ## `creating TUN device file node: file exists`
 
 Either:
