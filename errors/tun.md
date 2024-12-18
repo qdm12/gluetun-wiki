@@ -79,8 +79,6 @@ Alternatively generate the policy yourself:
 
 1. Inspect the policy `cat gluetun_policy.te`
 1. Install it with `semodule -i gluetun_policy.pp`
-
-
 Another solution is to run the container with `--privileged`.
 
 Thanks to [@OkanEsen](https://github.com/OkanEsen), [source comment](https://github.com/qdm12/gluetun/issues/700#issuecomment-1046259375)
