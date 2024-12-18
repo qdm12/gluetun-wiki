@@ -62,7 +62,7 @@ We assume every request described in the following is run on `http://<your-docke
     apikey = "myapikey"
     ```
 
-    You can generate an api key with `docker run --rm qmcgaw/gluetun genkey`.
+    You can generate an API key by running `docker run --rm qmcgaw/gluetun genkey` which will ouptut a 22 character [base 58](https://en.wikipedia.org/wiki/Binary-to-text_encoding#Encoding_standards) value which is suitable as an `apikey`.
 
 ### Default behavior
 

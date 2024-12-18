@@ -6,7 +6,8 @@
 1. [Setup your client certificate](../advanced/openvpn-client-certificate.md)
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=slickvpn \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
+-e VPN_SERVICE_PROVIDER=slickvpn \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
 ```
@@ -18,6 +19,8 @@ services:
     image: qmcgaw/gluetun
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     environment:
       - VPN_SERVICE_PROVIDER=slickvpn
       - OPENVPN_USER=abc
