@@ -72,7 +72,7 @@ Requirements:
 - `VPN_PORT_FORWARDING=on`
 - If you use **Wireguard** using the custom provider, set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`
 
-ProtonVPN will forward a random port. See [vpn port forwarding options](../advanced/vpn-port-forwarding.md) for ways to access the forwarded port. Additionally it is also available in the logs and can be redirected automatically using [port forwarding options](../options/port-forwarding.md). Subsequently you can setup your favourite software to listen on the given port, or use redirection. Redirection might not be sufficient in all cases, as the software might still communicate the configured port, and not the forwarded port, to other instances.
+ProtonVPN will forward a random port. See [vpn port forwarding options](../advanced/vpn-port-forwarding.md) for ways to access the forwarded port. Additionally it is also available in the logs and can be redirected automatically using [port forwarding options](../options/port-forwarding.md). Subsequently you can setup your favourite software to listen on the given port, or use redirection. Redirection might not be sufficient in all cases, as the software (i.e. Torrenting) may broadcast the port it's listening on which is not the redirected port.
 
 ## Multi hop regions
 
