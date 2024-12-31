@@ -35,7 +35,7 @@ services:
       - SERVER_COUNTRIES=Netherlands
 ```
 
-💁 To use with Wireguard, download a configuration file from [account.proton.me/u/0/vpn/WireGuard](https://account.proton.me/u/0/vpn/WireGuard) and head to [the custom provider Wireguard section](custom.md#wireguard). Thanks to [@pvanryn](https://github.com/pvanryn) for pointing this out. Note however you cannot filter servers as easily as with OpenVPN since each server uses its own private key and/or peer address.
+💁 To use with Wireguard, download a configuration file from [account.proton.me/u/0/vpn/WireGuard](https://account.proton.me/u/0/vpn/WireGuard) and set the `WIREGUARD_PRIVATE_KEY`. You can do a [the custom provider Wireguard section](custom.md#wireguard) to pick a specific server. Thanks to [@pvanryn](https://github.com/pvanryn) for pointing this out.
 
 ## Required environment variables
 
@@ -75,6 +75,7 @@ Requirements:
 - Add `+pmp` to your OpenVPN username (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288))
 - `VPN_PORT_FORWARDING=on`
 - If you use **Wireguard** using the custom provider, set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`
+- See [custom port forwarding updown command](advanced/vpn-port-forwarding.md#custom-port-forwarding-updown-command) for examples of how to automate this.
 
 ## Multi hop regions
 
