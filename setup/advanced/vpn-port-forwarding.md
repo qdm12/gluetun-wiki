@@ -34,6 +34,15 @@ Notes:
 - one can bind mount a shell script in Gluetun and execute it with for example `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c /gluetun/myscript.sh` - 💁  feel free to propose a pull request to add commonly used shell scripts for port forwarding!
 - the output of the command is written to the port forwarding logger within Gluetun
 
+### qBittorrent Example
+
+See [qbittorrent-port-updater.sh](scripts/qbittorrent-port-updater.sh) for an example of how this can be done. Add a bind mount to this script and then refert to it: `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c "/tmp/qbit-port-updater.sh {{PORTS}}"`
+
+Notes:
+
+- In order to get the call working make sure port qBittorrent is listening on is open. For example `- 8080:8080` to the ports definition. Without this calls do not go through.
+- Add `127.0.0.1/32` to bypass authentication settings for qBittorrent.
+
 ## Allow a forwarded port through the firewall
 
 For non-native integrations where you have a designated forwarded port from your VPN provider, you can allow it by adding it to the environment variable `FIREWALL_VPN_INPUT_PORTS`.
