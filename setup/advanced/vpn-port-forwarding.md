@@ -41,7 +41,7 @@ Notes:
 - In order to get the call working make sure port qBittorrent is listening on is open. IE it should be added as port being exposed by gluetun. In the example above we are assuming port `8080` is the port being used by qBittorrent.
 - Add `127.0.0.1/32` to bypass authentication settings for qBittorrent.
 
-Thanks to [@markleaf131313](https://github.com/markleaf131313)
+Thanks to [@Marsu31](https://github.com/Marsu31)
 
 ## Allow a forwarded port through the firewall
 
