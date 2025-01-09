@@ -58,7 +58,7 @@ services:
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
 - `FREE_ONLY`: Filter only free tier servers by setting it to `on`. It defaults to `off`.
-- `STREAM_ONLY`: Filter only free tier servers by setting it to `on`. It defaults to `off`.
+- `STREAM_ONLY`: Filter only streaming enabled servers by setting it to `on`. It defaults to `off`.
 - `SECURE_CORE_ONLY`: Filter only secure core servers by setting it to `on`. It defaults to `off`.
 - `TOR_ONLY`: Filter only TOR servers by setting it to `on`. It defaults to `off`.
 - `PORT_FORWARD_ONLY`: Filter only port-forwarding enabled (aka *p2p*) servers by setting it to `on`. It defaults to `off`.
