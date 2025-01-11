@@ -86,7 +86,7 @@ The path are in the root `/v1/openvpn/` due to historical reasons, and will be m
 - HTTP PUT to `/v1/openvpn/status` with a body `{"status":"running"}` to start Openvpn (and stop Wireguard)
 - HTTP PUT to `/v1/openvpn/status` with a body `{"status":"stopped"}` to stop Openvpn if it's running
 - HTTP GET to `/v1/openvpn/portforwarded` to obtain the port forwarded such as `{"port":5914}`
-- HTTP PUT to `/v1/openvpn/portforwarded` with a body `{"ports": [5914]}` which overrides the exising port forwardings with the provided list of ports, thus also allowing clearing said ports with `{"ports": []}`
+- HTTP PUT to `/v1/openvpn/portforwarded` with a body `{"ports": [5914]}` which overrides the exising port forwardings with the provided list of ports, thus also allowing clearing said portforwardings with `{"ports": []}`
 - HTTP GET to `/v1/openvpn/settings` to obtain the settings used by Openvpn (not Wireguard) in a JSON format
 
 
