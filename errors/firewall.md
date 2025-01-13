@@ -29,6 +29,6 @@ If you use Portainer to run the container and get the error:
 Perhaps iptables or your kernel needs to be upgraded.: exit status 3
 ```
 
-This might be because Portainer does not set the `--cap_add=NET_ADMIN` successfully.
+This might be because Portainer does not set the `--cap-add=NET_ADMIN` successfully.
 
 You might need to run the container without Portainer in this case. More information on [#139](https://github.com/qdm12/gluetun/issues/139).
