@@ -6,7 +6,8 @@
 # OpenVPN
 docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=mullvad \
--e VPN_TYPE=openvpn -e OPENVPN_USER=1355131650462193 \
+-e VPN_TYPE=openvpn \
+-e OPENVPN_USER=1355131650462193 \
 -e SERVER_CITIES=amsterdam qmcgaw/gluetun
 ```
 
