@@ -34,6 +34,21 @@ Notes:
 - one can bind mount a shell script in Gluetun and execute it with for example `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c /gluetun/myscript.sh` - 💁  feel free to propose a pull request to add commonly used shell scripts for port forwarding!
 - the output of the command is written to the port forwarding logger within Gluetun
 
+### Integration scripts for `VPN_PORT_FORWARDING_UP_COMMAND`
+
+Gluetun ships a collection of integration scripts to use in combination with `VPN_PORT_FORWARDING_UP_COMMAND` to update the ports used by specific applications such as BitTorrent clients. These scripts are located in the folder `extras/scripts` in the [Gluetun repository](https://github.com/qdm12/gluetun) and the 
+folder `/scripts` within the Gluetun Docker image.
+
+- **Transmission** (BitTorrent client): script `transmission-port-update.sh`, updates `peer-port` via its RPC API. Example:
+
+```sh
+      VPN_PORT_FORWARDING_UP_COMMAND=/scripts/transmission-port-update.sh \
+        -u admin \
+        -p ${TRANSMISSION_PASS} \
+        -P {{PORTS}} \
+        -U http://localhost:9091/transmission/rpc
+```
+
 ## Allow a forwarded port through the firewall
 
 For non-native integrations where you have a designated forwarded port from your VPN provider, you can allow it by adding it to the environment variable `FIREWALL_VPN_INPUT_PORTS`.
