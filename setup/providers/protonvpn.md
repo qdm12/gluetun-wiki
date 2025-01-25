@@ -44,7 +44,7 @@ services:
 - `OPENVPN_USER` is your **OPENVPN specific** username. Find it at [account.proton.me/u/0/vpn/OpenVpnIKEv2](https://account.proton.me/u/0/vpn/OpenVpnIKEv2).
 - `OPENVPN_PASSWORD`
 
-### WireGuard only
+### Wireguard only
 
 - `VPN_TYPE=wireguard`
 - `WIREGUARD_PRIVATE_KEY` is your 32 byte key in base64 format.
