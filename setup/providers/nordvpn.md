@@ -12,6 +12,8 @@ docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 
 💁 Your credentials are NO LONGER your email+password, it is now your service credentials.
 
+[▶️ obtain your service credential](https://my.nordaccount.com/dashboard/nordvpn/manual-configuration/service-credentials/)
+
 ```sh
 # Wireguard
 docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
