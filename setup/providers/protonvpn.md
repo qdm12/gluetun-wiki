@@ -75,7 +75,6 @@ Requirements:
 - Add `+pmp` to your OpenVPN username (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288))
 - `VPN_PORT_FORWARDING=on`
 - If you use **Wireguard** using the custom provider, set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`
-- See [custom port forwarding updown command](advanced/vpn-port-forwarding.md#custom-port-forwarding-updown-command) for examples of how to automate this.
 
 ## Multi hop regions
 
