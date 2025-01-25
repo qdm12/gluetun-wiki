@@ -11,7 +11,7 @@ docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
 ```
 
 ```sh
-# WireGuard
+# Wireguard
 docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
 -e VPN_SERVICE_PROVIDER=protonvpn \
 -e VPN_TYPE=wireguard \
