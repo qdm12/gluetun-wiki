@@ -83,9 +83,8 @@ For example setting `SERVER_HOSTNAMES=ch-us-01a.protonvpn.com` would set a multi
 
 Paid ProtonVPN subscribers can optionally use [Moderate NAT](https://protonvpn.com/support/moderate-nat/) on their connections.
 
-To do so with OpenVPN, append `+nr` to the ProtonVPN username. For example, if your ProtonVPN username was `johndoe`, set `OPENVPN_USER` to `johndoe+nr`.
-
-To do so with WireGuard, when provisioning a configuration file from [account.proton.me/u/0/vpn/WireGuard](https://account.proton.me/u/0/vpn/WireGuard), under `Select VPN options`, enable `Moderate NAT` before creating your configuration file containing your private key.
+- OpenVPN: append `+nr` to your ProtonVPN username
+- WireGuard: when [generating a configuration file](https://account.proton.me/u/0/vpn/WireGuard), under `Select VPN options`, enable `Moderate NAT`
 
 ## Servers
 
