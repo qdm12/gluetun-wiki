@@ -35,7 +35,7 @@ services:
       - SERVER_COUNTRIES=Netherlands
 ```
 
-💁 To use with Wireguard, download a configuration file from [account.proton.me/u/0/vpn/WireGuard](https://account.proton.me/u/0/vpn/WireGuard) and set the `WIREGUARD_PRIVATE_KEY`. You can do a [the custom provider Wireguard section](custom.md#wireguard) to pick a specific server. Thanks to [@pvanryn](https://github.com/pvanryn) for pointing this out.
+💁 To use with Wireguard, download a configuration file from [account.proton.me/u/0/vpn/WireGuard](https://account.proton.me/u/0/vpn/WireGuard) and head to [the custom provider Wireguard section](custom.md#wireguard). Thanks to [@pvanryn](https://github.com/pvanryn) for pointing this out. Note however you cannot filter servers as easily as with OpenVPN since each server uses its own private key and/or peer address.
 
 ## Required environment variables
 
