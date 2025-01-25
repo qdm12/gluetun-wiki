@@ -36,7 +36,7 @@ Notes:
 
 ### qBittorrent example
 
-`VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c '/usr/bin/wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORTS}}}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'`
+`VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORTS}}}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'`
 
 - In order to get the call working make sure port qBittorrent is listening on is open. IE it should be added as port being exposed by gluetun. In the example above we are assuming port `8080` is the port being used by qBittorrent.
 - Add `127.0.0.1/32` to bypass authentication settings for qBittorrent.
