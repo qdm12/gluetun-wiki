@@ -51,9 +51,9 @@ You can test it with:
 ```sh
 docker exec -it gluetun /bin/sh
 # Change amd64 to your CPU architecture
-wget -qO port-checker https://github.com/qdm12/port-checker/releases/download/v0.3.0/port-checker_0.3.0_linux_amd64
+wget -qO port-checker https://github.com/qdm12/port-checker/releases/download/v0.4.0/port-checker_0.4.0_linux_amd64
 chmod +x port-checker
-./port-checker -port 4567
+./port-checker --listening-address=":4567"
 ```
 
 Then in your browser, access [http://99.99.99.99:4567](http://99.99.99.99:4567).
