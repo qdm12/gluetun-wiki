@@ -73,8 +73,6 @@ Requirements:
 - `VPN_PORT_FORWARDING=on`
 - For OpenVPN
   - Append `+pmp` to your OpenVPN username. For example, if your ProtonVPN username was `johndoe`, set `OPENVPN_USER` to `johndoe+pmp` (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288)). ProtonVPN documentation on [port forwarding with OpenVPN](https://protonvpn.com/support/port-forwarding-manual-setup#openvpn)
-- For WireGuard
-  - Set `VPN_PORT_FORWARDING_PROVIDER=protonvpn`
 
 ## Multi hop regions
 
