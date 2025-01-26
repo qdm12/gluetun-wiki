@@ -40,7 +40,7 @@ Mullvad will [remove OpenVPN support](https://mullvad.net/en/blog/removing-openv
 
 - `OPENVPN_USER` which is your Mullvad user ID.
 
-### WireGuard only
+### Wireguard only
 
 - `WIREGUARD_ADDRESSES` is the Wireguard IP network interface address in CIDR format `xx.xx.xx.xx/xx`. To obtain it, first download a Wireguard configuration file using same steps as for `WIREGUARD_PRIVATE_KEY` above. In the configuration file, locate the `Address` value. This one should contain a comma delimited list of an IPv4 and IPv6 address, so use the IPv4 address (usually the first one) as the value for the `WIREGUARD_ADDRESSES` environment variable. Note this is the same value for all Mullvad servers and for your private key. 💁 [Screenshots on how to obtain it](https://github.com/qdm12/gluetun/discussions/805#discussioncomment-2026642).
 
