@@ -3,15 +3,6 @@
 ## TLDR
 
 ```sh
-# OpenVPN
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
--e VPN_SERVICE_PROVIDER=mullvad \
--e VPN_TYPE=openvpn -e OPENVPN_USER=1355131650462193 \
--e SERVER_CITIES=amsterdam qmcgaw/gluetun
-```
-
-```sh
-# Wireguard
 docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=mullvad \
 -e VPN_TYPE=wireguard \
@@ -37,6 +28,8 @@ services:
       - SERVER_CITIES=Amsterdam
 ```
 
+⚠️  [Openvpn will be removed by Mullvad in 2026](https://mullvad.net/en/blog/removing-openvpn-15th-january-2026) hence the openvpn example has been removed from here.
+
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=mullvad`
@@ -57,11 +50,17 @@ services:
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
 - `ISP`: Comma separated list of ISPs
 - `OWNED_ONLY`: If the VPN server is owned by Mullvad. It defaults to `no`, meaning it includes all servers. It can be set to `yes`.
-- For OpenVPN, `OPENVPN_ENDPOINT_PORT` which can be:
+
+### OpenVPN only
+
+- `OPENVPN_ENDPOINT_PORT` which can be:
   - TCP: it can only be `80`, `443` or `1401`
   - UDP: it can only be `53`, `1194`, `1195`, `1196`, `1197`, `1300`, `1301`,   `1302`, `1303` or `1400`
   - It defaults to `443` for TCP and `1194` for UDP
-- For Wireguard, `WIREGUARD_ENDPOINT_PORT` which can be any value and defaults to `51820`
+
+### WireGuard only
+
+- `WIREGUARD_ENDPOINT_PORT` which can be any value and defaults to `51820`
 
 ## IPv6 tunneling with OpenVPN
 
