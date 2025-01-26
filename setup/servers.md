@@ -74,6 +74,7 @@ version: "3"
 services:
   gluetun:
     image: qmcgaw/gluetun
+    # ...
     volumes:
       /yourpath:/gluetun
     command: update -enduser -providers mullvad

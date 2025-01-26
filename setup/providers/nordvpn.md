@@ -4,16 +4,20 @@
 
 ```sh
 # OpenVPN
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=nordvpn \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
+-e VPN_SERVICE_PROVIDER=nordvpn \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
 ```
 
 💁 Your credentials are NO LONGER your email+password, it is now your service credentials.
 
+[▶️ obtain your service credential](https://my.nordaccount.com/dashboard/nordvpn/manual-configuration/service-credentials/)
+
 ```sh
 # Wireguard
-docker run -it --rm --cap-add=NET_ADMIN -e VPN_SERVICE_PROVIDER=nordvpn \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
+-e VPN_SERVICE_PROVIDER=nordvpn \
 -e VPN_TYPE=wireguard \
 -e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
@@ -28,6 +32,8 @@ services:
     image: qmcgaw/gluetun
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     environment:
       - VPN_SERVICE_PROVIDER=nordvpn
       - VPN_TYPE=openvpn # or wireguard
