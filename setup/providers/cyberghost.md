@@ -6,7 +6,7 @@
 1. [Setup your client certificate](../advanced/openvpn-client-certificate.md)
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=cyberghost \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
 -v /yourpath:/gluetun \

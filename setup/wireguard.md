@@ -8,6 +8,7 @@ Gluetun supports Wireguard with native integration for the following providers:
 - [Ivpn](providers/ivpn.md)
 - [Mullvad](providers/mullvad.md)
 - [NordVPN](providers/nordvpn.md)
+- [ProtonVPN](providers/protonvpn.md)
 - [Surfshark](providers/surfshark.md)
 - [Windscribe](providers/windscribe.md)
 

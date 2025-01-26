@@ -3,7 +3,7 @@
 ## TLDR
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=ipvanish \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
 -e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun

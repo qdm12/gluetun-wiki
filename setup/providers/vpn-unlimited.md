@@ -10,7 +10,7 @@ For OpenVPN:
 1. [Setup your client certificate](../advanced/openvpn-client-certificate.md)
 
 ```sh
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER="vpn unlimited" \
 -v /yourpath/gluetun:/gluetun \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \

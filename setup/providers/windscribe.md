@@ -4,7 +4,7 @@
 
 ```sh
 # OpenVPN
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=windscribe \
 -e VPN_TYPE=openvpn \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc \
@@ -13,7 +13,7 @@ docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
 
 ```sh
 # Wireguard
-docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/run \
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 -e VPN_SERVICE_PROVIDER=windscribe \
 -e VPN_TYPE=wireguard \
 -e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
@@ -66,7 +66,14 @@ services:
 
 ### VPN server port forwarding
 
+#### Ephemeral port forwarding
+
 1. Follow the [Windscribe instructions](https://windscribe.com/support/article/37/what-is-ephemeral-port-forwarding-and-how-to-use-it)
+1. In your container configuration, set `FIREWALL_VPN_INPUT_PORTS` to the port you have been assigned, for example: `FIREWALL_VPN_INPUT_PORTS=8099`
+
+#### Permanent port forwarding (static IP)
+
+1. Follow the [custom provider setup instructions](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/custom.md), using the [openvpn](https://windscribe.com/getconfig/openvpn) or [wireguard](https://windscribe.com/getconfig/wireguard) configuration file that Windscribe provides for static ips.
 1. In your container configuration, set `FIREWALL_VPN_INPUT_PORTS` to the port you have been assigned, for example: `FIREWALL_VPN_INPUT_PORTS=8099`
 
 ## Servers
