@@ -28,9 +28,7 @@ services:
       - SERVER_CITIES=Amsterdam
 ```
 
-## IMPORTANT
-
-Mullvad will [remove OpenVPN support](https://mullvad.net/en/blog/removing-openvpn-15th-january-2026) on **15th January 2026**. It is strongly advised to start using WireGuard.
+⚠️  [Openvpn will be removed by Mullvad in 2026](https://mullvad.net/en/blog/removing-openvpn-15th-january-2026) hence the openvpn example has been removed from here.
 
 ## Required environment variables
 
