@@ -66,7 +66,8 @@ services:
 
 ### VPN server port forwarding
 
-#### Ephemeral Port Forwarding
+#### Ephemeral port forwarding
+
 1. Follow the [Windscribe instructions](https://windscribe.com/support/article/37/what-is-ephemeral-port-forwarding-and-how-to-use-it)
 1. In your container configuration, set `FIREWALL_VPN_INPUT_PORTS` to the port you have been assigned, for example: `FIREWALL_VPN_INPUT_PORTS=8099`
 
