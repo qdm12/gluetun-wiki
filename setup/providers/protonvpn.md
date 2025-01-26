@@ -66,6 +66,9 @@ services:
 
 - `VPN_PORT_FORWARDING=on` : this option is applicable for both OpenVPN and Wireguard.
 
+### OpenVPN  only
+- Also add `+pmp` to your OpenVPN username (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288))
+
 ## Multi hop regions
 
 Simply set the `SERVER_HOSTNAMES` environment variable to a hostname corresponding to a multi hop region (see [Servers](#servers)).
