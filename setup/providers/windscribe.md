@@ -66,7 +66,14 @@ services:
 
 ### VPN server port forwarding
 
+#### Ephemeral port forwarding
+
 1. Follow the [Windscribe instructions](https://windscribe.com/support/article/37/what-is-ephemeral-port-forwarding-and-how-to-use-it)
+1. In your container configuration, set `FIREWALL_VPN_INPUT_PORTS` to the port you have been assigned, for example: `FIREWALL_VPN_INPUT_PORTS=8099`
+
+#### Permanent port forwarding (static IP)
+
+1. Follow the [custom provider setup instructions](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/custom.md), using the [openvpn](https://windscribe.com/getconfig/openvpn) or [wireguard](https://windscribe.com/getconfig/wireguard) configuration file that Windscribe provides for static ips.
 1. In your container configuration, set `FIREWALL_VPN_INPUT_PORTS` to the port you have been assigned, for example: `FIREWALL_VPN_INPUT_PORTS=8099`
 
 ## Servers
