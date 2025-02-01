@@ -39,7 +39,7 @@ services:
 
 ## VPN server port forwarding
 
-Set `VPN_PORT_FORWARDING=on` and the 3 ports forwarded will be logged out as well as available via the http control server.
+Set `VPN_PORT_FORWARDING=on` and the 3 ports forwarded will be logged out as well as available via the http control server. See [VPN server port forwarding setup page](../advanced/vpn-port-forwarding.md) for more details.
 
 ## Servers
 

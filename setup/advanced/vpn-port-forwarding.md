@@ -6,10 +6,12 @@
 
 ## Native integrations
 
-VPN server side port forwarding is implemented natively into Gluetun for the following providers:
+VPN server side port forwarding is currently implemented natively into Gluetun for the following providers:
 
 - **Private Internet Access**, [more information](../providers/private-internet-access.md)
 - **ProtonVPN**, [more information](../providers/protonvpn.md)
+- **Perfect Privacy**, [more information](../providers/perfect-privacy.md)
+- **PrivateVPN**, [more information](../providers/privatevpn.md)
 
 You can enable it with `VPN_PORT_FORWARDING=on`.
 The forwarded port can be accessed:
@@ -36,15 +38,23 @@ Notes:
 
 ### qBittorrent example
 
-`VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORTS}}}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'`
+`VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":$(echo {{PORTS}} | cut -d, -f1),\"random_port\":false,\"upnp\":false}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'`
 
 For this to work, the qBittorrent web UI server must be enabled and listening on port `8080` and the Web UI "Bypass authentication for clients on localhost" must be ticked (json key `bypass_local_auth`) so Gluetun can reach qBittorrent without authentication.
 
-Thanks to [@Marsu31](https://github.com/Marsu31)
+### Transmission example
+
+Transmission API requires CSRF tokens, so check out [the `transmission-port-update.sh` script](https://github.com/qdm12/gluetun/pull/2611/files).
 
 ## Allow a forwarded port through the firewall
 
 For non-native integrations where you have a designated forwarded port from your VPN provider, you can allow it by adding it to the environment variable `FIREWALL_VPN_INPUT_PORTS`.
+
+## Port redirection using iptables
+
+Gluetun supports setting up a redirection of incoming traffic from VPN opened port to a custom localhost port of your choosing, by using the `VPN_PORT_FORWARDING_LISTENING_PORT` environmental variable. Do not use this with torrent clients, or any other software that publicly announces its port, as that software wouldn't know what the publicly visible port is, and would be announcing the private port instead.
+
+For example, if you have a web server (nginx, caddy, apache) listening on port 80, you can set `VPN_PORT_FORWARDING_LISTENING_PORT=80` to expose it to the outside world on all available VPN server's public ports.
 
 ## Test it
 
