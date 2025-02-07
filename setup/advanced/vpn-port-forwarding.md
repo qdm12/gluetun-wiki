@@ -76,7 +76,7 @@ if [ "$login_response" != "Ok." ]; then
 fi
 
 echo "Login successful. Session cookie saved."
-echo "Updating QBittorrent port to $port..."
+echo "Updating qBittorrent port to $port..."
 
 wget --quiet --load-cookies=/tmp/cookies.txt \
      --post-data="json={\"listen_port\": $port}" \
