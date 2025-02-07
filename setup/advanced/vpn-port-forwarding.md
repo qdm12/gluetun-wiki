@@ -79,7 +79,7 @@ done
 set -e
 
 if [ "$response" != "Ok." ]; then
-    echo "Unable to log in to to qBittorrent."
+    echo "Unable to log in to qBittorrent."
     rm -f /tmp/cookies.txt
 
     exit 1
