@@ -58,34 +58,40 @@ services:
 set -e
 
 port="$1"
+retries="${UPDATE_PORT_RETRIES:-5}"
+interval="${UPDATE_PORT_RETRY_INTERVAL:-10}"
 
-echo "Logging in to qBittorrent as $QBIT_USERNAME..."
+echo "Attempting to update qBittorrent port to $port..."
 
-wget --quiet --save-cookies=/tmp/cookies.txt --keep-session-cookies \
-     --post-data="username=$QBIT_USERNAME&password=$QBIT_PASSWORD" \
-     --header="Referer: $QBIT_ADDRESS" \
-     "$QBIT_ADDRESS/api/v2/auth/login" -O /tmp/login_response.txt
+for i in $(seq 1 "$retries"); do
+  response=$(wget --quiet --save-cookies=/tmp/cookies.txt --keep-session-cookies \
+                  --post-data="username=$QBIT_USERNAME&password=$QBIT_PASSWORD" \
+                  --header="Referer: $QBIT_ADDRESS" \
+                  "$QBIT_ADDRESS/api/v2/auth/login" -O -)
 
-login_response=$(cat /tmp/login_response.txt)
+  if [ "$response" = "Ok." ]; then
+    break
+  fi
 
-if [ "$login_response" != "Ok." ]; then
-  echo "Error: Login failed. Response: $login_response"
-  exit 1
+  echo "Login attempt $i/$retries failed. Retrying in $interval seconds..."
+
+  sleep "$interval"
+done
+
+if [ "$response" != "Ok." ]; then
+    echo "Unable to log in to to qBittorrent."
+    rm -f /tmp/cookies.txt
+
+    exit 1
 fi
-
-echo "Login successful. Session cookie saved."
-echo "Updating qBittorrent port to $port..."
 
 wget --quiet --load-cookies=/tmp/cookies.txt \
      --post-data="json={\"listen_port\": $port}" \
-     "$QBIT_ADDRESS/api/v2/app/setPreferences" -O /tmp/set_preferences_response.txt
+     "$QBIT_ADDRESS/api/v2/app/setPreferences" -O /dev/null
 
-if grep -q "403 Forbidden" /tmp/set_preferences_response.txt; then
-  echo "Error: Setting port failed. Unauthorized (403 Forbidden)."
-  exit 1
-fi
+rm -f /tmp/cookies.txt
 
-echo "qBittorrent port updated successfully."
+echo "qBittorrent port updated successfully to $port."
 ```
 
 #### without authentication
