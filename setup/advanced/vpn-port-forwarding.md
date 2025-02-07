@@ -37,9 +37,8 @@ Notes:
 ### qBittorrent examples
 
 #### with authentication
-
-##### compose.yml
 ```yaml
+# compose.yml
 services:
   pf-gluetun:
     image: qmcgaw/gluetun
@@ -53,10 +52,9 @@ services:
       - ./gluetun/update-port.sh:/gluetun/update-port.sh
     ...
 ```
-
-##### update-port.sh
 ```sh
 #!/bin/sh
+# update-port.sh
 set -e
 
 port="$1"
