@@ -61,7 +61,7 @@ set -e
 
 port="$1"
 
-echo "Logging in to QBittorrent as $QBIT_USERNAME..."
+echo "Logging in to qBittorrent as $QBIT_USERNAME..."
 
 wget --quiet --save-cookies=/tmp/cookies.txt --keep-session-cookies \
      --post-data="username=$QBIT_USERNAME&password=$QBIT_PASSWORD" \
@@ -87,7 +87,7 @@ if grep -q "403 Forbidden" /tmp/set_preferences_response.txt; then
   exit 1
 fi
 
-echo "QBittorrent port updated successfully."
+echo "qBittorrent port updated successfully."
 ```
 
 #### without authentication
