@@ -34,7 +34,61 @@ Notes:
 - one can bind mount a shell script in Gluetun and execute it with for example `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c /gluetun/myscript.sh` - 💁  feel free to propose a pull request to add commonly used shell scripts for port forwarding!
 - the output of the command is written to the port forwarding logger within Gluetun
 
-### qBittorrent example
+### qBittorrent examples
+
+#### with authentication
+
+```yaml
+services:
+  pf-gluetun:
+    image: qmcgaw/gluetun
+    environment:
+      QBIT_ADDRESS: http://localhost:8080
+      QBIT_USERNAME: yourusername
+      QBIT_PASSWORD: yourpassword
+      VPN_PORT_FORWARDING_UP_COMMAND: /bin/sh -c 'sh /gluetun/update-port.sh "{{PORTS}}"'
+      ...
+    volumes:
+      - ./gluetun/update-port.sh:/gluetun/update-port.sh
+    ...
+```
+
+```sh
+#!/bin/sh
+set -e
+
+port="$1"
+
+echo "Logging in to QBittorrent as $QBIT_USERNAME..."
+
+wget --quiet --save-cookies=/tmp/cookies.txt --keep-session-cookies \
+     --post-data="username=$QBIT_USERNAME&password=$QBIT_PASSWORD" \
+     --header="Referer: $QBIT_ADDRESS" \
+     "$QBIT_ADDRESS/api/v2/auth/login" -O /tmp/login_response.txt
+
+login_response=$(cat /tmp/login_response.txt)
+
+if [ "$login_response" != "Ok." ]; then
+  echo "Error: Login failed. Response: $login_response"
+  exit 1
+fi
+
+echo "Login successful. Session cookie saved."
+echo "Updating QBittorrent port to $port..."
+
+wget --quiet --load-cookies=/tmp/cookies.txt \
+     --post-data="json={\"listen_port\": $port}" \
+     "$QBIT_ADDRESS/api/v2/app/setPreferences" -O /tmp/set_preferences_response.txt
+
+if grep -q "403 Forbidden" /tmp/set_preferences_response.txt; then
+  echo "Error: Setting port failed. Unauthorized (403 Forbidden)."
+  exit 1
+fi
+
+echo "QBittorrent port updated successfully."
+```
+
+#### without authentication
 
 `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORTS}}}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'`
 
