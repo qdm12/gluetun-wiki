@@ -55,8 +55,6 @@ services:
 ```sh
 #!/bin/sh
 # update-port.sh
-set -e
-
 port="$1"
 retries="${UPDATE_PORT_RETRIES:-5}"
 interval="${UPDATE_PORT_RETRY_INTERVAL:-10}"
@@ -77,6 +75,8 @@ for i in $(seq 1 "$retries"); do
 
   sleep "$interval"
 done
+
+set -e
 
 if [ "$response" != "Ok." ]; then
     echo "Unable to log in to to qBittorrent."
