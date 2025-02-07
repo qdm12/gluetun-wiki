@@ -38,6 +38,7 @@ Notes:
 
 #### with authentication
 
+##### compose.yml
 ```yaml
 services:
   pf-gluetun:
@@ -53,6 +54,7 @@ services:
     ...
 ```
 
+##### update-port.sh
 ```sh
 #!/bin/sh
 set -e
