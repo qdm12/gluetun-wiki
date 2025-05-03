@@ -71,6 +71,7 @@ services:
 Requirements:
 
 - `VPN_PORT_FORWARDING=on`
+- For Wireguard only, when [generating a configuration file](https://account.proton.me/u/0/vpn/WireGuard), under `Select VPN options`, enable `NAT-PMP (Port Forwarding)`
 - For OpenVPN only, append `+pmp` to your OpenVPN username (thanks to [@mortimr](https://github.com/qdm12/gluetun/issues/1760#issuecomment-1669518288)). If needed, see the [ProtonVPN OpenVPN port forwarding documentation](https://protonvpn.com/support/port-forwarding-manual-setup#openvpn).
 
 ProtonVPN will forward a random port. See [vpn port forwarding options](../advanced/vpn-port-forwarding.md) for ways to access the forwarded port. Additionally it is also available in the logs and can be redirected automatically using [port forwarding options](../options/port-forwarding.md). Subsequently you can setup your favourite software to listen on the given port, or use redirection. Redirection might not be sufficient in all cases, as the software (i.e. Torrenting) may broadcast the port it's listening on which is not the redirected port.
