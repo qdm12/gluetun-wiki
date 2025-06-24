@@ -9,7 +9,7 @@
 ```sh
 docker run -it --rm --cap-add=NET_ADMIN \
 -e VPN_SERVICE_PROVIDER=custom -e VPN_TYPE=openvpn \
--v /yourpath/yourconfig.conf:/gluetun/config.conf:ro \
+-v /yourpath/yourconfig.conf:/gluetun/custom.conf:ro \
 -e OPENVPN_CUSTOM_CONFIG=/gluetun/custom.conf \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc qmcgaw/gluetun
 ```
