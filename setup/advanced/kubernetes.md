@@ -32,7 +32,7 @@ spec:
 
 See the [original issue #2521 comment which resolved this](https://github.com/qdm12/gluetun/issues/2521#issuecomment-2453592258)
 
-## Reverse proxy running on the local network
+## Networking for reverse proxies running on the local network when using Unbound
 Some configurations might require interacting with a service that is running behind a reverse proxy on the local network,
 this can be accomplished without adding a public DNS record by using the `hostAliases` directive and configuring some environmental variables for the gluetun pod.
 
