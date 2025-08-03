@@ -38,7 +38,16 @@ Notes:
 
 `VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORTS}}}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'`
 
+
 For this to work, the qBittorrent web UI server must be enabled and listening on port `8080` and the Web UI "Bypass authentication for clients on localhost" must be ticked (json key `bypass_local_auth`) so Gluetun can reach qBittorrent without authentication.
+
+This doesnt seem to work anymore with the latest versions of qBittorrent but there is a solution:
+
+1. First you need to authenticate even if it is localhost
+2. Grab the cookie from the session
+3. Use cookie to post data to the API
+  
+`VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused -t 3 --save-cookies=cookies.txt --post-data "username=~admin_user~&password=~password_for_user~" http://127.0.0.1:8080/api/v2/auth/login; wget -O- --retry-connrefused -t 3 --load-cookies=cookies.txt --post-data "json={\"listen_port\":{{PORTS}}}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1`
 
 Thanks to [@Marsu31](https://github.com/Marsu31)
 
