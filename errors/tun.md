@@ -73,11 +73,11 @@ This can happen with `podman`, usually due to SELinux. Create a SELinux policy t
 
     require {
             type tun_tap_device_t;
-            type container_file_t;
             type container_t;
             class chr_file { getattr ioctl open read write };
-            class sock_file watch;
     }
+
+    allow container_t tun_tap_device_t:chr_file { getattr ioctl open read write };
     ```
 
 1. Convert it to a policy module: `checkmodule -M -m -o gluetun_policy.mod gluetun_policy.te`
@@ -96,7 +96,7 @@ Alternatively generate the policy yourself:
 1. Install it with `semodule -i gluetun_policy.pp`
 Another solution is to run the container with `--privileged`.
 
-Thanks to [@OkanEsen](https://github.com/OkanEsen), [source comment](https://github.com/qdm12/gluetun/issues/700#issuecomment-1046259375)
+Thanks to [@OkanEsen](https://github.com/OkanEsen), [source comment](https://github.com/qdm12/gluetun/issues/700#issuecomment-1046259375) and [@AlexPopov](https://github.com/alexpopov) for writing the `allow` rule. 
 
 ## `cannot Unix Open TUN device file: operation not permitted` and `cannot create TUN device file node: operation not permitted`
 
