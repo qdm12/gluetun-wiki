@@ -67,6 +67,9 @@ services:
 
 💁 You can also bind mount a wireguard configuration file (ini format) to `/gluetun/wireguard/wg0.conf`.
 
+⚠️ Note you MUST for now use an IP address for `WIREGUARD_ENDPOINT_IP`, domain names are not supported.
+Subscribe to [this issue](https://github.com/qdm12/gluetun/issues/2680) to be notified when this is supported.
+
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=custom`
