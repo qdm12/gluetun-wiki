@@ -32,9 +32,15 @@ We assume every request described in the following is run on `http://<your-docke
     auth = "basic"
     username = "myusername"
     password = "mypassword"
+
+    [[roles]]
+    name = "something"
+    routes = ["GET /v1/publicip/ip", "PUT /v1/vpn/status"]
+    auth = "none"
     ```
 
-    You can define multiple roles by adding more `[[roles]]`, and authentication methods are described in the section below.
+    See more details on authentication methods in the section below.
+    Note the `name` field is only for logs and has no other functional purpose.
 
 1. Bind mount the file you created to `/gluetun/auth/config.toml`. This container path can be changed with `HTTP_CONTROL_SERVER_AUTH_CONFIG_FILEPATH` if needed.
 1. Restart the container for the configuration file to take effect.
