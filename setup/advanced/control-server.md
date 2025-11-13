@@ -93,13 +93,11 @@ If you don't, anyone between your client device and Gluetun can see the data exc
 
 ## OpenVPN and Wireguard
 
-The HTTP control server allows to modify the state of OpenVPN and Wireguard.
-The path are in the root `/v1/openvpn/` due to historical reasons, and will be migrated in the future.
+The HTTP control server allows to modify the state of OpenVPN or Wireguard.
 
-- HTTP GET to `/v1/openvpn/status` to obtain the current status of Openvpn, such as `{"status":"running"}`
-- HTTP PUT to `/v1/openvpn/status` with a body `{"status":"running"}` to start Openvpn (and stop Wireguard)
-- HTTP PUT to `/v1/openvpn/status` with a body `{"status":"stopped"}` to stop Openvpn if it's running
-- HTTP GET to `/v1/openvpn/settings` to obtain the settings used by Openvpn (not Wireguard) in a JSON format
+- HTTP GET to `/v1/vpn/status` to obtain the current status of the VPN, such as `{"status":"running"}`
+- HTTP PUT to `/v1/vpn/status` with a body `{"status":"running"}` or `{"status":"stopped"}` to respectively start or stop the VPN
+- HTTP GET to `/v1/vpn/settings` to obtain the settings used by the VPN in a JSON format
 
 ## Port forwarding
 
