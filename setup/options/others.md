@@ -7,8 +7,8 @@
 | Variable | Default | Choices | Description |
 | --- | --- | --- | --- |
 | `TZ` | | i.e. `Europe/London` | Specify a [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) to use to have correct log times |
-| `PUID` | `0` (root) | | User ID to run as non root and for ownership of files written |
-| `PGID` | `0` (root) | | Group ID to run as non root and for ownership of files written |
+| `PUID` | `1000` | | User ID to run as non root and for ownership of files written |
+| `PGID` | `1000` | | Group ID to run as non root and for ownership of files written |
 | `PUBLICIP_ENABLED` | `true` | `true`, `false` | Check for public IP address information on VPN connection |
 | `PUBLICIP_API` | `ipinfo` | `ipinfo`, `ip2location`, `cloudflare` or custom URL | Public IP echo service API to use or an echoip URL in the form `echoip#https://xyz` |
 | `PUBLICIP_API_TOKEN` | | | Optional API token for the public IP echo service to increase rate limiting |

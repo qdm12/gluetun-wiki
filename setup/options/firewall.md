@@ -9,7 +9,7 @@
 | `FIREWALL_VPN_INPUT_PORTS` | | i.e. `1000,8080` | Comma separated list of ports to allow from the VPN server side |
 | `FIREWALL_INPUT_PORTS` | | i.e. `1000,8000` | Comma separated list of ports to allow through the default interface. This seems needed for Kubernetes sidecars. |
 | `FIREWALL_DEBUG` | `off` | `on` or `off` | Prints every firewall related command. You should use it for **debugging purposes** only. |
-| `FIREWALL_OUTBOUND_SUBNETS` | | i.e. `192.168.1.0/24,172.16.0.0/12,10.0.0.5/28` | Comma separated subnets that Gluetun and the containers sharing its network stack are allowed to access. This involves firewall and routing modifications. |
+| `FIREWALL_OUTBOUND_SUBNETS` | | i.e. `192.168.1.0/24,192.168.10.121,,10.0.0.5/28` | Comma separated subnets that Gluetun and the containers sharing its network stack are allowed to access. This involves firewall and routing modifications. |
 
 ## Custom iptables rules
 
