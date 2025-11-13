@@ -47,7 +47,7 @@ services:
 ### Wireguard only
 
 - `VPN_TYPE=wireguard`
-- `WIREGUARD_PRIVATE_KEY` is your 32 byte key in base64 format. The private key can be obtained by [generating a Wireguard configuration file](https://account.proton.me/u/0/vpn/WireGuard) and copy the displayed `PrivateKey` value. Note this value is the same for all ProtonVPN servers. 💁 [Guide on how to generate a configuration file](https://protonvpn.com/support/wireguard-configurations/)
+- `WIREGUARD_PRIVATE_KEY` is your 32 byte key in base64 format. The private key can be obtained by [generating a Wireguard configuration file](https://account.proton.me/u/0/vpn/WireGuard) and copy the displayed `PrivateKey` value. Note this value works for all ProtonVPN servers. 💁 [Guide on how to generate a configuration file](https://protonvpn.com/support/wireguard-configurations/)
 
 ## Optional environment variables
 
