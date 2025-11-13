@@ -54,7 +54,7 @@ services:
 
 - `WIREGUARD_PRIVATE_KEY` is your 32 bytes key in base64 format. Note this is specific by user and the same for all servers.
 - `WIREGUARD_ADDRESSES` is your IP network interface address in the format `xx.xx.xx.xx/xx`. Note this is specific by user and the same for all servers.
-- `WIREGUARD_PRESHARED_KEY` is your optional preshared key
+- `WIREGUARD_PRESHARED_KEY` is your preshared key and MUST be set.
 
 ## Optional environment variables
 
