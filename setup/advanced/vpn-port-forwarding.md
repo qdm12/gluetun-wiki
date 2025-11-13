@@ -42,9 +42,6 @@ Notes:
 
 For this to work, the qBittorrent web UI server must be enabled and listening on port `8080` and the Web UI "Bypass authentication for clients on localhost" must be ticked (json key `bypass_local_auth`) so Gluetun can reach qBittorrent without authentication.
 
-### Transmission example
-
-Transmission API requires CSRF tokens, so check out [the `transmission-port-update.sh` script](https://github.com/qdm12/gluetun/pull/2611/files).
 
 ## Allow a forwarded port through the firewall
 
