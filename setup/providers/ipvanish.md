@@ -34,7 +34,7 @@ services:
 ## Optional environment variables
 
 - `SERVER_COUNTRIES`: Comma separated list of countries
-- `SERVER_CITIES`: Comma separated list of countries
+- `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames
 
 ## Servers
