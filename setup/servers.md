@@ -13,7 +13,7 @@ docker run --rm -v /yourpath:/gluetun qmcgaw/gluetun format-servers -yourprovide
 where:
 
 - `/yourpath` is the path to your bind mounted directory
-- `yourprovider` is your VPN provider in lowercase without quotes, for example `protonvpn` or `private-internet-access`.
+- `-yourprovider` is your VPN provider in lowercase without quotes, for example `-protonvpn` or `-private-internet-access`.
 
 This will list the servers in Markdown format, for example:
 
