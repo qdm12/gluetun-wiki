@@ -2,7 +2,7 @@
 
 ## TLDR
 
-💁 To use with Wireguard, see [the custom provider Wireguard section](custom.md#wireguard). You will need to use the IP address of the endpoint instead of the domain - see [discussion](https://github.com/qdm12/gluetun/issues/2680).
+💁 To use with Wireguard, see [the custom provider Wireguard section](custom.md#wireguard).
 
 For OpenVPN:
 

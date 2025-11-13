@@ -44,6 +44,7 @@ Notes:
 For this to work, the qBittorrent web UI server must be enabled and listening on port `8080` and the Web UI "Bypass authentication for clients on localhost" must be ticked (json key `bypass_local_auth`) so Gluetun can reach qBittorrent without authentication.
 Due to a bug in qBittorrent, for port forwarding to be reestablished after a disconnect, the port needs to be re-set. This can be achieved automatically using the DOWN_COMMAND above.
 
+Thanks to [@Marsu31](https://github.com/Marsu31)
 
 ## Allow a forwarded port through the firewall
 
