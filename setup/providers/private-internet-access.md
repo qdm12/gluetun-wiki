@@ -71,7 +71,7 @@ From [@ddelange](https://github.com/ddelange) on issue [#464](https://github.com
 
 ### Setup
 
-Refer to the [VPN server port forwarding setup page](../advanced/vpn-port-forwarding.md).
+First refer to the [VPN server port forwarding setup page](../advanced/vpn-port-forwarding.md#native-integrations).
 
 Once enabled, you will keep the same forwarded port for 60 days as long as you bind mount the `/gluetun` directory. It will be automatically refreshed.
 

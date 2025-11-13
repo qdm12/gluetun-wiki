@@ -6,7 +6,7 @@
 
 ## Native integrations
 
-VPN server side port forwarding is currently implemented natively into Gluetun for the following providers:
+VPN server side port forwarding is implemented natively into Gluetun for the following providers:
 
 - **Private Internet Access**, [more information](../providers/private-internet-access.md)
 - **ProtonVPN**, [more information](../providers/protonvpn.md)
@@ -52,7 +52,7 @@ For non-native integrations where you have a designated forwarded port from your
 
 ## Port redirection using iptables
 
-Gluetun supports setting up a redirection of incoming traffic from VPN opened port to a custom localhost port of your choosing, by using the `VPN_PORT_FORWARDING_LISTENING_PORT` environmental variable. Do not use this with torrent clients, or any other software that publicly announces its port, as that software wouldn't know what the publicly visible port is, and would be announcing the private port instead.
+Gluetun supports setting up a redirection of incoming traffic from the VPN opened port to a custom localhost port of your choosing, by using the `VPN_PORT_FORWARDING_LISTENING_PORT` environment variable. Do not use this with torrent clients, or any other software that publicly announces its port, as that software would not be aware of the publicly visible port and would be announcing the private port instead.
 
 For example, if you have a web server (nginx, caddy, apache) listening on port 80, you can set `VPN_PORT_FORWARDING_LISTENING_PORT=80` to expose it to the outside world on all available VPN server's public ports.
 
