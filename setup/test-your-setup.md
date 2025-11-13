@@ -20,4 +20,4 @@ Ideally, use a computer and connect to `gluetun` using a Shadowsocks client tunn
 
 - Check DNSSEC using [internet.nl/connection](https://www.internet.nl/connection/)
 - Check DNS leaks with [https://www.dnsleaktest.com](https://www.dnsleaktest.com)
-- Some other DNS leaks tests might not work because of [this](https://github.com/qdm12/dns#verify-dns-connection) (*TLDR*: Unbound DNS server is a local caching intermediary)
+- Some other DNS leaks tests might not work because of [this](https://github.com/qdm12/dns#verify-dns-connection) (*TLDR*: the DNS server is a local caching intermediary)

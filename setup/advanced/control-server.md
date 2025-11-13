@@ -104,11 +104,11 @@ The path are in the root `/v1/openvpn/` due to historical reasons, and will be m
 
 ## DNS
 
-The HTTP control server allows to modify the state of Unbound, which is the subprocess responsible for DNS over TLS.
+The HTTP control server allows to modify the state of the DNS server, which is responsible for DNS over TLS/HTTPS.
 
-- HTTP GET to `/v1/dns/status` to obtain the current status of Unbound, such as `{"status":"running"}`
-- HTTP PUT to `/v1/dns/status` with a body `{"status":"running"}` to start Unbound
-- HTTP PUT to `/v1/dns/status` with a body `{"status":"stopped"}` to stop Unbound
+- HTTP GET to `/v1/dns/status` to obtain the current status of the DNS server, such as `{"status":"running"}`
+- HTTP PUT to `/v1/dns/status` with a body `{"status":"running"}` to start the DNS server
+- HTTP PUT to `/v1/dns/status` with a body `{"status":"stopped"}` to stop the DNS server
 
 ## Updater
 

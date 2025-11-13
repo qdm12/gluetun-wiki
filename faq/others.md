@@ -2,14 +2,13 @@
 
 ## What files does it download after tunneling
 
-If `DOT=off`, Unbound won't run and therefore no file will be downloaded by the program at all.
+If `DNS_SERVER=off`, the built-in DNS server won't run and therefore no file will be downloaded by the program at all.
 
-If `DOT=on`, after tunneling, it downloads at start (and periodically if `DNS_UPDATE_PERIOD` is not `0`):
+If `DNS_SERVER=on`, after tunneling, it downloads at start (and periodically if `DNS_UPDATE_PERIOD` is not `0`):
 
-- [DNS named root](https://github.com/qdm12/files/blob/master/named.root.updated) and the [DNS root key](https://github.com/qdm12/files/blob/master/root.key.updated) for Unbound
-- If `BLOCK_MALICIOUS=on`: [Malicious hostnames and IP addresses block lists](https://github.com/qdm12/files) for Unbound
-- If `BLOCK_SURVEILLANCE=on`: [Surveillance hostnames and IP addresses block lists](https://github.com/qdm12/files) for Unbound
-- If `BLOCK_ADS=on`: [Ads hostnames and IP addresses block lists](https://github.com/qdm12/files) for Unbound
+- If `BLOCK_MALICIOUS=on`: [Malicious hostnames and IP addresses block lists](https://github.com/qdm12/files)
+- If `BLOCK_SURVEILLANCE=on`: [Surveillance hostnames and IP addresses block lists](https://github.com/qdm12/files)
+- If `BLOCK_ADS=on`: [Ads hostnames and IP addresses block lists](https://github.com/qdm12/files)
 
 ## Server information
 
@@ -37,6 +36,6 @@ It allows for:
 - ease of implementing new features
 - faster start time
 - asynchronous/parallel operations
-- Restarting openvpn/unbound when needed without quitting the container
+- Restarting openvpn/dns when needed without quitting the container
 
 It is mostly made of the [internal directory](https://github.com/qdm12/gluetun/tree/master/internal) and the entry Go file [cmd/main.go](https://github.com/qdm12/gluetun/blob/master/cmd/gluetun/main.go).
