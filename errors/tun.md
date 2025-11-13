@@ -96,7 +96,7 @@ Alternatively generate the policy yourself:
 1. Install it with `semodule -i gluetun_policy.pp`
 Another solution is to run the container with `--privileged`.
 
-Thanks to [@OkanEsen](https://github.com/OkanEsen), [source comment](https://github.com/qdm12/gluetun/issues/700#issuecomment-1046259375) and [@AlexPopov](https://github.com/alexpopov) for writing the `allow` rule. 
+Thanks to [@OkanEsen](https://github.com/OkanEsen), [source comment](https://github.com/qdm12/gluetun/issues/700#issuecomment-1046259375) and [@AlexPopov](https://github.com/alexpopov).
 
 ## `cannot Unix Open TUN device file: operation not permitted` and `cannot create TUN device file node: operation not permitted`
 
