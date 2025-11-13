@@ -2,9 +2,13 @@ dirs:
   - .
 useGitIgnore: true
 ignorePatterns:
+  # Example addresses
   - pattern: "^http://localhost"
   - pattern: "^http://99.99.99.99"
-  - pattern: "^https://github.com/qdm12/gluetun-wiki/tree/v3.35.0"
+  # Behind a login wall
+  - pattern: "^https://my.nordaccount.com/dashboard/nordvpn/manual-configuration/service-credentials/$"
+  # https://git.zx2c4.com/wireguard-go gives status code 502 from time to time
+  - pattern: "^https://git.zx2c4.com/wireguard-go$"
 aliveStatusCodes:
   - 200
   - 206
