@@ -42,8 +42,7 @@ services:
 - `PORT_FORWARD_ONLY`: Set to `true` to select servers with port forwarding only
 - `PRIVATE_INTERNET_ACCESS_OPENVPN_ENCRYPTION_PRESET`: Encryption preset, defaulting to `strong`, which can be set to `normal`, `strong` or `none`. ⚠️ `none` disables the `cipher` and `auth` OpenVPN options.
 - `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port
-- `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on`to enable port forwarding on the VPN server
-- `VPN_PORT_FORWARDING_STATUS_FILE`: File path to write the forwarded port number to. It defaults to `/tmp/gluetun/forwarded_port`.
+- `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on` to enable port forwarding on the VPN server
 
 ## Wireguard
 
