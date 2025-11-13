@@ -35,7 +35,7 @@ For the less lazy users, you can do the following, on top of the above as well:
     [[roles]]
     name = "qbittorrent"
     # Define a list of routes with the syntax "Http-Method /path"
-    routes = ["GET /v1/openvpn/portforwarded"]
+    routes = ["GET /v1/portforward"]
     # Define an authentication method with its parameters
     auth = "basic"
     username = "myusername"
@@ -83,7 +83,7 @@ For the less lazy users, you can do the following, on top of the above as well:
 - Authentication configuration file or `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE` specified: any server route not defined in the configuration will not be accessible.
 - No authentication configuration file and no `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE` specified:
   - **new**, **existing+undocumented** and **existing+documented+sensitive** routes must be defined in the authentication configuration to be accessible.
-  - **existing, documented and non-sensitive** routes (i.e. `GET /v1/openvpn/portforwarded`) are publicly accessibly **UNTIL after the v3.40.0 release ⚠️**
+  - **existing, documented and non-sensitive** routes (i.e. `GET /v1/portforward`) are publicly accessibly **UNTIL after the v3.40.0 release ⚠️**
 
 ### Security over the Internet
 
@@ -99,8 +99,11 @@ The path are in the root `/v1/openvpn/` due to historical reasons, and will be m
 - HTTP GET to `/v1/openvpn/status` to obtain the current status of Openvpn, such as `{"status":"running"}`
 - HTTP PUT to `/v1/openvpn/status` with a body `{"status":"running"}` to start Openvpn (and stop Wireguard)
 - HTTP PUT to `/v1/openvpn/status` with a body `{"status":"stopped"}` to stop Openvpn if it's running
-- HTTP GET to `/v1/openvpn/portforwarded` to obtain the port forwarded such as `{"port":5914}`
 - HTTP GET to `/v1/openvpn/settings` to obtain the settings used by Openvpn (not Wireguard) in a JSON format
+
+## Port forwarding
+
+- HTTP GET to `/v1/portforward` to obtain the port forwarded such as `{"port":5914}`
 
 ## DNS
 
