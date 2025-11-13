@@ -46,7 +46,9 @@ Thanks to [@Marsu31](https://github.com/Marsu31)
 
 ## Allow a forwarded port through the firewall
 
-For non-native integrations where you have a designated forwarded port from your VPN provider, you can allow it by adding it to the environment variable `FIREWALL_VPN_INPUT_PORTS`.
+For non-native integrations where you have a designated forwarded port from your VPN provider, you can allow it by adding it to the environment variable `FIREWALL_VPN_INPUT_PORTS`. This allows you to statically set your port forwardings whenever Gluetun starts.
+
+In some cases static port forwardings may not suffice, which is why Gluetun's control server provides an approrpiate endpoint to be able to set or unset your forwarded ports during runtime, giving you the ability to implement your own custom solution. See [control server](./control-server.md/#openvpn-and-wireguard).
 
 ## Test it
 
