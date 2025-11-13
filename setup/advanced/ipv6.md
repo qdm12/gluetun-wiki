@@ -46,7 +46,7 @@ If you find something suspect related to IPv6, please create an issue on this re
     1. Run:
 
         ```sh
-        sudo docker run --rm --network=container:gluetun alpine:3.20 sh -c "apk add curl && curl -6 --silent https://ipv6.ipleak.net/json/"
+        sudo docker run --rm --network=container:gluetun alpine:3.22 sh -c "apk add curl && curl -6 --silent https://ipv6.ipleak.net/json/"
         ```
 
         And this should show the IPv6 address of the VPN server.
