@@ -21,6 +21,14 @@ We assume every request described in the following is run on `http://<your-docke
 
 ### Configuration
 
+For the *lazies* not willing to setup a configuration file, you can set the environment variable `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE` to a JSON string defining the default role to use for all routes not covered in the auth  configuration file. For example:
+
+- `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE='{"auth":"basic","username":"myusername","password":"mypassword"}'`
+- `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE='{"auth":"apikey","apikey":"myapikey"}'`
+- `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE='{"auth":"none"}'` to have no authentication. **Highly discouraged!**
+
+For the less lazy users, you can do the following, on top of the above as well:
+
 1. Create a file `/yourpath/config.toml` on your host, for example with the content:
 
     ```toml
@@ -72,8 +80,8 @@ We assume every request described in the following is run on `http://<your-docke
 
 ### Default behavior
 
-- Authentication configuration file specified: any server route not defined in the configuration will not be accessible.
-- No authentication configuration file specified:
+- Authentication configuration file or `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE` specified: any server route not defined in the configuration will not be accessible.
+- No authentication configuration file and no `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE` specified:
   - **new**, **existing+undocumented** and **existing+documented+sensitive** routes must be defined in the authentication configuration to be accessible.
   - **existing, documented and non-sensitive** routes (i.e. `GET /v1/openvpn/portforwarded`) are publicly accessibly **UNTIL after the v3.40.0 release ⚠️**
 
