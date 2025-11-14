@@ -1,6 +1,6 @@
 # Healthcheck
 
-Gluetun monitors the VPN connection at different times, and comes with [VPN auto-healing](#internal-auto-healing) which restarts internally the VPN if the connection is detected to not be working.
+Gluetun monitors the VPN connection at different times, and comes with VPN auto-healing which restarts internally the VPN if the connection is detected to not be working.
 
 This was designed and implemented because:
 
