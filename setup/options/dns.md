@@ -13,6 +13,7 @@
 | `DNS_UPSTREAM_IPV6` | `off` | `on`, `off` | DNS IPv6 resolution |
 | `DNS_BLOCK_IPS` | | Any valid IP address | Comma separated list of IP addresses to not resolve public domains to. |
 | `DNS_BLOCK_IP_PREFIXES` | | | Comma separated list of CIDRs to not resolve public domains to. |
+| `DNS_REBINDING_PROTECTION_EXEMPT_HOSTNAMES` | | Comma separated list of public domain names | Public domain names to exclude from DNS rebinding protection |
 | `DNS_UPDATE_PERIOD` | `24h` | i.e. `0`, `30s`, `5m`, `24h` | Period to update block lists and restart the DNS server. Set to `0` to deactivate updates |
 | `BLOCK_MALICIOUS` | `on` | `on`, `off` | Block malicious hostnames and IPs |
 | `BLOCK_SURVEILLANCE` | `off` | `on`, `off` | Block surveillance hostnames and IPs |
