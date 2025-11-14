@@ -16,6 +16,7 @@
   - [Providers](setup/providers/)
   - [Options](setup/options/)
   - [Advanced setup](setup/advanced/)
+  - [Popular apps](setup/popular-apps.md)
 - [Common errors](errors/)
 - [FAQ](faq/)
 - [Contributing](contributing/readme.md#contributing)
