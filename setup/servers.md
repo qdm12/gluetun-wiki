@@ -67,7 +67,8 @@ where:
 - `/yourpath` is the path to your bind mounted directory
 - `yourprovider` is your VPN provider, for example `protonvpn`.
 
-💁 For ProtonVPN, you must set `-proton-username` and `-proton-password` with some Proton credentials. You can use a throwaway free account for this.
+💁 For ProtonVPN, you must set `-proton-username` and `-proton-password` with some Proton credentials.
+If you need paid servers data, you need paid credentials. Otherwise you can use a throwaway free account for this.
 
 You can also run this with `docker-compose` using:
 
