@@ -13,13 +13,13 @@ If you find something suspect related to IPv6, please create an issue on this re
     ```
 
     Should show something.
-2. Modify your default network in your `docker-compose.yml` file as shown below, or alternatively create a new network that you add gluetun to:
+2. Modify your default network and add the `sysctls` section in your `docker-compose.yml` file as shown below, or alternatively create a new network that you add gluetun to:
 ```yaml
 services:
   gluetun:
-    image: qmcgaw/gluetun
-    container_name: gluetun
-    # ... the rest of gluetun's configuration options 
+    # ...
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
 
 networks:
   default:
