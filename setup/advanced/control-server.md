@@ -19,6 +19,8 @@ We assume every request described in the following is run on `http://<your-docke
 
 ⚠️ all routes will become private by default after the v3.40.0 release ⚠️
 
+([Alternative guide on Reddit](https://www.reddit.com/r/gluetun/comments/1ozqhax/howto_the_mysterious_configtoml_file_and_gluetuns/))
+
 ### Configuration
 
 For the *lazies* not willing to setup a configuration file, you can set the environment variable `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE` to a JSON string defining the default role to use for all routes not covered in the auth  configuration file. For example:
