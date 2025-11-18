@@ -26,6 +26,7 @@
 | Gluetun release tag | Corresponding wiki |
 | --- | --- |
 | `:latest` | [`main` branch](https://github.com/qdm12/gluetun-wiki) |
+| `:v3.40.2` | [`v3.40.2` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.40.2) |
 | `:v3.40.1` | [`v3.40.1` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.40.1) |
 | `:v3.40.0` | [`v3.40.0` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.40.0) |
 | `:v3.39.0` | [`v3.39.0` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.39.0) |
