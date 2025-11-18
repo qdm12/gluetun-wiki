@@ -6,6 +6,7 @@
 
 | Variable | Default | Choices | Description |
 | --- | --- | --- | --- |
+| `LOG_LEVEL` | `info` | `debug`, `info`, `warning`, `error` | Set the logging level verbosity |
 | `TZ` | | i.e. `Europe/London` | Specify a [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) to use to have correct log times |
 | `PUID` | `1000` | | User ID to run as non root and for ownership of files written |
 | `PGID` | `1000` | | Group ID to run as non root and for ownership of files written |
