@@ -28,13 +28,13 @@ There are multiple log messages which indicate the VPN connection is not working
   WARN [vpn] restarting VPN because it failed to pass the healthcheck: startup check: dialing: dial tcp4: lookup cloudflare.com: i/o timeout
   ```
 
-- **Small periodic check** failure: every minute after connection, a small check is performed, with 3 tries of 10s, 20s and 30s timeouts. This check is an ICMP echo (aka ping) to the health target address (defined by `HEALTH_ICMP_TARGET_IP`) if ICMP is allowed, otherwise a plaintext UDP DNS query. If all these 3 tries fail, the VPN is considered down and is thus restarted internally.
+- **Small periodic check** failure: every minute after connection, a small check is performed, with 3 tries of 10s, 20s and 30s timeouts. This check is an ICMP echo (aka ping) to the health target address (defined by `HEALTH_ICMP_TARGET_IPS`) if ICMP is allowed, otherwise a plaintext UDP DNS query. If all these 3 tries fail, the VPN is considered down and is thus restarted internally.
 
   ```log
   WARN [vpn] restarting VPN because it failed to pass the healthcheck: periodic check: dialing: dial tcp4: lookup cloudflare.com: i/o timeout
   ```
 
-- **Full periodic check** failure: every **5 minutes** after connection, a full check is performed, with 2 retries of 20s and 30s timeouts. This check is a TCP+TLS dial to the health target address (defined by `HEALTH_TARGET_ADDRESS`). If the 2 tries fail, the VPN is considered down and is thus restarted internally.
+- **Full periodic check** failure: every **5 minutes** after connection, a full check is performed, with 2 retries of 20s and 30s timeouts. This check is a TCP+TLS dial to the health target address (defined by `HEALTH_TARGET_ADDRESSES`). If the 2 tries fail, the VPN is considered down and is thus restarted internally.
 
   ```log
   WARN [vpn] restarting VPN because it failed to pass the healthcheck: periodic full check: dialing: dial tcp4
