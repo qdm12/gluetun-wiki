@@ -46,6 +46,10 @@ Due to a bug in qBittorrent, for port forwarding to be reestablished after a dis
 
 Thanks to [@Marsu31](https://github.com/Marsu31)
 
+### qSticky
+
+[qSticky](https://github.com/monstermuffin/qsticky) is a container that automates qBittorrent port updates by monitoring Gluetun's control server API. It eliminates the need for up/down commands and handles port changes automatically.
+
 ## Allow a forwarded port through the firewall
 
 For non-native integrations where you have a designated forwarded port from your VPN provider, you can allow it by adding it to the environment variable `FIREWALL_VPN_INPUT_PORTS`.
