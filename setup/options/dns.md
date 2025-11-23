@@ -19,5 +19,28 @@
 | `BLOCK_SURVEILLANCE` | `off` | `on`, `off` | Block surveillance hostnames and IPs |
 | `BLOCK_ADS` | `off` | `on`, `off` | Block ads hostnames and IPs |
 | `DNS_UNBLOCK_HOSTNAMES` | |i.e. `domain1.com,x.domain2.co.uk` | Comma separated list of domain names to leave unblocked from the filtering |
-| `DNS_ADDRESS` | `127.0.0.1` | Any IP address | IP address to use as DNS resolver. It defaults to localhost to use the built-in DNS server. |
+| `DNS_ADDRESS` | `127.0.0.1` | Any IP address | IP address to use as DNS resolver. It defaults to localhost to use the built-in DNS server. Ideally do NOT use the VPN provider DNS, see why below. |
 | `DNS_KEEP_NAMESERVER` | `off` | `on` or `off` | I highly recommend using [image tag `:pr-2970`](https://github.com/qdm12/gluetun/pull/2970) instead of turning this `on`. This keeps `/etc/resolv.conf` untouched and will likely **leak DNS traffic outside the VPN** through your default container DNS. This imples `DNS_SERVER=off` and ignores `DNS_ADDRESS` |
+
+## VPN provider DNS is bad idea
+
+A lot, if not all, of VPN providers offer a DNS server IP address they manage. And privacy-wise, it's quite a potential disaster.
+
+You hand over all your DNS data to your VPN provider. That VPN provider has at the very least your public IP address, which can be associated with you, and can have on top of this:
+
+- your email address
+- your payment information
+- your name
+- access to your unencrypted traffic like most torrenting
+
+That means the vpn provider can build a pretty decent profile and either sell it or hand it to authorities, without you knowing.
+
+A wild guess (proof me right/wrong!) as well is that because the communication to the vpn provider dns server is unencrypted over udp, it might be possible for another user on the vpn server to sniff that dns traffic.
+
+The solution: don't set `DNS_ADDRESS` to your vpn provider dns address and stick to using the built-in dns forwarding server exchanging dns queries with public resolvers over tls or https. By default it only uses cloudflare which is enough for a much better privacy.
+
+Cloudflare's DNS will receive dns queries from multiple users all coming from the same vpn server ip address, so it cannot build a profile of you only and doesn't even have any other information on you.
+
+Want to go extra privacy? Set `DNS_UPSTREAM_RESOLVERS` to multiple ones, for example `cloudflare,google`. It means every query will be sent to one of the upstream resolvers at random, making your dns traffic fractured and so even harder to build a dns profile.
+
+💁 If you liked that section, please share it with anyone suggesting to use the VPN provider dns server, as there is a lot of users suggesting that unfortunately!
