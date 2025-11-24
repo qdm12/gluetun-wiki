@@ -60,7 +60,7 @@ services:
 
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_CITIES`: Comma separated list of cities
-- `SERVER_HOSTNAMES`: Comma separated list of server hostnames
+- `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
 - `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use, see [this list of ports](https://windscribe.com/getconfig/openvpn)
 - `WIREGUARD_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use, which can be one of: `53`, `80`, `123`, `443`, `1194`, `65142`
 

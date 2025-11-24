@@ -54,7 +54,7 @@ services:
 - `SERVER_COUNTRIES`: Comma separated list of countries
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_CITIES`: Comma separated list of cities
-- `SERVER_HOSTNAMES`: Comma separated list of server hostnames
+- `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
 - `FREE_ONLY`: Filter only free tier servers by setting it to `on`. It defaults to `off`.
 - `STREAM_ONLY`: Filter only streaming servers by setting it to `on`. It defaults to `off`.
 - `SECURE_CORE_ONLY`: Filter only secure core servers by setting it to `on`. It defaults to `off`.
