@@ -8,17 +8,32 @@
 
 VPN server side port forwarding is implemented natively into Gluetun for the following providers:
 
-- **Private Internet Access**, [more information](../providers/private-internet-access.md)
-- **ProtonVPN**, [more information](../providers/protonvpn.md)
 - **Perfect Privacy**, [more information](../providers/perfect-privacy.md)
+- **Private Internet Access**, [more information](../providers/private-internet-access.md)
 - **PrivateVPN**, [more information](../providers/privatevpn.md)
+- **ProtonVPN**, [more information](../providers/protonvpn.md)
 
 You can enable it with `VPN_PORT_FORWARDING=on`.
-The forwarded port can be accessed:
+Considering the forwarded port keeps being changed by the provider, the current one can be accessed:
 
 - through the [control server](control-server.md#openvpn-and-wireguard)
 - through the file written at `/tmp/gluetun/forwarded_port` (will be deprecated in v4.0.0 release)
 - by running a user specified command upon port forwarding starting (see below)
+
+## Manual integration
+
+These providers require at least one manual configuration on their control panel page. You may need to repeat that step regularly.
+
+- **AirVPN**, [more information](../providers/airvpn.md)
+- **PureVPN**, [more information](../providers/purevpn.md)
+- **TorGuard**, [more information](../providers/torguard.md)
+- **Windscribe**, [more information](../providers/windscribe.md)
+
+## Unsupported
+
+These providers are [reported](https://vpns.gg/) supporting port forwarding, but doesn't have a configuration for gluetun yet.
+
+- **Hide.Me**, [more information](../providers/airvpn.md)
 
 ## Custom port forwarding up/down command
 
