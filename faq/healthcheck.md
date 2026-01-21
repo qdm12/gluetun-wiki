@@ -51,6 +51,7 @@ There are multiple log messages which indicate the VPN connection is not working
 
 If you see such log messages repeating, it means the VPN keeps on not working even after reconnecting. In this case, this usually means by order of likeliness:
 
+1. Are your credentials or keys valid? They can expire, notably for Wireguard and ProtonVPN.
 1. The VPN server IP address you are trying to connect to is no longer valid 🔌 [**Update your server information**](../setup/servers.md#update-the-vpn-servers-list)
 1. The VPN server crashed 💥, try changing your VPN servers filtering options such as `SERVER_REGIONS`
 1. Maybe the Docker image you are running runs wrong, try [a previous tag](../setup/docker-image-tags.md) or the `latest` tag
