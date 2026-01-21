@@ -14,7 +14,7 @@ The monitoring "healthcheck" in Gluetun is not the same as the [Docker healthche
 When your VPN connection goes down, other warnings or errors will likely show before a healthcheck error message is logged, such as:
 
 - `...: connection refused` as well as `...: operation not permitted`: the firewall blocks it because the VPN is not working.
-- `...: i/o timeout` and `...: Client.Timeout awaiting for headers`: the VPN connection no longer works so things are timing out
+- `...: i/o timeout`, `...: Client.Timeout awaiting for headers`, `...: context deadline exceeded`: the VPN connection no longer works so things are timing out
 
 All of the above are **NOT** causes, but **consequences** of the VPN not working.
 
