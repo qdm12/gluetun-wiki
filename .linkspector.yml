@@ -9,6 +9,8 @@ ignorePatterns:
   - pattern: "^https://my.nordaccount.com/dashboard/nordvpn/manual-configuration/service-credentials/$"
   # https://git.zx2c4.com/wireguard-go gives status code 502 from time to time
   - pattern: "^https://git.zx2c4.com/wireguard-go$"
+  # Reddit posts give status code 403 for Github Actions runners
+  - pattern: "^https://www.reddit.com/r/gluetun/comments/1ozqhax/howto_the_mysterious_configtoml_file_and_gluetuns/$"
 aliveStatusCodes:
   - 200
   - 206
