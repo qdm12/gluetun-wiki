@@ -32,8 +32,8 @@ services:
 ## Required environment variables
 
 - `VPN_SERVICE_PROVIDER=privatevpn`
-- `OPENVPN_USER`
-- `OPENVPN_PASSWORD`
+- `OPENVPN_USER`: Your PrivateVPN account login, not the "Proxy login" found on its Control Panel
+- `OPENVPN_PASSWORD`: Your PrivateVPN account password
 
 ## Optional environment variables
 
