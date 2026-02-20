@@ -17,7 +17,7 @@ We assume every request described in the following is run on `http://<your-docke
 
 ## Authentication
 
-⚠️ all routes will become private by default after the v3.40.0 release ⚠️
+All routes are now private by default and **require** authentication to be setup, there is no publicly accessible routes anymore.
 
 ([Alternative guide on Reddit](https://www.reddit.com/r/gluetun/comments/1ozqhax/howto_the_mysterious_configtoml_file_and_gluetuns/))
 
@@ -79,13 +79,6 @@ For the less lazy users, you can do the following, on top of the above as well:
     ```
 
     You can generate an API key by running `docker run --rm qmcgaw/gluetun genkey` which will ouptut a 22 character [base 58](https://en.wikipedia.org/wiki/Binary-to-text_encoding#Encoding_standards) value which is suitable as an `apikey`.
-
-### Default behavior
-
-- Authentication configuration file or `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE` specified: any server route not defined in the configuration will not be accessible.
-- No authentication configuration file and no `HTTP_CONTROL_SERVER_AUTH_DEFAULT_ROLE` specified:
-  - **new**, **existing+undocumented** and **existing+documented+sensitive** routes must be defined in the authentication configuration to be accessible.
-  - **existing, documented and non-sensitive** routes (i.e. `GET /v1/portforward`) are publicly accessibly **UNTIL after the v3.40.0 release ⚠️**
 
 ### Security over the Internet
 
