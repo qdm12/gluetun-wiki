@@ -39,6 +39,12 @@ services:
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
+- `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use
+  - For TCP: `80`, `1194`
+  - For UDP: `53`, `1194`
+  - If not set, Gluetun uses `1194` first and then OpenVPN can fallback to:
+    - TCP: `80`
+    - UDP: `53`
 
 ## Servers
 
