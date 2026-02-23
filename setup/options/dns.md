@@ -35,7 +35,7 @@ You hand over all your DNS data to your VPN provider. That VPN provider has at t
 
 That means the vpn provider can build a pretty decent profile and either sell it or hand it to authorities, without you knowing.
 
-A wild guess (proof me right/wrong!) as well is that because the communication to the vpn provider dns server is unencrypted over udp, it might be possible for another user on the vpn server to sniff that dns traffic.
+A wild guess (prove me right/wrong!) as well is that because the communication to the vpn provider dns server is unencrypted over udp, it might be possible for another user on the vpn server to sniff that dns traffic.
 
 The solution: don't set `DNS_ADDRESS` to your vpn provider dns address and stick to using the built-in dns forwarding server exchanging dns queries with public resolvers over tls or https. By default it only uses cloudflare which is enough for a much better privacy.
 
