@@ -56,8 +56,15 @@ For VPN server port fowarding with Wireguard, you need to set:
 - `VPN_PORT_FORWARDING_PROVIDER=private internet access`
 - `VPN_PORT_FORWARDING_USERNAME=yourusername`
 - `VPN_PORT_FORWARDING_PASSWORD=yourpassword`
-- `SERVER_NAMES=the-tls-server-name` for example `panama408`
+- `SERVER_NAMES=ca-toronto.privacy.network` #or whichever location is needed - note port forwarding is disabled on US servers
 
+To get the server_names field you need, run command like `docker run --rm qmcgaw/gluetun format-servers -private-internet-access | grep toronto` to get the following list of servers for toronto. Using the unique server names instead of the domain name caused gluetun to reconnect repeatedly, plus these server names will change over time. 
+Sample output:
+```
+| CA Toronto | `ca-toronto.privacy.network` | toronto420 | ✅ | ✅ | ✅ |
+| CA Toronto | `ca-toronto.privacy.network` | toronto421 | ✅ | ✅ | ✅ |
+| CA Toronto | `ca-toronto.privacy.network` | toronto426 | ✅ | ✅ | ✅ |
+```
 ## VPN server port forwarding
 
 ### Warning
@@ -74,6 +81,24 @@ From [@ddelange](https://github.com/ddelange) on issue [#464](https://github.com
 First refer to the [VPN server port forwarding setup page](../advanced/vpn-port-forwarding.md#native-integrations).
 
 Once enabled, you will keep the same forwarded port for 60 days as long as you bind mount the `/gluetun` directory. It will be automatically refreshed.
+
+### Sample of working config:
+```yml
+- VPN_SERVICE_PROVIDER=custom
+- VPN_TYPE=wireguard
+- WIREGUARD_PRIVATE_KEY=  #from pia-wg-config file
+- WIREGUARD_PUBLIC_KEY=  #from pia-wg-config file
+- WIREGUARD_ADDRESSES=  #from pia-wg-config file
+- WIREGUARD_ENDPOINT_IP=  #from pia-wg-config file
+- WIREGUARD_ENDPOINT_PORT=  #from pia-wg-config file
+- VPN_PORT_FORWARDING=on
+- VPN_PORT_FORWARDING_PROVIDER=private internet access
+- VPN_PORT_FORWARDING_USERNAME=  #your PIA account
+- VPN_PORT_FORWARDING_PASSWORD=  #your PIA password
+- SERVER_NAMES=ca-toronto.privacy.network  #or whichever site needed - note port forwarding is disabled on US servers
+- DNS_ADDRESS=  #from pia-wg-config file
+- DNS_ADDRESS=  #from pia-wg-config file
+```
 
 ### Deluge
 
