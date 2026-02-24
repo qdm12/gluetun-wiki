@@ -10,6 +10,7 @@
 | `FIREWALL_INPUT_PORTS` | | i.e. `1000,8000` | Comma separated list of ports to allow through the default interface. This seems needed for Kubernetes sidecars. |
 | `FIREWALL_DEBUG` | `off` | `on` or `off` | Prints every firewall related command. You should use it for **debugging purposes** only. |
 | `FIREWALL_OUTBOUND_SUBNETS` | | i.e. `192.168.1.0/24,192.168.10.121/32,10.0.0.5/28` | Comma separated subnets that Gluetun and the containers sharing its network stack are allowed to access. This involves firewall and routing modifications. |
+| `FIREWALL_FLUSH_CONNTRACK` | `on` | `on` or `off` | Flushes the conntrack table after the firewall is enabled at startup, to prevent connection leaks. Set to `off` on hosts with older kernels (e.g. Synology DSM running kernel 4.4.x) where the conntrack flush API is not supported. |
 
 > **Note**: Make sure that `FIREWALL_OUTBOUND_SUBNETS` does **not** overlap with the VPN tunnel address range (for example a `10.x.x.x/` Wireguard network). If it overlaps, Gluetun may route traffic intended for the VPN (such as Proton VPN's NAT-PMP port forwarding to `10.x.x.1:5351`) via the outbound subnet instead, which breaks port forwarding and can cause `connection refused` errors. See also [gluetun#3013](https://github.com/qdm12/gluetun/issues/3013) for a real-world example.
 
