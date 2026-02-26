@@ -30,7 +30,7 @@ If using the Wireguard protocol, depending on the provider, the following might 
 
 ## Amnezia WG
 
-Additionaly you can setup AmneziaWG parameters (works only when `WIREGUARD_IMPLEMENTATION` is set to `amneziawg`):
+Additionaly you can setup AmneziaWG parameters (works only when `WIREGUARD_IMPLEMENTATION` is set to `amneziawg` and `VPN_SERVICE_PROVIDER` is set to `custom`):
 
 | Variable         | Default | Choices                                                   | Description                               |
 | --------------   | ------- | --------------------------------------------------------- | ----------------------------------------- |
