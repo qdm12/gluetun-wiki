@@ -58,6 +58,7 @@ services:
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
 - `ISP`: Comma separated list of ISPs
 - `WIREGUARD_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use, which can be one of: `2049`, `2050`, `53`, `30587`, `41893`, `48574`, `58237`
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ## IPv6 tunneling with OpenVPN
 

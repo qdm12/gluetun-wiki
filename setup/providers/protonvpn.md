@@ -65,6 +65,7 @@ services:
   - For UDP: `80`, `443`, `1194`, `4569`, `5060`
   - Defaults are `1194` for UDP and `443` for TCP
 - `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on`to enable port forwarding on the VPN server.
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ## VPN server port forwarding
 

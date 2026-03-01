@@ -43,6 +43,7 @@ services:
 - `PRIVATE_INTERNET_ACCESS_OPENVPN_ENCRYPTION_PRESET`: Encryption preset, defaulting to `strong`, which can be set to `normal`, `strong` or `none`. ⚠️ `none` disables the `cipher` and `auth` OpenVPN options.
 - `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port
 - `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on` to enable port forwarding on the VPN server
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ## Wireguard
 
