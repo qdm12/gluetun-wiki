@@ -64,7 +64,19 @@ Thanks to [@Vendetta1985](https://github.com/Vendetta1985), [source comment](htt
 
 ## `TUN device is not available: open /dev/net/tun: permission denied`
 
-This can happen with `podman`, usually due to SELinux. Create a SELinux policy to allow the rootless container to use the `/dev/net/tun` device.
+This can happen with `podman`, usually due to SELinux. We need to grant rootless container access to use the `/dev/net/tun` device. There are a few approaches to resolve this issue.
+
+### (Easy) Reconfigure `container_use_devices`
+Run each of the following commands one at a time (do not copy-paste into your terminal)
+```bash
+podman machine ssh
+sudo setsebool -P container_use_devices=true
+exit
+```
+
+### (Advanced) Create SELinux policy
+
+Create a SELinux policy to allow the rootless container to use the `/dev/net/tun` device.
 
 1. Copy the content below to a new file `gluetun_policy.te`
 
