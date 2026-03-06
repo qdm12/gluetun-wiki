@@ -33,20 +33,20 @@ If using the Wireguard protocol, depending on the provider, the following might 
 Additionaly you can setup AmneziaWG parameters (works only when `WIREGUARD_IMPLEMENTATION` is set to `amneziawg` and `VPN_SERVICE_PROVIDER` is set to `custom`):
 
 | Variable         | Default | Choices                                                   | Description                               |
-| --------------   | ------- | --------------------------------------------------------- | ----------------------------------------- |
-| `WIREGUARD_JC`   |         | Recommended range is 4-12                                 | The amount of junk packets                |
-| `WIREGUARD_JMIN` |         | Jmin: int <= Jmax: int                                    | Junk packet min size                      |
-| `WIREGUARD_JMAX` |         | Should be less than MTU                                   | Junk packet max size                      |
-| `WIREGUARD_S1`   |         | int                                                       | Padding of handshake initial message      |
-| `WIREGUARD_S2`   |         | int                                                       | Padding of handshake response message     |
-| `WIREGUARD_S3`   |         | int                                                       | Padding of handshake cookie message       |
-| `WIREGUARD_S4`   |         | int                                                       | Padding of transport message              |
-| `WIREGUARD_H1`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake initial message |
-| `WIREGUARD_H2`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake initial message |
-| `WIREGUARD_H3`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake cookie message  |
-| `WIREGUARD_H4`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of transport message         |
-| `WIREGUARD_I2`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 2                 |
-| `WIREGUARD_I3`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 3                 |
-| `WIREGUARD_I1`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 1                 |
-| `WIREGUARD_I4`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 4                 |
-| `WIREGUARD_I5`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 5                 |
+| ---------------- | ------- | --------------------------------------------------------- | ----------------------------------------- |
+| `AMNEZIAWG_JC`   |         | Recommended range is 4-12                                 | The amount of junk packets                |
+| `AMNEZIAWG_JMIN` |         | Jmin: int <= Jmax: int                                    | Junk packet min size                      |
+| `AMNEZIAWG_JMAX` |         | Should be less than MTU                                   | Junk packet max size                      |
+| `AMNEZIAWG_S1`   |         | int                                                       | Padding of handshake initial message      |
+| `AMNEZIAWG_S2`   |         | int                                                       | Padding of handshake response message     |
+| `AMNEZIAWG_S3`   |         | int                                                       | Padding of handshake cookie message       |
+| `AMNEZIAWG_S4`   |         | int                                                       | Padding of transport message              |
+| `AMNEZIAWG_H1`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake initial message |
+| `AMNEZIAWG_H2`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake initial message |
+| `AMNEZIAWG_H3`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake cookie message  |
+| `AMNEZIAWG_H4`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of transport message         |
+| `AMNEZIAWG_I2`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 2                 |
+| `AMNEZIAWG_I3`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 3                 |
+| `AMNEZIAWG_I1`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 1                 |
+| `AMNEZIAWG_I4`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 4                 |
+| `AMNEZIAWG_I5`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 5                 |
