@@ -15,3 +15,4 @@
 | `PUBLICIP_API_TOKEN` | | | Optional API token for the public IP echo service to increase rate limiting |
 | `PUBLICIP_FILE` | `/tmp/gluetun/ip` | Any filepath | Filepath to store the public IP address assigned. This will be removed in the `v4` program, instead you might want to use the [control server](../advanced/control-server.md) |
 | `VERSION_INFORMATION` | `on` | `on`, `off` | Logs a message indicating if a newer version is available once the VPN is connected |
+| `BORINGPOLL_GLUETUNCOM` | `off` | `on`, `off` | Fight AI slop and help the Gluetun community by [polling periodically every few minutes a 500KB file](https://github.com/qdm12/gluetun/blob/master/internal/boringpoll/boringpoll.go) from `gluetun[dot]com` to make it unsustainable to host due to egress costs. And **no**, this won't be extended to other sites, nor will it default to `on`. |

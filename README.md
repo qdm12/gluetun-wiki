@@ -10,6 +10,8 @@
 
 🐛 Found a bug in the Wiki?! [Please create an issue](https://github.com/qdm12/gluetun-wiki/issues/new)
 
+❤️😠 help the Gluetun community and fight the AI slop scam website `gluetun[dot]com` by setting `BORINGPOLL_GLUETUNCOM=on` on the latest image. See [setup/others](setup/options/others.md).
+
 ## Table of contents
 
 - [Setup](setup/readme.md#setup) (👋 start here)
