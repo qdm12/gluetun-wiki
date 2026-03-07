@@ -54,19 +54,27 @@ services:
 
 - `WIREGUARD_PRIVATE_KEY` is your 32 bytes key in base64 format. Note this is specific by user and the same for all servers.
 - `WIREGUARD_ADDRESSES` is your IP network interface address in the format `xx.xx.xx.xx/xx`. Note this is specific by user and the same for all servers.
-- `WIREGUARD_PRESHARED_KEY` is your optional preshared key
+- `WIREGUARD_PRESHARED_KEY` is your preshared key and MUST be set.
 
 ## Optional environment variables
 
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_CITIES`: Comma separated list of cities
-- `SERVER_HOSTNAMES`: Comma separated list of server hostnames
+- `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
 - `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port to use, see [this list of ports](https://windscribe.com/getconfig/openvpn)
 - `WIREGUARD_ENDPOINT_PORT`: Custom Wireguard server endpoint port to use, which can be one of: `53`, `80`, `123`, `443`, `1194`, `65142`
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ### VPN server port forwarding
 
+#### Ephemeral port forwarding
+
 1. Follow the [Windscribe instructions](https://windscribe.com/support/article/37/what-is-ephemeral-port-forwarding-and-how-to-use-it)
+1. In your container configuration, set `FIREWALL_VPN_INPUT_PORTS` to the port you have been assigned, for example: `FIREWALL_VPN_INPUT_PORTS=8099`
+
+#### Permanent port forwarding (static IP)
+
+1. Follow the [custom provider setup instructions](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/custom.md), using the [openvpn](https://windscribe.com/getconfig/openvpn) or [wireguard](https://windscribe.com/getconfig/wireguard) configuration file that Windscribe provides for static ips.
 1. In your container configuration, set `FIREWALL_VPN_INPUT_PORTS` to the port you have been assigned, for example: `FIREWALL_VPN_INPUT_PORTS=8099`
 
 ## Servers

@@ -133,7 +133,6 @@ In our OpenVPN-TCP unsupported example mentioned above, you should then modify t
 if *o.TCP && helpers.IsOneOf(vpnProvider,
   providers.Ipvanish,
   providers.Perfectprivacy,
-  providers.Privado,
   providers.VPNUnlimited,
   providers.Vyprvpn,
 ) {

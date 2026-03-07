@@ -38,12 +38,12 @@ services:
 
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_NAMES`: Comma separated list of server names
-- `SERVER_HOSTNAMES`: Comma separated list of server hostnames
+- `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
 - `PORT_FORWARD_ONLY`: Set to `true` to select servers with port forwarding only
 - `PRIVATE_INTERNET_ACCESS_OPENVPN_ENCRYPTION_PRESET`: Encryption preset, defaulting to `strong`, which can be set to `normal`, `strong` or `none`. ⚠️ `none` disables the `cipher` and `auth` OpenVPN options.
 - `OPENVPN_ENDPOINT_PORT`: Custom OpenVPN server endpoint port
-- `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on`to enable port forwarding on the VPN server
-- `VPN_PORT_FORWARDING_STATUS_FILE`: File path to write the forwarded port number to. It defaults to `/tmp/gluetun/forwarded_port`.
+- `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on` to enable port forwarding on the VPN server
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ## Wireguard
 

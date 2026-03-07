@@ -9,7 +9,7 @@
 ```sh
 docker run -it --rm --cap-add=NET_ADMIN \
 -e VPN_SERVICE_PROVIDER=custom -e VPN_TYPE=openvpn \
--v /yourpath/yourconfig.conf:/gluetun/config.conf:ro \
+-v /yourpath/yourconfig.conf:/gluetun/custom.conf:ro \
 -e OPENVPN_CUSTOM_CONFIG=/gluetun/custom.conf \
 -e OPENVPN_USER=abc -e OPENVPN_PASSWORD=abc qmcgaw/gluetun
 ```
@@ -66,6 +66,9 @@ services:
 ```
 
 💁 You can also bind mount a wireguard configuration file (ini format) to `/gluetun/wireguard/wg0.conf`.
+
+⚠️ Note you MUST for now use an IP address for `WIREGUARD_ENDPOINT_IP`, domain names are not supported.
+Subscribe to [this issue](https://github.com/qdm12/gluetun/issues/2680) to be notified when this is supported.
 
 ## Required environment variables
 

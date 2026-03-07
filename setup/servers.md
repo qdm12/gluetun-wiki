@@ -13,7 +13,7 @@ docker run --rm -v /yourpath:/gluetun qmcgaw/gluetun format-servers -yourprovide
 where:
 
 - `/yourpath` is the path to your bind mounted directory
-- `yourprovider` is your VPN provider in lowercase without quotes, for example `protonvpn` or `private-internet-access`.
+- `-yourprovider` is your VPN provider in lowercase without quotes, for example `-protonvpn` or `-private-internet-access`.
 
 This will list the servers in Markdown format, for example:
 
@@ -66,6 +66,9 @@ where:
 
 - `/yourpath` is the path to your bind mounted directory
 - `yourprovider` is your VPN provider, for example `protonvpn`.
+
+💁 For ProtonVPN, you must set `-proton-email` and `-proton-password` with some Proton credentials.
+If you need paid servers data, you need paid credentials. Otherwise you can use a throwaway free account for this.
 
 You can also run this with `docker-compose` using:
 

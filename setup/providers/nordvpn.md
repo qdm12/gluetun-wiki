@@ -12,6 +12,8 @@ docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
 
 💁 Your credentials are NO LONGER your email+password, it is now your service credentials.
 
+[▶️ obtain your service credential](https://my.nordaccount.com/dashboard/nordvpn/manual-configuration/service-credentials/)
+
 ```sh
 # Wireguard
 docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
@@ -58,8 +60,9 @@ services:
 - `SERVER_COUNTRIES`: Comma separated list of countries
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_CITIES`: Comma separated list of server cities
-- `SERVER_HOSTNAMES`: Comma separated list of server hostnames
+- `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
 - `SERVER_CATEGORIES`: Comma separated list of server categories
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ## Obtain your Wireguard private key
 
