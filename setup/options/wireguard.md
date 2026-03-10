@@ -30,23 +30,30 @@ If using the Wireguard protocol, depending on the provider, the following might 
 
 ## Amnezia WG
 
-Additionaly you can setup AmneziaWG parameters (works only when `WIREGUARD_IMPLEMENTATION` is set to `amneziawg` and `VPN_SERVICE_PROVIDER` is set to `custom`):
+Additionaly you can use AmneziaWG by setting `WIREGUARD_IMPLEMENTATION=amneziawg` and **only** if `VPN_SERVICE_PROVIDER=custom` at this time. The following options are available:
 
-| Variable         | Default | Choices                                                   | Description                               |
-| ---------------- | ------- | --------------------------------------------------------- | ----------------------------------------- |
-| `AMNEZIAWG_JC`   |         | Recommended range is 4-12                                 | The amount of junk packets                |
-| `AMNEZIAWG_JMIN` |         | Jmin: int <= Jmax: int                                    | Junk packet min size                      |
-| `AMNEZIAWG_JMAX` |         | Should be less than MTU                                   | Junk packet max size                      |
-| `AMNEZIAWG_S1`   |         | int                                                       | Padding of handshake initial message      |
-| `AMNEZIAWG_S2`   |         | int                                                       | Padding of handshake response message     |
-| `AMNEZIAWG_S3`   |         | int                                                       | Padding of handshake cookie message       |
-| `AMNEZIAWG_S4`   |         | int                                                       | Padding of transport message              |
-| `AMNEZIAWG_H1`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake initial message |
-| `AMNEZIAWG_H2`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake initial message |
-| `AMNEZIAWG_H3`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of handshake cookie message  |
-| `AMNEZIAWG_H4`   |         | range: x-y, x <= y; e.g. `123-456` or single value `1234` | Header range of transport message         |
-| `AMNEZIAWG_I2`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 2                 |
-| `AMNEZIAWG_I3`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 3                 |
-| `AMNEZIAWG_I1`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 1                 |
-| `AMNEZIAWG_I4`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 4                 |
-| `AMNEZIAWG_I5`   |         | Can be read in AmneziaWG docs                             | Custom signature packet 5                 |
+| Variable | Default | Choices | Description |
+| --- | --- | --- | --- |
+| `AMNEZIAWG_JC` | `0` | Any positive integer | Number of junk packets following I1-I5 and sent before the actual handshake initiation |
+| `AMNEZIAWG_JMIN` | `0` | Any positive integer and must be less than or equal to `AMNEZIAWG_JMAX` | Minimum size in bytes of the random junk data prefixed to the handshake packet |
+| `AMNEZIAWG_JMAX` | `0` | Any positive integer and must be greater than or equal to `AMNEZIAWG_JMIN` | Maximum size in bytes of the random junk data prefixed to the handshake packet |
+| `AMNEZIAWG_S1` | `0` | Any positive integer | Random bytes to pad the handshake initiation packets |
+| `AMNEZIAWG_S2` | `0` | Any positive integer | Random bytes to pad the handshake response packets |
+| `AMNEZIAWG_S3` | `0` | Any positive integer | Random bytes to pad the handshake cookie reply packets |
+| `AMNEZIAWG_S4` | `0` | Any positive integer | Random bytes to pad the encrypted transport data packets |
+| `AMNEZIAWG_H1` | `0` | `n` or range `n-m`, with values from `0` to `4294967295` | header range of the handshake initiation message |
+| `AMNEZIAWG_H2` | `0` | `n` or range `n-m`, with values from `0` to `4294967295` | header range of the handshake response message |
+| `AMNEZIAWG_H3` | `0` | `n` or range `n-m`, with values from `0` to `4294967295` | header range of the handshake cookie reply message |
+| `AMNEZIAWG_H4` | `0` | `n` or range `n-m`, with values from `0` to `4294967295` | header range of the transport data message |
+| `AMNEZIAWG_I1` | | | See [custom signature packets](https://github.com/amnezia-vpn/amneziawg-go?tab=readme-ov-file#custom-signature-packets) |
+| `AMNEZIAWG_I2` | | | See [custom signature packets](https://github.com/amnezia-vpn/amneziawg-go?tab=readme-ov-file#custom-signature-packets) |
+| `AMNEZIAWG_I3` | | | See [custom signature packets](https://github.com/amnezia-vpn/amneziawg-go?tab=readme-ov-file#custom-signature-packets) |
+| `AMNEZIAWG_I4` | | | See [custom signature packets](https://github.com/amnezia-vpn/amneziawg-go?tab=readme-ov-file#custom-signature-packets) |
+| `AMNEZIAWG_I5` | | | See [custom signature packets](https://github.com/amnezia-vpn/amneziawg-go?tab=readme-ov-file#custom-signature-packets) |
+
+Additional notes:
+
+- Be careful with "high numbers" for these parameters, this can cause out of memory crashes, or fragment packets because they would be too large to fit within the VPN link MTU, which would make them more identifiable and less performant.
+- `AMNEZIAWG_JC`, `AMNEZIAWG_JMIN`, `AMNEZIAWG_JMAX` and custom signature packets (`AMNEZIAWG_I1` etc.) can be applied independently of how the AmneziaWG server is configured, unlike other AmneziaWG parameters.
+
+([Source](https://docs.amnezia.org/documentation/amnezia-wg/#configuration-parameters))
