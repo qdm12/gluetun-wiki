@@ -12,6 +12,12 @@
 
 ❤️😠 help the Gluetun community and fight the AI slop scam website `gluetun[dot]com` by setting `BORINGPOLL_GLUETUNCOM=on` on the latest image. See [setup/others](setup/options/others.md).
 
+💁‍♂️ If you have a Github account, you might want to start Copilot for free to ask your question!
+
+![Copilot computer](./media/copilot.computer.gif)
+ __
+![Copilot mobile](./media/copilot.mobile.gif)
+
 ## Table of contents
 
 - [Setup](setup/readme.md#setup) (👋 start here)
