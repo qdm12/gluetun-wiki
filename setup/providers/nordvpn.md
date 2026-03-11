@@ -70,6 +70,4 @@ Update 2023-09-24: you need to retrieve it from their web interface in manual se
 
 ## Servers
 
-The list of servers for NordVPN is available in the [source code](https://github.com/qdm12/gluetun/blob/master/internal/storage/servers.json).
-
-The table of servers cannot be put here unfortunately as there are too many servers and the Github markdown engine then fails.
+To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
