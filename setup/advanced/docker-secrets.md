@@ -18,6 +18,7 @@ The following secrets can be used:
 - `wireguard_private_key`
 - `wireguard_preshared_key`
 - `wireguard_addresses`
+- `amneziawg_conf`
 - `httpproxy_user`
 - `httpproxy_password`
 - `shadowsocks_password`
