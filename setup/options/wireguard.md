@@ -25,7 +25,7 @@ If using the Wireguard protocol, depending on the provider, the following might 
 | `WIREGUARD_PRESHARED_KEY` | | Base64 pre-shared key | Wireguard pre-shared key |
 | `WIREGUARD_ALLOWED_IPS` | `0.0.0.0/0,::/0` | CSV of IP address ranges | Wireguard peer allowed ips |
 | `WIREGUARD_IMPLEMENTATION` | `auto` | `auto`, `kernelspace` or `userspace` | Wireguard implementation to use |
-| `WIREGUARD_MTU` | `1400` | Any positive value up to `65535` | Wireguard MTU |
+| `WIREGUARD_MTU` | | Any positive value generally up to `1440` | Wireguard MTU |
 | `WIREGUARD_PERSISTENT_KEEPALIVE_INTERVAL` | | Any duration, for example `25s` | Wireguard persistent keepalive interval |
 
 💡 you could use [Amnezia](./amneziawg.md) (userspace only) with a Wireguard server, as long as you only set `AMNEZIAWG_JC`, `AMNEZIAWG_JMIN`, `AMNEZIAWG_JMAX` and `AMNEZIAWG_I*` options.
