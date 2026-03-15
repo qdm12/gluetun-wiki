@@ -8,6 +8,7 @@
 
 VPN server side port forwarding is implemented natively into Gluetun for the following providers:
 
+- **AzireVPN** (WireGuard only, requires active tunnel), [more information](../providers/azirevpn.md)
 - **Private Internet Access**, [more information](../providers/private-internet-access.md)
 - **ProtonVPN**, [more information](../providers/protonvpn.md)
 - **Perfect Privacy**, [more information](../providers/perfect-privacy.md)
