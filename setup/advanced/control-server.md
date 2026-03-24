@@ -97,7 +97,7 @@ The HTTP control server allows to modify the state of OpenVPN or Wireguard.
 ## Port forwarding
 
 - HTTP GET to `/v1/portforward` to obtain the port forwarded such as `{"port":5914}`
-- HTTP PUT to `/v1/portforwarded` with a body `{"ports": [5914]}` which overrides the exising port forwardings with the provided list of ports, thus also allowing clearing said portforwardings with `{"ports": []}`
+- HTTP PUT to `/v1/portforward` with a body `{"ports": [5914]}` which overrides the exising port forwardings with the provided list of ports, thus also allowing clearing said portforwardings with `{"ports": []}`
 
 ## DNS
 
