@@ -4,6 +4,7 @@
 
 There are multiple ways to contribute:
 
+- 🆕 [**VPN credentials**](#vpn-credentials)
 - **Help others**
   - [Github issues](https://github.com/qdm12/gluetun/issues)
   - [Github discussions](https://github.com/qdm12/gluetun/discussions)
@@ -13,6 +14,53 @@ There are multiple ways to contribute:
 - [**Code**](#code)
 
 And of course, [**Thank you**](#thank-you)
+
+## VPN credentials
+
+If you have a subscription to a VPN provider, you can contribute by sharing your credentials with me at [quentin.mcgaw@gmail.com](mailto:quentin.mcgaw@gmail.com),
+or [quentin.mcgaw@protonmail.com](mailto:quentin.mcgaw@protonmail.com) but notify me via the gmail address 😏
+
+This allows me to:
+
+- manually debug problems and test new features in Gluetun for the VPN provider
+- automate testing of the VPN provider in the CI (continuous integration) pipeline, more on that below.
+
+I am currently looking for credentials, for both Wireguard and OpenVPN ideally, for the following VPN providers:
+
+- airvpn
+- cyberghost
+- expressvpn
+- fastestvpn
+- giganews
+- hidemyass
+- ipvanish
+- ivpn
+- ~mullvad~
+- nordvpn
+- perfect privacy
+- privado
+- ~private internet access~
+- privatevpn
+- ~protonvpn~
+- purevpn
+- slickvpn
+- surfshark
+- torguard
+- vpnsecure
+- vpn unlimited
+- vyprvpn
+- windscribe
+
+For OpenVPN, I only need the username and password;
+
+For Wireguard, I need the private key, the pre-shared key (if any) and the interface address.
+
+The credentials are handled securely:
+
+- Locally: your credentials would be stored in an encrypted file using [https://github.com/qdm12/gluetun/tree/master/devrun] which decrypts only in memory the credentials to stuff them in an in-memory container configuration (using Moby/Docker Go libraries). I'm already using this now.
+- In CI: your credentials would be stored as secrets in the Github repository, and [injected to the CI program](https://github.com/qdm12/gluetun/blob/7a74d4f462d2e64c7f0a8253f9d9a496a6056d79/ci/internal/secrets.go#L19-L32) I coded (without AI!) through standard input, so it's not even stored in the CI environment or logged. This job only runs on commits running in the original repository ([if block](https://github.com/qdm12/gluetun/blob/7a74d4f462d2e64c7f0a8253f9d9a496a6056d79/.github/workflows/ci.yml#L74-L80)) as well.
+
+And let me know if you want me to mention you in the "Thank you" section of the Gluetun readme, and, if so, what name/username you want me to share.
 
 ## Donate
 
