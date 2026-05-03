@@ -27,7 +27,7 @@ This allows me to:
 
 I am currently looking for credentials, for both Wireguard and OpenVPN ideally, for the following VPN providers:
 
-- airvpn
+- ~airvpn~
 - cyberghost
 - expressvpn
 - fastestvpn
