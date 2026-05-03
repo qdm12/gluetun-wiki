@@ -59,6 +59,7 @@ The credentials are handled securely:
 
 - Locally: your credentials would be stored in an encrypted file using [https://github.com/qdm12/gluetun/tree/master/devrun] which decrypts only in memory the credentials to stuff them in an in-memory container configuration (using Moby/Docker Go libraries). I'm already using this now.
 - In CI: your credentials would be stored as secrets in the Github repository, and [injected to the CI program](https://github.com/qdm12/gluetun/blob/7a74d4f462d2e64c7f0a8253f9d9a496a6056d79/ci/internal/secrets.go#L19-L32) I coded (without AI!) through standard input, so it's not even stored in the CI environment or logged. This job only runs on commits running in the original repository ([if block](https://github.com/qdm12/gluetun/blob/7a74d4f462d2e64c7f0a8253f9d9a496a6056d79/.github/workflows/ci.yml#L74-L80)) as well.
+- Anything received by email is deleted on the server and on my disk, after imported in my devrun program.
 
 And let me know if you want me to mention you in the "Thank you" section of the Gluetun readme, and, if so, what name/username you want me to share.
 
