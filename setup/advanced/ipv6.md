@@ -6,6 +6,8 @@ If you find something suspect related to IPv6, please create an issue on this re
 
 ## Setup
 
+1. First make sure your VPN provider supports dual stack IPv4+IPv6. Notably Mullvad and AirVPN support it, but other providers may not.
+   Related note is that the VPN server IP address you connect can be either IPv4 or IPv6, it does not matter to support dual stack.
 1. Ensure your Kernel has IPv6
 
     ```sh
@@ -36,6 +38,18 @@ If you find something suspect related to IPv6, please create an issue on this re
         # ...
         sysctls:
           - net.ipv6.conf.all.disable_ipv6=0
+    ```
+
+1. You also need the bridge network in which Gluetun is running to support IPv6. For example
+
+    ```yml
+    networks:
+      internet:
+        enable_ipv6: true
+        ipam:
+          config:
+            - subnet: 172.26.0.0/16
+            - subnet: 2001:db8:1::/64 # Match the one in the Docker daemon configuration
     ```
 
 1. Depending on the VPN protocol used:
