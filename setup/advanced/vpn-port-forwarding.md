@@ -85,3 +85,5 @@ It should show you your browser IP address and user agent.
 You should also see the request logged in the port-checker output.
 
 Finally, back to the terminal, press `CTRL+C` to stop port-checker and enter `exit` to quit the interactive shell in `gluetun`.
+
+Alternatively, you can also try out the test environment described by @FibreTTP in [this comment](https://github.com/passteque/gluetun/issues/2381#issuecomment-4505079652)
