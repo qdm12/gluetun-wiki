@@ -83,3 +83,9 @@ services:
 ```
 
 [🚨 Report a servers update bug](https://github.com/qdm12/gluetun/issues/new?labels=%3Abug%3A+bug&template=bug.yml&title=Bug%3A+)
+
+## Use a third party tool to update your servers list
+
+If you want to use a third party tool (**at your own risk**) to update your servers list, you can set in your `/gluetun/servers/yourprovider.json` file the field `"preferred": true` at the top level, which will make Gluetun use that file no matter what data it has built-in, **except** if versions are mismatching, which is a rare change.
+
+You can also change the file path to your json file in `/gluetun/servers/manifest.json` if you feel like it.
