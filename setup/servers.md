@@ -33,11 +33,11 @@ For certain providers such as NordVPN, the list of servers is very long and you 
 
 The VPN servers list used by Gluetun is the merged list from:
 
-- [the built-in Gluetun servers list](https://raw.githubusercontent.com/qdm12/gluetun/master/internal/storage/servers.json)
-- your locally bind mounted `/gluetun/servers.json` file, which reflects the built-in servers list by default
+- [the built-in Gluetun servers list](https://github.com/qdm12/gluetun-servers/tree/main/pkg/servers) ([release tag](https://github.com/qdm12/gluetun-servers/releases) matching the `github.com/qdm12/gluetun-servers` version defined in [go.mod](https://github.com/passteque/gluetun/blob/master/go.mod))
+- your locally bind mounted `/gluetun/servers/` json files, which reflects the built-in servers list by default
 
 The built-in servers list can become outdated.
-You can update **your** servers list `/gluetun/servers.json`, using the built-in update mechanisms.
+You can update **your** servers list directory `/gluetun/servers`, using the built-in update mechanisms.
 
 ### Update periodically
 
@@ -58,7 +58,7 @@ This periodic update can be extended to update data for other providers by setti
 The command is of the form:
 
 ```sh
-docker run --rm -v /yourpath:/gluetun qmcgaw/gluetun update -enduser -providers yourprovider
+docker run --rm -v /yourpath:/gluetun qmcgaw/gluetun update -providers yourprovider
 ```
 
 where:
@@ -79,7 +79,7 @@ services:
     # ...
     volumes:
       /yourpath:/gluetun
-    command: update -enduser -providers mullvad
+    command: update -providers mullvad
 ```
 
 [🚨 Report a servers update bug](https://github.com/qdm12/gluetun/issues/new?labels=%3Abug%3A+bug&template=bug.yml&title=Bug%3A+)

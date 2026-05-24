@@ -71,8 +71,6 @@ You need to know the following:
 
 ⚠️ This is the hardest part ⚠️
 
-First, add `"yourprovider": {"version": 1},` to the list of providers in `internal/storage/servers.json`.
-
 You need to adapt the example code in the `internal/provider/yourprovider/updater` Go package such that it can fetch and update VPN servers.
 
 There are several `// TODO` comments in the code to highlight what needs to be done, and with examples.
@@ -82,13 +80,25 @@ You should start by reading the `FetchServers` method defined in the `servers.go
 The base example code fetches servers information from a (fake) web HTTP API endpoint, and then parallel resolves hostnames to IP addresses.
 You have to modify this to fetch servers information for your specific provider.
 
-Once you are done, update the servers data in `internal/storage/servers.json` with:
+Once you are done, update the servers to `/gluetun/servers/yourprovider.json` using
 
 ```sh
-go run ./cmd/gluetun/main.go update -maintainer -providers yourprovider
+go run ./cmd/gluetun/main.go update -providers yourprovider
 ```
 
-💁 Make sure to check the result in `internal/storage/servers.json`. This might point you to some issues in your servers data update code written in `internal/provider/yourprovider/updater`.
+Then you have to fork and clone [github.com/qdm12/gluetun-servers](https://github.com/qdm12/gluetun-servers), and commit the newly created `yourprovider.json` file to your fork.
+
+You can then create a pull request against `github.com/qdm12/gluetun-servers` with your new json file.
+
+For your Gluetun fork to work, add the following line to your `go.mod` file:
+
+```go
+replace github.com/qdm12/gluetun-servers => github.com/yourusername/gluetun-servers@commithash
+```
+
+temporarily until your pull request is merged. Once the pull request is merged, you can remove that line and update the version of `github.com/qdm12/gluetun-servers` to the latest one.
+
+💁 Make sure to check the result in that json file. This might point you to some issues in your servers data update code written in `internal/provider/yourprovider/updater`.
 
 ## Provider code
 
@@ -114,7 +124,7 @@ and remove them as you go. Notably, you should:
     ```
 
     to match the 'common' settings from their Openvpn configuration files.
-    Note several server-specific OpenVPN options come from the server information in `internal/storage/servers.json`.
+    Note several server-specific OpenVPN options come from the server information from the gluetun-servers package's provider json files.
     Some are also automatically set for example if `VPN_INTERFACE=tun`.
 
 ## Settings validation
