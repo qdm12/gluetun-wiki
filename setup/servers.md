@@ -43,7 +43,7 @@ You can update **your** servers list `/gluetun/servers.json`, using the built-in
 
 By default this is disabled.
 
-You can set the environment variable `UPDATER_PERIOD` to `24h` for example. Every 24 hours, after the tunnel is ready, the container will update the servers information for the currently in-use VPN service provider. This has this advantage the update is done through the VPN and using DNS over TLS.
+You can set the environment variable `UPDATER_PERIOD` to `24h` for example. Every 24 hours, after the tunnel is ready, the container will update the servers information for the currently in-use VPN service provider. This has this advantage the update is done through the VPN and using DNS over HTTPS.
 
 This periodic update can be extended to update data for other providers by setting them as a comma separated value in the environment variable `UPDATER_VPN_SERVICE_PROVIDERS`.
 
@@ -53,8 +53,7 @@ This periodic update can be extended to update data for other providers by setti
 
 💁 This technique is useful in case all the built-in servers data is now outdated, and you can no longer connect to any VPN server. Otherwise you should prefer using the [periodic update](#update-periodically).
 
-⚠️ This will show your ISP/Government/Sniffing actors that you access some VPN service providers and, depending on the VPN provider you use, try to resolve their server hostnames.
-That might not be the best solution depending on your location. Plus some of the requests might be blocked, hence not allowing certain server information to be updated.
+⚠️ This will show Cloudflare and/or Google DNS over HTTPS servers that you (with your public IP address) are resolving VPN server hostnames.
 
 The command is of the form:
 
