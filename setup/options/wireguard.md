@@ -25,6 +25,7 @@ If using the Wireguard protocol, depending on the provider, the following might 
 | `WIREGUARD_PRESHARED_KEY` | | Base64 pre-shared key | Wireguard pre-shared key |
 | `WIREGUARD_ALLOWED_IPS` | `0.0.0.0/0,::/0` | CSV of IP address ranges | Wireguard peer allowed ips |
 | `WIREGUARD_IMPLEMENTATION` | `auto` | `auto`, `kernelspace` or `userspace` | Wireguard implementation to use |
+| `WIREGUARD_GSO` | `on` | `on` or `off` | Use GRO/GSO batched reads and writes on the TUN device, for the userspace implementation only. Set it to `off` if your logs show `Failed to write packets to TUN device: write /dev/net/tun: invalid argument`, which happens on some kernels (notably NAS vendor kernels) advertising `IFF_VNET_HDR` support but rejecting GRO-coalesced writes, degrading bandwidth. |
 | `WIREGUARD_MTU` | | Any positive value generally up to `1440` | Wireguard MTU |
 | `WIREGUARD_PERSISTENT_KEEPALIVE_INTERVAL` | | Any duration, for example `25s` | Wireguard persistent keepalive interval |
 
