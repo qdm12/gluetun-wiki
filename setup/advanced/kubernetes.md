@@ -32,17 +32,19 @@ spec:
 
 See the [original issue #2521 comment which resolved this](https://github.com/qdm12/gluetun/issues/2521#issuecomment-2453592258)
 
-## Networking for reverse proxies running on the local network when using Unbound
-Some configurations might require interacting with a service that is running behind a reverse proxy on the local network,
-this can be accomplished without adding a public DNS record by using the `hostAliases` directive and configuring some environmental variables for the gluetun pod.
+## Networking for reverse proxies running on the local network when using Gluetun's DNS
+
+If you want Gluetun to be able to access a service running behind a reverse proxy on your local network, you can use the `hostAliases` directive and configure some Gluetun options to do so.
 
 - Provide a [hostAliases](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases) directive that maps the provided domain(s) to an IP address for the entire pod.
-- Define the appropriate [FIREWALL_OUTBOUND_SUBNETS](../options/firewall.md) environmental variable to unblock the appropriate subnet(s) in the firewall.
-- Define the appropriate [UNBLOCK](../options/dns.md) environmental variable to leave the desired domain(s) unblocked with Unbound.
+- Define the appropriate [`FIREWALL_OUTBOUND_SUBNETS`](../options/firewall.md) environmental variable to unblock the appropriate subnet(s) in Gluetun.
+- Define the appropriate [`DNS_REBINDING_PROTECTION_EXEMPT_HOSTNAMES`](../options/dns.md) to leave the desired domains unblocked.
 
-It is important to note that wildcard domains are not supported in the `/etc/hosts` file, so a `hostAlias` must be configured for each individual domain.
+Wildcard domains are not supported in `/etc/hosts`, so a `hostAlias` must be configured for each individual domain.
 
-An example `Deployment`:
+Note DNS tools such as `nslookup` won't resolve your names defined in `/etc/hosts`, bu the OS and tools using the OS DNS system will, such as `curl` for example.
+
+An example deployment:
 
 ```yml
 apiVersion: apps/v1
@@ -61,14 +63,14 @@ spec:
             - "subdomain2.example.org"
       containers:
         - name: gluetun
-          image: qmcgaw/gluetun
+          image: ghcr.io/qdm12/gluetun
           securityContext:
             capabilities:
               add: [ "NET_ADMIN" ]
           env:
             - name: FIREWALL_OUTBOUND_SUBNETS
               value: "192.168.13.37/32,192.168.13.38/32"
-            - name: UNBLOCK
+            - name: DNS_REBINDING_PROTECTION_EXEMPT_HOSTNAMES
               value: "example.org,subdomain1.example.org,subdomain2.example.org"
   # ...  
 ```
