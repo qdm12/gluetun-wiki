@@ -29,12 +29,6 @@ These providers require at least one manual configuration on their control panel
 - **TorGuard**, [more information](../providers/torguard.md)
 - **Windscribe**, [more information](../providers/windscribe.md)
 
-## Unsupported
-
-These providers are [reported](https://vpns.gg/) supporting port forwarding, but doesn't have a configuration for gluetun yet.
-
-- **Hide.Me**, [more information](../providers/airvpn.md)
-
 ## Custom port forwarding up/down command
 
 A command can be set with:
