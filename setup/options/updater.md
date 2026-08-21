@@ -12,3 +12,4 @@
 | `UPDATER_VPN_SERVICE_PROVIDERS` | the current VPN provider used | Any valid VPN provider name | List of providers to update servers data for, when the updater triggers periodically. If left empty, it defaults to the current VPN provider used at start. |
 | `UPDATER_PROTONVPN_EMAIL` | | Your Proton email | If you need paid servers data, you must use a paid account. Otherwise I recommend creating a free throwaway account for this. |
 | `UPDATER_PROTONVPN_PASSWORD` | | Your Proton password | If you need paid servers data, you must use a paid account. Otherwise I recommend creating a free throwaway account for this. |
+| `UPDATER_PROTONVPN_TOTP_SECRET` | | Your Proton TOTP secret hex key | If your account uses TOTP, you can set this, which is obtained through the Proton web ui when turning on 2FA TOTP. This will generate timed codes for every servers data update. |
