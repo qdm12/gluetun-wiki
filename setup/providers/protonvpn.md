@@ -66,6 +66,8 @@ services:
   - Defaults are `1194` for UDP and `443` for TCP
 - `VPN_PORT_FORWARDING`: defaults to `off` and can be set to `on`to enable port forwarding on the VPN server.
 - `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
+- `UPDATER_PROTONVPN_EMAIL`: Your Proton email. If you need paid servers data, you must use a paid account. Otherwise I recommend creating a free throwaway account for this.
+- `UPDATER_PROTONVPN_PASSWORD`: Your Proton password. If you need paid servers data, you must use a paid account. Otherwise I recommend creating a free throwaway account for this.
 
 ## VPN server port forwarding
 
