@@ -68,6 +68,7 @@ where:
 
 💁 For ProtonVPN, you must set `-proton-email` and `-proton-password` with some Proton credentials.
 If you need paid servers data, you need paid credentials. Otherwise you can use a throwaway free account for this.
+If your account uses 2FA TOTP, you can set `-proton-totp-code=123456` to your TOTP generated code, or `-proton-totp-secret` to your TOTP hex secret key (obtained when turning on TOTP in Proton's UI).
 
 You can also run this with `docker-compose` using:
 
