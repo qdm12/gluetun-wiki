@@ -19,6 +19,8 @@
 | `BLOCK_ADS` | `off` | `on`, `off` | Block ads hostnames and IPs |
 | `DNS_UNBLOCK_HOSTNAMES` | | i.e. `domain1.com,x.domain2.co.uk` | Comma separated list of domain names to leave unblocked from the filtering |
 | `DNS_UPSTREAM_PLAIN_ADDRESSES` | | Comma separated list of `ip:port` addresses | (Warning: prefer NOT using this)If set, the internal DNS server will forward queries to the addresses specified over plaintext. Ideally do NOT use the VPN provider DNS, see why below. If you set this to a private IP address on your Docker bridge network or your LAN, your DNS queries will leak out of the VPN tunnel! |
+| `DNS_PUBLIC_NAMES_AS_LOCAL` | | Public domain names | Comma separated list of public domain names to treat as local and to resolve using the local resolvers found at Gluetun start (i.e. local Docker bridge DNS). The DNS query for these domains will leak outside the VPN tunnel. |
+| `DNS_PUBLIC_NAMESERVER_CIDRS_AS_LOCAL` | | Comma separated list of CIDRs | Comma separated list of CIDRs to treat as local when parsing the system nameservers configuration when starting Gluetun. For example if you set `1.2.3.4/32`, the `nameserver 1.2.3.4` in `/etc/resolv.conf` will be treated as a local DNS server, to which local names queries will be forwarded to and escape the VPN tunnel. |
 
 ## Warning on `DNS_UPSTREAM_PLAIN_ADDRESSES`
 
