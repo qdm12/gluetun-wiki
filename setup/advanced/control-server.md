@@ -93,6 +93,37 @@ The HTTP control server allows to modify the state of OpenVPN or Wireguard.
 - HTTP GET to `/v1/vpn/status` to obtain the current status of the VPN, such as `{"status":"running"}`
 - HTTP PUT to `/v1/vpn/status` with a body `{"status":"running"}` or `{"status":"stopped"}` to respectively start or stop the VPN
 - HTTP GET to `/v1/vpn/settings` to obtain the settings used by the VPN in a JSON format
+- HTTP PUT to `/v1/vpn/settings` with a partial settings JSON object to update settings; the VPN restarts when the merged settings differ
+
+### Change the VPN country
+
+To change the country used for server selection while the container is running, send a partial settings update with the new country. For example, to switch to the Netherlands:
+
+```sh
+curl -X PUT \
+  -H "X-API-Key: $GLUETUN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"provider":{"server_selection":{"countries":["Netherlands"]}}}' \
+  http://localhost:8000/v1/vpn/settings
+```
+
+Adjust the authentication header to the method configured for your control server. The body is merged into the current settings, so fields that are not included stay unchanged. Use a country supported by your VPN provider; country names are case-insensitive.
+
+Gluetun validates the merged settings and restarts the VPN to apply the new country. The endpoint returns the resulting status, and you can confirm the settings with:
+
+```sh
+curl -H "X-API-Key: $GLUETUN_API_KEY" http://localhost:8000/v1/vpn/settings
+```
+
+The response contains the updated country under `provider.server_selection.countries`.
+
+Older examples use the pre-v3.35.0 uppercase payload:
+
+```json
+{"Provider":{"ServerSelection":{"Countries":["Netherlands"]}}}
+```
+
+That schema is no longer valid. Use the lower-case `provider.server_selection.countries` fields shown above.
 
 ## Port forwarding
 
