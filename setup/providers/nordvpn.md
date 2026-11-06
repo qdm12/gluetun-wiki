@@ -62,6 +62,7 @@ services:
 - `SERVER_CITIES`: Comma separated list of server cities
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
 - `SERVER_CATEGORIES`: Comma separated list of server categories
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ## Obtain your Wireguard private key
 
@@ -69,6 +70,4 @@ Update 2023-09-24: you need to retrieve it from their web interface in manual se
 
 ## Servers
 
-The list of servers for NordVPN is available in the [source code](https://github.com/qdm12/gluetun/blob/master/internal/storage/servers.json).
-
-The table of servers cannot be put here unfortunately as there are too many servers and the Github markdown engine then fails.
+To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).

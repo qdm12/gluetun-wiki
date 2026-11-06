@@ -51,6 +51,7 @@ services:
 - `SERVER_CATEGORIES`: Comma separated list of server categories from the PureVPN inventory feed. Servers must match all values set.
   - In current PureVPN data, the category in use is `p2p`.
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ## Filtering examples
 

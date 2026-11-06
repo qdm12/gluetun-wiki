@@ -2,9 +2,7 @@
 
 ## What files does it download after tunneling
 
-If `DNS_SERVER=off`, the built-in DNS server won't run and therefore no file will be downloaded by the program at all.
-
-If `DNS_SERVER=on`, after tunneling, it downloads at start (and periodically if `DNS_UPDATE_PERIOD` is not `0`):
+After tunneling, it downloads at start (and periodically if `DNS_UPDATE_PERIOD` is not `0`):
 
 - If `BLOCK_MALICIOUS=on`: [Malicious hostnames and IP addresses block lists](https://github.com/qdm12/files)
 - If `BLOCK_SURVEILLANCE=on`: [Surveillance hostnames and IP addresses block lists](https://github.com/qdm12/files)

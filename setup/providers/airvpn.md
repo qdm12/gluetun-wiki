@@ -81,12 +81,11 @@ services:
 - `SERVER_CITIES`: Comma separated list of cities
 - `SERVER_NAMES`: Comma separated list of server names
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
+- `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
 
 ## Servers
 
-The list of servers for AirVPN is available in the [source code](https://github.com/qdm12/gluetun/blob/master/internal/storage/servers.json).
-
-The table of servers cannot be put here unfortunately as there are too many servers and the Github markdown engine then fails.
+To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
 
 ## VPN port forwarding
 

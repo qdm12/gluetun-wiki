@@ -51,7 +51,9 @@ Thanks to [@Marsu31](https://github.com/Marsu31)
 
 ## Allow a forwarded port through the firewall
 
-For non-native integrations where you have a designated forwarded port from your VPN provider, you can allow it by adding it to the environment variable `FIREWALL_VPN_INPUT_PORTS`.
+For non-native integrations where you have a designated forwarded port from your VPN provider, you can allow it by adding it to the environment variable `FIREWALL_VPN_INPUT_PORTS`. This allows you to statically set your port forwardings whenever Gluetun starts.
+
+In some cases static port forwardings may not suffice, which is why Gluetun's control server provides an approrpiate endpoint to be able to set or unset your forwarded ports during runtime, giving you the ability to implement your own custom solution. See [the control server port forwarding section](control-server.md#port-forwarding).
 
 ## Port redirection using iptables
 
@@ -83,3 +85,5 @@ It should show you your browser IP address and user agent.
 You should also see the request logged in the port-checker output.
 
 Finally, back to the terminal, press `CTRL+C` to stop port-checker and enter `exit` to quit the interactive shell in `gluetun`.
+
+Alternatively, you can also try out the test environment described by @FibreTTP in [this comment](https://github.com/passteque/gluetun/issues/2381#issuecomment-4505079652)

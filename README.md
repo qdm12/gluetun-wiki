@@ -10,6 +10,12 @@
 
 🐛 Found a bug in the Wiki?! [Please create an issue](https://github.com/qdm12/gluetun-wiki/issues/new)
 
+💁‍♂️ If you have a Github account, you might want to start Copilot for free to ask your question!
+
+![Copilot computer](./media/copilot.computer.gif)
+ __
+![Copilot mobile](./media/copilot.mobile.gif)
+
 ## Table of contents
 
 - [Setup](setup/readme.md#setup) (👋 start here)
@@ -26,6 +32,7 @@
 | Gluetun release tag | Corresponding wiki |
 | --- | --- |
 | `:latest` | [`main` branch](https://github.com/qdm12/gluetun-wiki) |
+| `:v3.41` | [`v3.41.0` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.41.0) |
 | `:v3.40.2` | [`v3.40.2` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.40.2) |
 | `:v3.40.1` | [`v3.40.1` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.40.1) |
 | `:v3.40.0` | [`v3.40.0` tag](https://github.com/qdm12/gluetun-wiki/tree/v3.40.0) |

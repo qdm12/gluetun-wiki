@@ -33,17 +33,17 @@ For certain providers such as NordVPN, the list of servers is very long and you 
 
 The VPN servers list used by Gluetun is the merged list from:
 
-- [the built-in Gluetun servers list](https://raw.githubusercontent.com/qdm12/gluetun/master/internal/storage/servers.json)
-- your locally bind mounted `/gluetun/servers.json` file, which reflects the built-in servers list by default
+- [the built-in Gluetun servers list](https://github.com/qdm12/gluetun-servers/tree/main/pkg/servers) ([release tag](https://github.com/qdm12/gluetun-servers/releases) matching the `github.com/qdm12/gluetun-servers` version defined in [go.mod](https://github.com/passteque/gluetun/blob/master/go.mod))
+- your locally bind mounted `/gluetun/servers/` json files, which reflects the built-in servers list by default
 
 The built-in servers list can become outdated.
-You can update **your** servers list `/gluetun/servers.json`, using the built-in update mechanisms.
+You can update **your** servers list directory `/gluetun/servers`, using the built-in update mechanisms.
 
 ### Update periodically
 
-By default this is disabled.
+By default this is disabled. I highly recommend setting this to NO LESS than 360h (15 days) to avoid spamming the VPN providers with requests, which might end up leading the updating mechanism to be blocked by the VPN providers.
 
-You can set the environment variable `UPDATER_PERIOD` to `24h` for example. Every 24 hours, after the tunnel is ready, the container will update the servers information for the currently in-use VPN service provider. This has this advantage the update is done through the VPN and using DNS over TLS.
+You can set the environment variable `UPDATER_PERIOD` to `480h` for example. Every 480 hours, after the tunnel is ready, the container will update the servers information for the currently in-use VPN service provider. This has this advantage the update is done through the VPN and using DNS over HTTPS.
 
 This periodic update can be extended to update data for other providers by setting them as a comma separated value in the environment variable `UPDATER_VPN_SERVICE_PROVIDERS`.
 
@@ -53,13 +53,12 @@ This periodic update can be extended to update data for other providers by setti
 
 💁 This technique is useful in case all the built-in servers data is now outdated, and you can no longer connect to any VPN server. Otherwise you should prefer using the [periodic update](#update-periodically).
 
-⚠️ This will show your ISP/Government/Sniffing actors that you access some VPN service providers and, depending on the VPN provider you use, try to resolve their server hostnames.
-That might not be the best solution depending on your location. Plus some of the requests might be blocked, hence not allowing certain server information to be updated.
+⚠️ This will show Cloudflare and/or Google DNS over HTTPS servers that you (with your public IP address) are resolving VPN server hostnames.
 
 The command is of the form:
 
 ```sh
-docker run --rm -v /yourpath:/gluetun qmcgaw/gluetun update -enduser -providers yourprovider
+docker run --rm -v /yourpath:/gluetun qmcgaw/gluetun update -providers yourprovider
 ```
 
 where:
@@ -80,7 +79,13 @@ services:
     # ...
     volumes:
       /yourpath:/gluetun
-    command: update -enduser -providers mullvad
+    command: update -providers mullvad
 ```
 
 [🚨 Report a servers update bug](https://github.com/qdm12/gluetun/issues/new?labels=%3Abug%3A+bug&template=bug.yml&title=Bug%3A+)
+
+## Use a third party tool to update your servers list
+
+If you want to use a third party tool (**at your own risk**) to update your servers list, you can set in your `/gluetun/servers/yourprovider.json` file the field `"preferred": true` at the top level, which will make Gluetun use that file no matter what data it has built-in, **except** if versions are mismatching, which is a rare change.
+
+You can also change the file path to your json file in `/gluetun/servers/manifest.json` if you feel like it.

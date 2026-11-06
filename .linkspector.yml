@@ -14,4 +14,5 @@ ignorePatterns:
 aliveStatusCodes:
   - 200
   - 206
+  - 418
   - 429
