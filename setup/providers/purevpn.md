@@ -38,7 +38,7 @@ services:
 - `SERVER_COUNTRIES`: Comma separated list of countries
 - `SERVER_REGIONS`: Comma separated list of regions
 - `SERVER_CITIES`: Comma separated list of cities
-- `SERVER_CATEGORIES`: Comma separated list of server categories. Servers matching any of the values set are kept. The only category in the current PureVPN data is `p2p`.
+- `SERVER_CATEGORIES`: Comma separated list of server categories. Servers matching any of the values set are kept.
 - `SERVER_HOSTNAMES`: Comma separated list of server hostnames. Beware this is the narrowest filter, so if you set this to a single hostname and this hostname disappears from the Gluetun servers data due to an update, your container will no longer work until this filter is changed. I would suggest avoiding it unless you know this reliability risk.
 - `PORT_FORWARD_ONLY`: Set to `true` to select servers supporting port forwarding only. Gluetun does not set up the forwarded port with PureVPN, so you have to enable port forwarding outside of Gluetun, for example on the PureVPN website.
 - `OPENVPN_PROTOCOL`: `udp` or `tcp`, defaults to `udp`
@@ -49,25 +49,7 @@ services:
 Gluetun tries every port a server lists for the OpenVPN protocol selected, unless `OPENVPN_ENDPOINT_PORT` is set.
 If a server lists no port, Gluetun uses port `80` for TCP and port `15021` for UDP.
 
-## Filtering examples
-
-```sh
-# Peer to peer servers
-SERVER_CATEGORIES=p2p
-
-# Port forwarding servers in the United States
-SERVER_COUNTRIES=United States
-PORT_FORWARD_ONLY=true
-
-# Servers in New York or Toronto
-SERVER_COUNTRIES=United States,Canada
-SERVER_CITIES=New York,Toronto
-```
 
 ## Servers
 
 To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
-
-The PureVPN [servers update](../servers.md#update-the-vpn-servers-list) combines the servers bundled in the PureVPN Linux application with the servers from the PureVPN online server list.
-Hostnames which do not resolve are discarded.
-If either source fails, or if no server is found, the update fails and your existing servers data is kept.
