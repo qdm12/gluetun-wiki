@@ -49,6 +49,18 @@ services:
 - `VPN_TYPE=wireguard`
 - `WIREGUARD_PRIVATE_KEY` is your 32 byte key in base64 format. The private key can be obtained by [generating a Wireguard configuration file](https://account.proton.me/u/0/vpn/WireGuard) and copy the displayed `PrivateKey` value. Note this value works for all ProtonVPN servers. 💁 [Guide on how to generate a configuration file](https://protonvpn.com/support/wireguard-configurations/)
 
+#### Getting the key from the command line
+
+If you would rather not click through the web dashboard (headless host, scripted setup), the third party tool [protonvpn-wg-confgen](https://github.com/hatemosphere/protonvpn-wg-confgen) logs in to your Proton account and generates the same kind of configuration file:
+
+```sh
+protonvpn-wg-confgen --username myuser --countries NL --output proton.conf
+grep PrivateKey proton.conf
+```
+
+- Add `--port-forwarding` for NAT-PMP or `--moderate-nat` for Moderate NAT, the same options the dashboard offers
+- The key is valid for a year. `--renew-serial` extends it without changing the key, so your Gluetun configuration stays as it is
+
 ## Optional environment variables
 
 - `SERVER_COUNTRIES`: Comma separated list of countries
