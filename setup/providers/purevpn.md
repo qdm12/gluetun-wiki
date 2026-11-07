@@ -49,7 +49,6 @@ services:
 Gluetun tries every port a server lists for the OpenVPN protocol selected, unless `OPENVPN_ENDPOINT_PORT` is set.
 If a server lists no port, Gluetun uses port `80` for TCP and port `15021` for UDP.
 
-
 ## Servers
 
 To see a list of servers available, [list the VPN servers with Gluetun](../servers.md#list-of-vpn-servers).
